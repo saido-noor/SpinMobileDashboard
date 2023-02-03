@@ -9,6 +9,7 @@ import ProfileView from '../views/ProfileView.vue'
 import AddUser from '../components/AddUser.vue'
 import SignIn from '../views/SignIn.vue'
 import PracticeView from '../views/PracticeView.vue'
+import AddCorporate from '../components/AddCorporate.vue'
 const routes = [
   {
     path: "/",
@@ -53,6 +54,11 @@ const routes = [
     path: "/adduser",
     name: "AddUser",
     component: AddUser,
+  },
+  {
+    path: "/addcorporate",
+    name: "AddCorporate",
+    component: AddCorporate,
   },
   {
     path: "/signin",

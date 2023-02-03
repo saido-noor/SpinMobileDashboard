@@ -338,7 +338,7 @@ export default{
   
   mounted: function(){
     
- axios.post('https://7151-197-248-70-213.eu.ngrok.io/api/users/get-profile/',{
+ axios.post('https://e968-197-248-70-213.eu.ngrok.io/api/users/get-profile/',{
 
     username:"OmarNoor"
  

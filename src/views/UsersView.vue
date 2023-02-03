@@ -492,43 +492,62 @@
                    <span type="button" class="btn btn-success btn-xsm">Add User</span>
                 </router-link>
               </div>
-              <div class="card-body px-0 pt-0 pb-2">
+              <div class="card-body px-0 pt-0 pb-2 ">
                 <div class="table-responsive p-0">
                   <table class="table align-items-center mb-0" id="tb">
                     <thead>
-                     
-                            <th
-                        
-                       scope="col"
-                      >
-                        id
-                      </th>
-                      <th
-                        
-                        scope="col"
-                      >
-                        name
-                      </th>
+                     <tr>
+                    <th scope="col" >id</th>
                       <th
                         
                         scope="col"
                       >
                         username
                       </th>
+                      <th
+                        
+                        scope="col"
+                      >
+                        first_name
+                      </th>
 
                       <th
                         
                         scope="col"
                       >
+                        last_name
+                      </th>
+                         <th
+                        
+                        scope="col"
+                      >
                         email
+                      </th>
+                         <th
+                        
+                        scope="col"
+                      >
+                        is_active
+                      </th>
+                      <th
+                        
+                        scope="col"
+                      >
+                        last_login
                       </th>
                        <th
                         
                         scope="col"
                       >
-                        Action
+                        date_joined
                       </th>
-                   
+                       <th
+                        
+                        scope="col"
+                      >
+                        action
+                      </th>
+                   </tr>
                       <!-- <th
                         class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2"
                         id="lname"
@@ -545,21 +564,26 @@
                       
                         </th> -->
                     </thead>
-                     <tbody v-if="this.users.length >0">  
-            <tr v-for="(item, index) in this.users" :key="index">
+                     <tbody>  
+            <tr v-for="user in this.users">
               <!-- <td scope="row">{{ index + 1 }}</td> -->
-              <td scope="row">{{item.id}}</td>
-               <td scope="row">{{item.name}}</td>  
-                <td scope="row">{{item.username }}</td>  
-                 <td scope="row">{{item.email.toLowerCase() }}</td>  
+              <td scope="row">{{user.id}}</td>
+               <td scope="row">{{user.username}}</td>  
+                <td scope="row">{{user.first_name }}</td> 
+                <td scope="row">{{user.last_name }}</td> 
+                <td scope="row">{{user.email}}</td> 
+                <td scope="row">{{user.is_active }}</td> 
+                 <td scope="row">{{user.last_login }}</td> 
+                  <td scope="row">{{user.date_joined }}</td> 
+                   
                 <td scope="row">
                   <!-- <router-link to="" class="btn btn-success"> Edit
                   </router-link> -->
-                  <div class="buttons">
+                  <!-- <div class="buttons">
                     <a class="btn btn-link text-dark px-3 mb-0" href="javascript:;"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Edit</a>
                     <a class="btn btn-link text-success px-3 mb-0" href="javascript:;"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>reset</a>
                     <a class="btn btn-link text-danger px-3 mb-0" href="javascript:;"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>disable</a>
-                   </div>
+                   </div> -->
                 </td>  
                  <!-- <td>{{item.Last_Name}}</td>  
                  <td>{{item.Role}}</td>    -->
@@ -587,9 +611,10 @@ export default {
     }
   },
   mounted: function(){
- axios.get('https://jsonplaceholder.typicode.com/users')
+    
+ axios.post('https://7766-197-248-70-213.eu.ngrok.io/api/users/get-users/')
     .then(response=>{
-       this.users= response.data;
+       this.users= response.data.users;
         console.log(response);
       })
       .catch(error=>{
@@ -622,15 +647,6 @@ export default {
 
 
 
-
-
-  //   methods:{
-  //     addUser: async function(){
-  //   fetch("https://cf41-197-248-70-213.eu.ngrok.io/api/users/get-profile/").then((data)=>{
-  //   console.log(data)
-  // })
-  //     }
-  //   }
 <style>
 .badge {
   font-size: 12px;

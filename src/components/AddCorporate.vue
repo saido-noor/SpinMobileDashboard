@@ -1,16 +1,26 @@
 <template>
   <div class="container">
     <form action="" class="form">
-      <h2>Add User</h2>
+      <h2>Add Corporate</h2>
       <div id="name">
-        <label>Username</label>
+        <label>Name</label>
       </div>
       <input
         id="input"
         type="text"
-        placeholder="userName"
-        name="username"
-        v-model="input.username"
+        placeholder="name"
+        name="name"
+        v-model="input.name"
+      />
+      <div id="name">
+        <label>White_Label</label>
+      </div>
+      <input
+        id="input"
+        type="text"
+        placeholder="white_label"
+        name="white_label"
+      v-model="input.white_label"
       />
 
       <div id="name">
@@ -25,32 +35,32 @@
       />
 
       <div id="name">
-        <label>First Name</label>
+        <label>Remote_Code</label>
       </div>
       <input
         id="input"
         type="text"
-        placeholder="first_name"
-        name="first_name"
-       v-model="input.first_name"
+        placeholder="remote_code"
+        name="remote_code"
+       v-model="input.remote_code"
       />
       <div id="name">
-        <label>Last Name</label>
+        <label>Phone_Number</label>
       </div>
       <input id="input" type="text"
-       placeholder="last_name"
-       name="last_name"
-       v-model="input.last_name"/>
+       placeholder="phone_number"
+       name="phone_number"
+       v-model="input.phone_number"/>
 
       <!-- firstname lastname email role username -->
 
       <div id="name">
-        <label>Role</label>
+        <label>Country</label>
       </div>
       <input id="input" type="text"
-       placeholder="role" 
+       placeholder="country" 
        name="user_group"
-       v-model="input.user_group"/>
+       v-model="input.country"/>
       <!-- <input id='input' type='text' placeholder='role' onChange={handleChange}/> -->
       <!-- <select v-model="selected" id="input">
                     <option disabled value=""  placeholder="role">Please select one</option>
@@ -61,7 +71,7 @@
       <br />
       <br />
       <div>
-        <button class="button bg-gradient-success mt-4 mb-0" v-on:click.prevent="addUser()">
+        <button class="button bg-gradient-success mt-4 mb-0" v-on:click.prevent="addCop()">
           Save
         </button>
       </div>
@@ -75,31 +85,33 @@ export default {
         return{
             
             input:{
-            username:"",
+            name:"",
+            white_label:"",
             email:"",
-            first_name:"",
-            last_name:"",
-            user_group:""
+            remote_code:"",
+            phone_number:"",
+            country:""
             }
         }
     },
     methods: {
 
-        addUser: async function (){
-        let username = this.input.username;
+        addCop: async function (){
+        let name = this.input.name;
+        let white_label = this.input.white_label;
         let email = this.input.email;
-        let first_name = this.input.first_name;
-        let last_name = this.input.last_name;
-        let user_group = this.input.user_group;
+        let remote_code = this.input.remote_code;
+        let phone_number = this.input.phone_number;
+        let country = this.input.country;
         const requestOption = {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ username, email,first_name,last_name,user_group }),
+          body: JSON.stringify({ name, white_label,email,remote_code,phone_number,country }),
         };
         const url = "";
         this.success = false;
         this.error = null;
-        return fetch(`https://7766-197-248-70-213.eu.ngrok.io/api/users/register/`, 
+        return fetch(`https://7766-197-248-70-213.eu.ngrok.io/api/corporate/create/`, 
         requestOption).then(response => response.json()).then((data) =>{
             console.log(data)
 
@@ -154,3 +166,4 @@ h2 {
   user-select: none;
 }
 </style>
+
