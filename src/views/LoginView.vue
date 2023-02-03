@@ -110,7 +110,7 @@ export default {
         this.success = false;
         this.error = null;
         return fetch(
-          `https://7151-197-248-70-213.eu.ngrok.io/api/users/login/`,
+          `https://7766-197-248-70-213.eu.ngrok.io/api/users/login/`,
           requestOptions
         ).then(response => response.json()).then((data) => {
           // login successful if there's a user in the response

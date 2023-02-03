@@ -11,6 +11,8 @@
         placeholder="userName"
         name="username"
         v-model="input.username"
+        :disabled="!isEditing"
+           :class="{view: !isEditing}"
       />
 
       <div id="name">
@@ -22,6 +24,8 @@
         placeholder="email"
         name="email"
       v-model="input.email"
+      :disabled="!isEditing"
+           :class="{view: !isEditing}"
       />
 
       <div id="name">
@@ -33,6 +37,8 @@
         placeholder="first_name"
         name="first_name"
        v-model="input.first_name"
+       :disabled="!isEditing"
+           :class="{view: !isEditing}"
       />
       <div id="name">
         <label>Last Name</label>
@@ -40,7 +46,9 @@
       <input id="input" type="text"
        placeholder="last_name"
        name="last_name"
-       v-model="input.last_name"/>
+       v-model="input.last_name"
+       :disabled="!isEditing"
+           :class="{view: !isEditing}"/>
 
       <!-- firstname lastname email role username -->
 
@@ -50,7 +58,9 @@
       <input id="input" type="text"
        placeholder="role" 
        name="user_group"
-       v-model="input.user_group"/>
+       v-model="input.user_group"
+       :disabled="!isEditing"
+           :class="{view: !isEditing}"/>
       <!-- <input id='input' type='text' placeholder='role' onChange={handleChange}/> -->
       <!-- <select v-model="selected" id="input">
                     <option disabled value=""  placeholder="role">Please select one</option>
@@ -73,7 +83,7 @@ export default {
   name: "AddUser",
     data(){
         return{
-            
+            isEditing:false,
             input:{
             username:"",
             email:"",
@@ -81,7 +91,11 @@ export default {
             last_name:"",
             user_group:""
             }
+
         }
+    },
+    mounted(){
+      
     },
     methods: {
 
@@ -102,6 +116,9 @@ export default {
         return fetch(`https://7766-197-248-70-213.eu.ngrok.io/api/users/register/`, 
         requestOption).then(response => response.json()).then((data) =>{
             console.log(data)
+           if(data.code=== "100.000.000"){
+            this.$router.push("/users");
+           }
 
         })
         }

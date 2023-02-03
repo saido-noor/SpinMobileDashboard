@@ -273,29 +273,39 @@
                 <table class="table align-items-center mb-0">
                   <thead>
                <tr>
-                      <th scope="col" class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">name</th>
-                      <th scope="col" class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">address</th>
-                      <th scope="col" class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">country</th>
-                      <th scope="col" class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">email</th>
-                      <th scope="col" class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">remote_code</th>
-                      <th scope="col" class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">phone_number</th>
-                      <th scope="col" class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">country</th>
-                      <th scope="col" class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Action</th>
+                <th class="text-uppercase text-secondary text-xxs font-weight-bold opacity-8">name</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">email</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">address</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">remote_code</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">phone_number</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">country</th>
+                     
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">action</th>
+
                       <th scope="col" class="text-secondary opacity-7"></th>
                       </tr>
                   </thead>
                   <tbody>
-                    <tr v-for="(cop, index) in this.corporates" :key="index">
+                    <tr v-for="cop in this.corporates">
                       <td scope="row">{{ cop.name }}</td>
-                      <td scope="row">{{ cop.address }}</td>
-                      <td scope="row">{{ cop.country }}</td>
                       <td scope="row">{{ cop.main_contact_email }}</td>
+                       <td scope="row">{{ cop.address }}</td>
                       <td scope="row">{{ cop.remote_code }}</td>
                       <td scope="row">{{ cop.main_contact_tel }}</td>
                       <td scope="row">{{ cop.country }}</td>
+                      <td>
+                  <!-- <router-link to="" class="btn btn-success"> Edit
+                  </router-link> -->
+                  <div class="buttons">
+                    <a class="btn btn-link text-dark px-3 mb-0 fas fa-pencil-alt text-dark me-2" href="" ></a>
+                    <a class="btn btn-link text-success px-3 mb-0" href="">reset</a>
+                    <a class="btn btn-link text-danger px-3 mb-0" href="">disable</a>
+                   </div>
+                </td>
                       <!-- <td scope="row"></td>
                       <td scope="row"></td> -->
                     </tr>
+                    
                   </tbody>
                 </table>
               </div>

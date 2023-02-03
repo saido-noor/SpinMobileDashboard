@@ -74,6 +74,7 @@
         <button class="button bg-gradient-success mt-4 mb-0" v-on:click.prevent="addCop()">
           Save
         </button>
+        
       </div>
     </form>
   </div>
@@ -114,6 +115,9 @@ export default {
         return fetch(`https://7766-197-248-70-213.eu.ngrok.io/api/corporate/create/`, 
         requestOption).then(response => response.json()).then((data) =>{
             console.log(data)
+            if(data.code=== "100.000.000"){
+            this.$router.push("/corporate");
+           }
 
         })
         }
