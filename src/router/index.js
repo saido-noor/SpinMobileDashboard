@@ -7,15 +7,15 @@ import WalletView from '../views/WalletView.vue'
 import CorporateView from '../views/CorporateView.vue'
 import ProfileView from '../views/ProfileView.vue'
 import AddUser from '../components/AddUser.vue'
-import SignIn from '../views/SignIn.vue'
+import Login from '../views/Login.vue'
 import PracticeView from '../views/PracticeView.vue'
 import AddCorporate from '../components/AddCorporate.vue'
 const routes = [
-  {
-    path: "/",
-    name: "login",
-    component: LoginView,
-  },
+  // {
+  //   path: "/login",
+  //   name: "login",
+  //   component: LoginView,
+  // },
   {
     path: "/",
     name: "app",
@@ -61,9 +61,9 @@ const routes = [
     component: AddCorporate,
   },
   {
-    path: "/signin",
-    name: "SignIn",
-    component: SignIn,
+    path: "",
+    name: "Login",
+    component: Login,
   },
   {
     path: "/practice",

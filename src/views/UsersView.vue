@@ -488,71 +488,310 @@
             <div class="card mb-4">
               <div class="card-header pb-0">
                 <h6 class="h6">Users</h6>
-                <router-link to="/adduser">
-                   <span type="button" class="btn btn-success btn-xsm">Add User</span>
-                </router-link>
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  data-bs-toggle="modal"
+                  data-bs-target="#createUserModal"
+                >
+                  Add User
+                </button>
+                <div
+                  class="modal fade"
+                  id="createUserModal"
+                  tabindex="-1"
+                  aria-labelledby="exampleModalLabel"
+                  aria-hidden="true"
+                >
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button
+                          type="button"
+                          class="btn btn-warning"
+                          data-bs-dismiss="modal"
+                        >
+                          Close
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <form>
+                          <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label"
+                              >Username
+                            </label>
+                            <input
+                              class="form-control"
+                              type="text"
+                              placeholder="userName"
+                              name="username"
+                              v-model="username"
+                            />
+                          </div>
+                       
+                          <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label"
+                              >FirstName
+                            </label>
+                            <input
+                              class="form-control"
+                              type="text"
+                              placeholder="first_name"
+                              name="first_name"
+                              v-model="first_name"
+                            />
+                          </div>
+                          <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label"
+                              >LastName
+                            </label>
+                            <input
+                              class="form-control"
+                              type="text"
+                              placeholder="last_name"
+                              name="last_name"
+                              v-model="last_name"
+                            />
+                          </div>
+                             <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label"
+                              >Email</label
+                            >
+                            <input
+                              class="form-control"
+                              type="email"
+                              placeholder="email"
+                              name="email"
+                              v-model="email"
+                            />
+                          </div>
+                          <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label"
+                              >Role
+                            </label>
+                            <input
+                              class="form-control"
+                              type="text"
+                              placeholder="role"
+                              name="user_group"
+                              v-model="user_group"
+                            />
+                          </div>
+                          <button
+                            type="submit"
+                            class="btn bg-gradient-success mt-4 mb-0"
+                            v-on:click.prevent="addUser()"
+                          >
+                            Submit
+                          </button>
+                          <!-- <button @click="createUser" type="submit" class="btn btn-primary" >Save</button> -->
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div class="card-body px-0 pt-0 pb-2 ">
+              <div class="card-body px-0 pt-0 pb-2">
                 <div class="table-responsive p-0">
                   <table class="table align-items-center mb-0" id="tb">
-                 
-                    <thead>
-                     <tr>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Id</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">username</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">first_name</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">last_name</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">email</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">date_joined</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">last_login</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">is_active</th>
-                 
-                      
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">action</th>
+                    <tr>
+                      <!-- <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Id</th> -->
+                      <th
+                        class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"
+                      >
+                        username
+                      </th>
                     
-                
-                   </tr>
-                      <!-- <th
+                      <th
+                        class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"
+                      >
+                        first_name
+                      </th>
+                      <th
+                        class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"
+                      >
+                        last_name
+                      </th>
+                        <th
+                        class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"
+                      >
+                        email
+                      </th>
+                      
+
+                      <!-- <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">date_joined</th> -->
+                      <!-- <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">last_login</th> -->
+                      <!-- <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">is_active</th> -->
+
+                      <th
+                        class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"
+                      >
+                        action
+                      </th>
+                    </tr>
+                    <!-- <th
                         class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2"
                         id="lname"
                       >
                         Last_Name
                       </th> -->
-                      <!-- <th
+                    <!-- <th
                         class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"
                         id="role"
                       >
                         Role
                       </th> -->
-                      <!-- <th class="text-secondary opacity-7">
+                    <!-- <th class="text-secondary opacity-7">
                       
                         </th> -->
-                    </thead>
-                     <tbody>  
-            <tr v-for="user in this.users">
-              <!-- <td scope="row">{{ index + 1 }}</td> -->
-              <td >{{user.id}}</td>
-               <td>{{user.username}}</td>  
-                <td >{{user.first_name }}</td> 
-                <td >{{user.last_name }}</td> 
-                <td >{{user.email}}</td> 
-                <td >{{user.date_joined }}</td> 
-                <td >{{user.last_login }}</td>
-                <td >{{user.is_active }}</td>  
-                <td>
-                  <!-- <router-link to="" class="btn btn-success"> Edit
+
+                    <tbody>
+                      <tr v-for="user in this.users">
+                        <!-- <td scope="row">{{ index + 1 }}</td> -->
+                        <!-- <td >{{user.id}}</td> -->
+                        <td>{{ user.username }}</td>
+                        <td>{{ user.first_name }}</td>
+                        <td>{{ user.last_name }}</td>
+                          <td>{{ user.email }}</td>
+
+                        <!-- <td >{{user.date_joined }}</td>  -->
+                        <!-- <td >{{user.last_login }}</td> -->
+                        <!-- <td >{{user.is_active }}</td>   -->
+
+                        <!-- <router-link to="" class="btn btn-success"> Edit
                   </router-link> -->
-                  <div class="buttons">
-                    <a class="btn btn-link text-dark px-3 mb-0 fas fa-pencil-alt text-dark me-2" href="" ></a>
-                    <a class="btn btn-link text-success px-3 mb-0" href="">reset</a>
-                    <a class="btn btn-link text-danger px-3 mb-0" href="">disable</a>
-                   </div>
-                </td>  
-                 <!-- <td>{{item.Last_Name}}</td>  
+                        <td>
+                          <button
+                            type="button"
+                            @click="edit(user)"
+                            class="btn btn-link  px-3 mb-0 fas fa-pencil-alt text-success me-2"
+                            data-bs-toggle="modal"
+                            data-bs-target="#updateUserModal"
+                          >
+                            
+                          </button>
+                              <button 
+                          class="btn btn-link text-success px-3 mb-0" @click="resetUser(user)"
+                          >
+                            Reset
+                          </button>
+                          <button class="btn btn-link fas fa-lock  text-sm">
+                            
+                          </button>
+                        </td>
+                      </tr>
+                      <!-- Modal -->
+                      <div
+                        class="modal fade"
+                        id="updateUserModal"
+                        ref="createUserModal"
+                        tabindex="-1"
+                        aria-labelledby="exampleModalLabel"
+                        aria-hidden="true"
+                      >
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <button
+                                type="button"
+                                class="btn btn-warning"
+                                data-bs-dismiss="modal"
+                              >
+                                Close
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                              <form>
+                                <div class="mb-3">
+                                  <label
+                                    for="exampleInputEmail1"
+                                    class="form-label"
+                                    >Username
+                                  </label>
+                                  <input
+                                    class="form-control"
+                                    type="text"
+                                    placeholder="userName"
+                                    name="username"
+                                    v-model="username"
+                                  />
+                                </div>
+                                <div class="mb-3">
+                                  <label
+                                    for="exampleInputEmail1"
+                                    class="form-label"
+                                    >Email</label
+                                  >
+                                  <input
+                                    class="form-control"
+                                    type="email"
+                                    placeholder="email"
+                                    name="email"
+                                    v-model="email"
+                                  />
+                                </div>
+                                <div class="mb-3">
+                                  <label
+                                    for="exampleInputEmail1"
+                                    class="form-label"
+                                    >FirstName
+                                  </label>
+                                  <input
+                                    class="form-control"
+                                    type="text"
+                                    placeholder="first_name"
+                                    name="first_name"
+                                    v-model="first_name"
+                                  />
+                                </div>
+                                <div class="mb-3">
+                                  <label
+                                    for="exampleInputEmail1"
+                                    class="form-label"
+                                    >LastName
+                                  </label>
+                                  <input
+                                    class="form-control"
+                                    type="text"
+                                    placeholder="last_name"
+                                    name="last_name"
+                                    v-model="last_name"
+                                  />
+                                </div>
+                                <div class="mb-3">
+                                  <label
+                                    for="exampleInputEmail1"
+                                    class="form-label"
+                                    >Role
+                                  </label>
+                                  <input
+                                    class="form-control"
+                                    type="text"
+                                    placeholder="role"
+                                    name="user_group"
+                                    v-model="user_group"
+                                  />
+                                </div>
+                                <button
+                                  type="submit"
+                                  class="btn bg-gradient-success mt-4 mb-0"
+                                  v-on:click.prevent="saveUser(user)"
+                                >
+                                  Save
+                                </button>
+                                <!-- <button @click="createUser" type="submit" class="btn btn-primary" >Save</button> -->
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Edit
+</button> -->
+
+                      <!-- <td>{{item.Last_Name}}</td>  
                  <td>{{item.Role}}</td>    -->
-            </tr>  
-        </tbody>
-        
+                    </tbody>
                   </table>
                 </div>
               </div>
@@ -565,24 +804,115 @@
 </template>
 <script>
 import axios from "axios";
-
+// import "bootstrap/dist/css/bootstrap.min.css";
+// import "bootstrap/dist/js/bootstrap.min.js";
 export default {
   name: "UsersView",
-  data(){
-    return{
-      users:[]
-    }
+  data() {
+    return {
+      username: "",
+      email: "",
+      first_name: "",
+      last_name: "",
+      user_group: "",
+      users: [],
+    };
   },
-  mounted: function(){
-    
- axios.post('https://7766-197-248-70-213.eu.ngrok.io/api/users/get-users/')
-    .then(response=>{
-       this.users= response.data.users;
+  mounted: function () {
+    axios
+      .post("https://9a77-197-248-70-213.eu.ngrok.io/api/users/get-users/")
+      .then((response) => {
+        this.users = response.data.users;
         console.log(response);
       })
-      .catch(error=>{
+      .catch((error) => {
         console.log(error);
-      })
+      });
+  },
+  methods: {
+    edit(user) {
+      this.username = user.username;
+      this.first_name = user.first_name;
+      this.email = user.email;
+      this.last_name = user.last_name;
+      this.user_group = user.user_group;
+
+      this.$root.$emit("bv::show::modal", "createUserModal");
+      // let element = this.$refs.createUserModal.$el;
+      // $(element).modal("show");
+    },
+    saveUser() {
+      // this.first_name = user.first_name;
+      // this.email = user.email;
+      // this.last_name = user.last_name;
+      // this.user_group = user.user_group;
+
+      axios
+        .post(
+          `https://9a77-197-248-70-213.eu.ngrok.io/api/users/update-profile/`,
+          {
+            username: this.username,
+            new_first_name: this.first_name,
+            new_last_name: this.last_name,
+            new_email: this.email,
+          }
+        )
+        .then((response) => {
+          this.user = response.data.user;
+          console.log(response);
+          if (user.code === "100.000.000") {
+            this.$router.push("/users");
+          }
+        });
+    },
+    resetUser(user){
+      this.username = user.username;
+      this.first_name = user.first_name;
+      this.email = user.email;
+      this.last_name = user.last_name;
+      this.user_group = user.user_group;
+      axios.post(`https://9a77-197-248-70-213.eu.ngrok.io/api/users/reset-password/`,{
+        username:this.username,
+        email:this.email
+      }).then((response) => {
+          this.user = response.data.user;
+          console.log(response);
+         
+        });
+    },
+
+    addUser: async function () {
+      let username = this.username;
+      let email = this.email;
+      let first_name = this.first_name;
+      let last_name = this.last_name;
+      let user_group = this.user_group;
+      const requestOption = {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          username,
+          email,
+          first_name,
+          last_name,
+          user_group,
+        }),
+      };
+      const url = "";
+      this.success = false;
+      this.error = null;
+      return fetch(
+        `https://9a77-197-248-70-213.eu.ngrok.io/api/users/register/`,
+        requestOption
+      )
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+          if (data.code === "100.000.000") {
+            this.$router.push("/users");
+          }
+        });
+    },
   },
   // methods:{
   //   getUsers(){
@@ -592,23 +922,8 @@ export default {
   //     })
   //   }
   // }
-
-
 };
 </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <style>
 .badge {
@@ -619,7 +934,7 @@ export default {
   display: flex;
 }
 
-.card-header .btn{
+.card-header .btn {
   float: right;
 }
 </style>

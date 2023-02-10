@@ -11,8 +11,6 @@
         placeholder="userName"
         name="username"
         v-model="input.username"
-        :disabled="!isEditing"
-           :class="{view: !isEditing}"
       />
 
       <div id="name">
@@ -24,8 +22,6 @@
         placeholder="email"
         name="email"
       v-model="input.email"
-      :disabled="!isEditing"
-           :class="{view: !isEditing}"
       />
 
       <div id="name">
@@ -37,8 +33,6 @@
         placeholder="first_name"
         name="first_name"
        v-model="input.first_name"
-       :disabled="!isEditing"
-           :class="{view: !isEditing}"
       />
       <div id="name">
         <label>Last Name</label>
@@ -46,21 +40,18 @@
       <input id="input" type="text"
        placeholder="last_name"
        name="last_name"
-       v-model="input.last_name"
-       :disabled="!isEditing"
-           :class="{view: !isEditing}"/>
+       v-model="input.last_name"/>
 
       <!-- firstname lastname email role username -->
 
       <div id="name">
         <label>Role</label>
       </div>
-      <input id="input" type="text"
+      <input id="input" type="text" 
        placeholder="role" 
        name="user_group"
        v-model="input.user_group"
-       :disabled="!isEditing"
-           :class="{view: !isEditing}"/>
+       />
       <!-- <input id='input' type='text' placeholder='role' onChange={handleChange}/> -->
       <!-- <select v-model="selected" id="input">
                     <option disabled value=""  placeholder="role">Please select one</option>
@@ -83,7 +74,7 @@ export default {
   name: "AddUser",
     data(){
         return{
-            isEditing:false,
+            
             input:{
             username:"",
             email:"",
@@ -91,11 +82,7 @@ export default {
             last_name:"",
             user_group:""
             }
-
         }
-    },
-    mounted(){
-      
     },
     methods: {
 
@@ -113,7 +100,7 @@ export default {
         const url = "";
         this.success = false;
         this.error = null;
-        return fetch(`https://7766-197-248-70-213.eu.ngrok.io/api/users/register/`, 
+        return fetch(`https://171d-197-248-70-213.eu.ngrok.io/api/users/register/`, 
         requestOption).then(response => response.json()).then((data) =>{
             console.log(data)
            if(data.code=== "100.000.000"){
@@ -125,6 +112,49 @@ export default {
     },
 };
 </script>
+
+
+updateUser(user){
+    
+    //   this.first_name = user.first_name;
+    //   this.email = user.email;
+    //   this.last_name = user.last_name;
+    //   this.user_group = user.user_group;
+    //   const requestOption = {
+    //     method: "POST",
+    //     headers: { "Content-Type": "application/json" },
+    //     body: JSON.stringify({
+    
+    //       email,
+    //       first_name,
+    //       last_name,
+    //       user_group,
+    //     }),
+    //   };
+    //   const url = "";
+    //   this.success = false;
+    //   this.error = null;
+    //  axios.put('https://0331-197-248-70-213.eu.ngrok.io/api/users/update-profile/', requestOption)
+    //     .then((response) => response.json())
+    //     .then((data) => {
+    //       console.log(data);
+    //       if (data.code === "100.000.000") {
+    //         this.$router.push("/users");
+    //       }
+    //     });
+    // axios.put(`https://0331-197-248-70-213.eu.ngrok.io/api/users/update-profile/${user}`)
+    //   .then((response) => {
+    //      console.log(response);
+
+    // })
+    //   .then ((data) => {
+    //   console.log(data);  
+    // })    
+    //  .catch((error) => {
+    //   console.log(error);
+    // }) 
+     
+  },
 <style>
 .container {
   background-color: white;

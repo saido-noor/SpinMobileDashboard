@@ -1,3 +1,32 @@
+<!--   editCop(cop){
+      this.remote_code= cop.remote_code,
+      this.name= cop.name,
+      this.white_label= cop.white_label,
+      this.email= cop.email,
+      this.phone_number= cop.phone_number,
+      this.country= cop.country,
+      this.address=cop.address,
+      
+      this.$root.$emit("bv::show::modal", "createCopModal");
+
+    },
+    saveCop(cop){
+      axios.post(`https://b98d-197-248-70-213.eu.ngrok.io/api/corporate/update/`,{
+        remote_code:this.remote_code,
+        new_white_label:this.white_label,
+        new_email:this.email,
+        address:this.address,
+      }).then((response) => {
+          this.cop = response.data.cop;
+          console.log(response);
+          if (cop.code === "100.000.000") {
+            this.$router.push("/corporate");
+          }
+        });
+    }, -->
+
+
+
 <template>
   <div class="container">
     <form action="" class="form">
@@ -10,6 +39,7 @@
         type="text"
         placeholder="name"
         name="name"
+        
         v-model="input.name"
       />
       <div id="name">
@@ -59,7 +89,7 @@
       </div>
       <input id="input" type="text"
        placeholder="country" 
-       name="user_group"
+       name="country"
        v-model="input.country"/>
       <!-- <input id='input' type='text' placeholder='role' onChange={handleChange}/> -->
       <!-- <select v-model="selected" id="input">
@@ -96,6 +126,7 @@ export default {
         }
     },
     methods: {
+    
 
         addCop: async function (){
         let name = this.input.name;
@@ -112,7 +143,7 @@ export default {
         const url = "";
         this.success = false;
         this.error = null;
-        return fetch(`https://7766-197-248-70-213.eu.ngrok.io/api/corporate/create/`, 
+        return fetch(`https://95b8-197-248-70-213.eu.ngrok.io/api/corporate/create/`, 
         requestOption).then(response => response.json()).then((data) =>{
             console.log(data)
             if(data.code=== "100.000.000"){
@@ -122,6 +153,7 @@ export default {
         })
         }
     },
+  
 };
 </script>
 <style>
