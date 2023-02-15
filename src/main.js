@@ -17,6 +17,10 @@ import "../node_modules/@fortawesome/fontawesome-free/css/all.css";
 // import "@/assets/static/js/soft-ui-dashboard.min.js"
 
 
+// const token = localStorage.getItem("user-token");
+// if (token) {
+//   axios.defaults.headers.common["Authorization"] = token;
+// }
 
 
 createApp(App).use(store).use(router).mount('#app')

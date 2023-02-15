@@ -675,7 +675,7 @@
                           >
                             Reset
                           </button>
-                          <button class="btn btn-link fas fa-lock  text-sm">
+                          <button class="btn btn-link fas fa-toggle-off  text-sm">
                             
                           </button>
                         </td>
@@ -804,6 +804,8 @@
 </template>
 <script>
 import axios from "axios";
+import { HTTP } from "@/axios";
+
 // import "bootstrap/dist/css/bootstrap.min.css";
 // import "bootstrap/dist/js/bootstrap.min.js";
 export default {
@@ -819,8 +821,7 @@ export default {
     };
   },
   mounted: function () {
-    axios
-      .post("https://9a77-197-248-70-213.eu.ngrok.io/api/users/get-users/")
+    HTTP.post("/api/users/get-users/")
       .then((response) => {
         this.users = response.data.users;
         console.log(response);
@@ -846,10 +847,8 @@ export default {
       // this.email = user.email;
       // this.last_name = user.last_name;
       // this.user_group = user.user_group;
-
-      axios
-        .post(
-          `https://9a77-197-248-70-213.eu.ngrok.io/api/users/update-profile/`,
+    HTTP.post(
+          `/api/users/update-profile/`,
           {
             username: this.username,
             new_first_name: this.first_name,
@@ -871,7 +870,7 @@ export default {
       this.email = user.email;
       this.last_name = user.last_name;
       this.user_group = user.user_group;
-      axios.post(`https://9a77-197-248-70-213.eu.ngrok.io/api/users/reset-password/`,{
+      HTTP.post(`/api/users/reset-password/`,{
         username:this.username,
         email:this.email
       }).then((response) => {
@@ -882,36 +881,29 @@ export default {
     },
 
     addUser: async function () {
-      let username = this.username;
-      let email = this.email;
-      let first_name = this.first_name;
-      let last_name = this.last_name;
-      let user_group = this.user_group;
-      const requestOption = {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          username,
-          email,
-          first_name,
-          last_name,
-          user_group,
-        }),
-      };
-      const url = "";
-      this.success = false;
-      this.error = null;
-      return fetch(
-        `https://9a77-197-248-70-213.eu.ngrok.io/api/users/register/`,
-        requestOption
-      )
-        .then((response) => response.json())
-        .then((data) => {
-          console.log(data);
-          if (data.code === "100.000.000") {
-            this.$router.push("/users");
-          }
-        });
+
+        const requestOption = {
+        username:this.username,
+        email: this.email,
+        first_name:this.first_name,
+        last_name:this.last_name,
+        user_group:this.user_group,
+        
+        };
+        const url = "";
+        this.success = false;
+        this.error = null;
+        HTTP.post(`/api/users/register/`, 
+        requestOption,{
+          headers:{
+            Accept:"application/json",
+            "Content-Type":"application/json"
+          },
+        }).then(({requestOption})=>{
+          console.log(requestOption);
+        })
+     
+        
     },
   },
   // methods:{

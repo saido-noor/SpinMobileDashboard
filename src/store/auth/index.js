@@ -8,6 +8,8 @@ export default {
       authenticated: false,
       username: "",
       password:"",
+      token:localStorage.getItem('token')
+      // email:"",
     };
   },
   mutations,

@@ -326,7 +326,7 @@
   </div>
 </template>
 <script>
-import axios from "axios";
+import { HTTP } from "@/axios";
 
 export default{
   name:"ProfileView",
@@ -338,9 +338,9 @@ export default{
   
   mounted: function(){
     
- axios.post('https://9a77-197-248-70-213.eu.ngrok.io/api/users/get-profile/',{
+ HTTP.post('/api/users/get-profile/',{
 
-    username:"OmarNoor"
+    username:"omy"
  
  }).then(response=>{
        this.profiles= response.data;

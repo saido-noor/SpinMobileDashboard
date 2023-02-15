@@ -705,7 +705,11 @@
                         
                         <td>
                           <button 
-                          class="btn btn-link text-success px-3 mb-0 fas fa-eye">
+                          class="btn btn-link bg-gradient-success px-3 mb-0 fas fa-eye"
+                          data-bs-target="#viewCopModal"
+                          data-bs-toggle="modal"
+                          @click="viewCOp(cop)"
+                          >
                             
                           </button>
                           <button
@@ -727,6 +731,36 @@
 <!-- <i class="" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Profile"></i>                  -->
        </td>
                    <td>{{ cop.state }}</td>
+  <div class="modal fade"
+                            id="viewCopModal"
+                            tabindex="-1"
+                            aria-labelledby="exampleModalLabel"
+                            aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-success" id="exampleModalLabel">Corporate Details </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+            <p>
+                   <p> {{ name }}</p>
+                  <p >{{ main_contact_email }}</p>
+                  <p>{{ remote_code }} </p>
+                  <p>{{ address }}</p>
+                  <p>{{ postal_code }}</p>
+                  <p>{{ main_contact_tel }}</p>
+                  <p>{{ country }}</p>
+                  <p>{{ state }}</p>
+                </p>
+                
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-warning" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
                         <div class="buttons">
                           <!-- Button trigger modal -->
 
@@ -908,6 +942,7 @@
 </template>
 <script>
 import axios from "axios";
+import { HTTP } from "@/axios";
 // import "bootstrap/dist/css/bootstrap.min.css";
 // import "bootstrap/dist/js/bootstrap.min.js";
 export default {
@@ -924,9 +959,8 @@ export default {
     };
   },
   mounted: function () {
-    axios
-      .post(
-        "https://9a77-197-248-70-213.eu.ngrok.io/api/corporate/all-corporates/"
+    HTTP.post(
+        "/api/corporate/all-corporates/"
       )
       .then((response) => {
         this.corporates = response.data.corporates;
@@ -937,7 +971,27 @@ export default {
       });
   },
   methods: {
-   editCop(cop){
+    viewCOp(cop){
+   this.name=cop.name,
+      this.remote_code= cop.remote_code,
+      this.white_label= cop.white_label,
+      this.main_contact_email= cop.main_contact_email,
+      this.main_contact_tel= cop.main_contact_tel,
+      this.country= cop.country,
+      this.address=cop.address,
+      this.postal_code= cop.postal_code,
+  HTTP.post(`/api/corporate/get-corporate/`,{
+
+    remote_code:this.remote_code,
+    
+ 
+ }).then(response=>{
+      this.cop = response.data.cop;
+          console.log(response);
+      })
+
+    },
+    editCop(cop){
       this.name=cop.name,
       this.remote_code= cop.remote_code,
       this.white_label= cop.white_label,
@@ -951,7 +1005,7 @@ export default {
 
     },
     saveCop(){
-      axios.post(`https://9a77-197-248-70-213.eu.ngrok.io/api/corporate/update/`,{
+      HTTP.post(`/api/corporate/update/`,{
         remote_code:this.remote_code,
         name:this.name,
         white_label:this.white_label,
@@ -977,7 +1031,7 @@ export default {
       this.country= cop.country,
       this.address=cop.address,
       this.postal_code= cop.postal_code,
-      axios.post(`https://9a77-197-248-70-213.eu.ngrok.io/api/corporate/delete/`,{
+      HTTP.post(`/api/corporate/delete/`,{
       remote_code:this.remote_code
      
  
@@ -990,27 +1044,26 @@ export default {
         });
     },
     addCop: async function (){
-        let name = this.name;
-        let white_label = this.white_label;
-        let main_contact_email = this.main_contact_email;
-        let remote_code = this.remote_code;
-        let main_contact_tel = this.main_contact_tel;
-        let country = this.country;
+        
         const requestOption = {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ name, white_label,main_contact_email,remote_code,main_contact_tel,country }),
+        name:this.name,
+        white_label: this.white_label,
+        main_contact_email:this.main_contact_email,
+        remote_code:this.remote_code,
+        main_contact_tel:this.main_contact_tel,
+        country:this.country
         };
         const url = "";
         this.success = false;
         this.error = null;
-        return fetch(`https://9a77-197-248-70-213.eu.ngrok.io/api/corporate/create/`, 
-        requestOption).then(response => response.json()).then((data) =>{
-            console.log(data)
-            if(data.code=== "100.000.000"){
-            this.$router.push("/corporate");
-           }
-
+        HTTP.post(`/api/corporate/create/`, 
+        requestOption,{
+          headers:{
+            Accept:"application/json",
+            "Content-Type":"application/json"
+          },
+        }).then(({requestOption})=>{
+          console.log(requestOption);
         })
         }
     // saveItem() {

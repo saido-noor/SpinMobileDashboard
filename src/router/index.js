@@ -10,12 +10,13 @@ import AddUser from '../components/AddUser.vue'
 import Login from '../views/Login.vue'
 import PracticeView from '../views/PracticeView.vue'
 import AddCorporate from '../components/AddCorporate.vue'
+import ResetPassword from '../views/ResetPassword.vue'
 const routes = [
-  // {
-  //   path: "/login",
-  //   name: "login",
-  //   component: LoginView,
-  // },
+  {
+    path: "/login",
+    name: "login",
+    component: LoginView,
+  },
   {
     path: "/",
     name: "app",
@@ -69,6 +70,11 @@ const routes = [
     path: "/practice",
     name: "PracticeView",
     component: PracticeView,
+  },
+  {
+    path: "/reset",
+    name: "ResetPassword",
+    component: ResetPassword,
   },
 
   {

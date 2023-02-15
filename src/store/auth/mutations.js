@@ -1,4 +1,4 @@
-import { SET_AUTHENTICATION, SET_USERNAME, SET_PASSWORD } from "../storeconstants";
+import { SET_AUTHENTICATION, SET_USERNAME, SET_PASSWORD, SET_TOKEN } from "../storeconstants";
 
 export default {
   [SET_AUTHENTICATION](state, authenticated) {
@@ -10,4 +10,11 @@ export default {
   [SET_PASSWORD](state, password) {
     state.password = password;
   },
+  [SET_TOKEN](state, token) {
+    state.token = token;
+  },
+
+  // [SET_EMAIL](state, email){
+  //   state.email=email;
+  // }
 };
