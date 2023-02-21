@@ -578,7 +578,7 @@
                             />
                           </div>
                           <button
-                            type="submit"
+                            
                             class="btn bg-gradient-success mt-4 mb-0"
                             v-on:click.prevent="addUser()"
                           >
@@ -628,6 +628,11 @@
                       >
                         action
                       </th>
+                       <th
+                          class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"
+                        >
+                          state
+                        </th>
                     </tr>
                     <!-- <th
                         class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2"
@@ -645,7 +650,7 @@
                       
                         </th> -->
 
-                    <tbody>
+                    <tbody cellspacing="0">
                       <tr v-for="user in this.users">
                         <!-- <td scope="row">{{ index + 1 }}</td> -->
                         <!-- <td >{{user.id}}</td> -->
@@ -664,21 +669,24 @@
                           <button
                             type="button"
                             @click="edit(user)"
-                            class="btn btn-link  px-3 mb-0 fas fa-pencil-alt text-success me-2"
+                            class="btn btn-link bg-gradient-success px-3 mb-0 fas fa-pencil-alt  me-2"
                             data-bs-toggle="modal"
                             data-bs-target="#updateUserModal"
                           >
                             
                           </button>
-                              <button 
-                          class="btn btn-link text-success px-3 mb-0" @click="resetUser(user)"
+                          <router-link to="/">
+                              <!-- <button 
+                          class="btn btn-link bg-gradient-success px-3 mb-0 fas fa-refresh me-2" @click="resetUser(user)"
                           >
-                            Reset
-                          </button>
-                          <button class="btn btn-link fas fa-toggle-off  text-sm">
                             
-                          </button>
-                        </td>
+                          </button> -->
+                          </router-link>
+                          <button class="btn btn-link bg-gradient-success fas fa-ban   px-3 mb-0 me-2" @click="toggle(user)">{{ user.isDisabled ? '' : '' }}</button>
+                      
+                       </td>
+                       <td><span :class="{ mode_on: user.is_active }">{{ user.is_active ? 'Active' : 'Disabled' }}</span></td>
+                    
                       </tr>
                       <!-- Modal -->
                       <div
@@ -810,6 +818,7 @@ import { HTTP } from "@/axios";
 // import "bootstrap/dist/js/bootstrap.min.js";
 export default {
   name: "UsersView",
+
   data() {
     return {
       username: "",
@@ -818,6 +827,11 @@ export default {
       last_name: "",
       user_group: "",
       users: [],
+      isDisabled: false,
+      state:''
+      
+    
+     
     };
   },
   mounted: function () {
@@ -831,6 +845,48 @@ export default {
       });
   },
   methods: {
+toggle(user) {
+      this.username = user.username;
+      this.first_name = user.first_name;
+      this.email = user.email;
+      this.last_name = user.last_name;
+      this.user_group = user.user_group;
+      this.state = user.state;
+      this.isDisabled = !this.isDisabled;
+      
+      if (this.isDisabled) {
+        
+        HTTP.post('/api/users/disable/',{
+          isDisabled:!user.isDisabled,
+          username:this.username,
+        
+        }).then(response=>{
+          user.isDisabled= !user.isDisabled;
+        this.user= response.data.user;
+        this.state = response.data.state
+        console.log(response);
+        console.log(response.data.user.state);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+      } if(!this.isDisabled){
+         HTTP.post('/api/users/enable/',{
+          isDisabled:!user.isDisabled,
+          username:this.username,
+          
+        }).then(response=>{
+          user.isDisabled = !user.isDisabled;
+       this.user = response.data.user,
+        this.state = response.data.state
+        console.log(response);
+        console.log(response.data.user.state);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+      }
+    },
     edit(user) {
       this.username = user.username;
       this.first_name = user.first_name;
@@ -880,7 +936,7 @@ export default {
         });
     },
 
-    addUser: async function () {
+    addUser() {
 
         const requestOption = {
         username:this.username,

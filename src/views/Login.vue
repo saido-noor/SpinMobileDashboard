@@ -187,6 +187,7 @@ export default {
           this.email = response.data.email;
           console.log(response);
           
+          
           // if(data.code==="100.000.000"){
           // this.output = "Password sent to email";
           

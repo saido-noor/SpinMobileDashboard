@@ -128,3 +128,45 @@ export default{
 }
 </script> -->
 
+
+
+
+
+ <!-- <li class="nav-item dropdown pe-2 d-flex align-items-center">
+                <a
+                  href="javascript:;"
+                  class="nav-link text-body p-0"
+                  id="dropdownMenuButton"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  <img
+                      src="../assets/marie.jpg"
+                      alt=""
+                      class="avatar avatar-md rounded-circle me-0"
+                    />
+                </a>
+                <ul
+                  class="dropdown-menu dropdown-menu-end px-2 py-3 me-sm-n4"
+                  aria-labelledby="dropdownMenuButton"
+                >
+                  
+                    <div class="card-body p-3">
+              
+             
+              <div >
+                  <p v-for="profile in this.profiles" >
+                   <p> {{ profile.username }}</p>
+                  <p>{{ profile.email }}</p>
+                  <p>{{ profile.first_name }} </p>
+                  <p>{{ profile.last_name }}</p>
+                  <p>{{ profile.user_groups }}</p>
+                
+                  </p>
+              </div>
+            
+             
+            </div>
+                  
+                </ul>
+              </li> -->

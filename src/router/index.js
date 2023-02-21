@@ -11,6 +11,8 @@ import Login from '../views/Login.vue'
 import PracticeView from '../views/PracticeView.vue'
 import AddCorporate from '../components/AddCorporate.vue'
 import ResetPassword from '../views/ResetPassword.vue'
+import ToggleComponent from '../components/ToggleComponent.vue'
+import TableComponent from '../components/TableComponent.vue'
 const routes = [
   {
     path: "/login",
@@ -20,6 +22,16 @@ const routes = [
   {
     path: "/",
     name: "app",
+  },
+  {
+    path: "/toggle",
+    name: "ToggleComponent",
+    component: ToggleComponent,
+  },
+  {
+    path: "/table",
+    name: "TableComponent",
+    component: TableComponent,
   },
   {
     path: "/transaction",

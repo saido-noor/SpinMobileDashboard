@@ -16,11 +16,15 @@ import "../node_modules/@fortawesome/fontawesome-free/css/all.css";
 // import "@/assets/static/js/soft-ui-dashboard.js"
 // import "@/assets/static/js/soft-ui-dashboard.min.js"
 
-
-// const token = localStorage.getItem("user-token");
-// if (token) {
-//   axios.defaults.headers.common["Authorization"] = token;
-// }
+{/* <a
+  href="javascript:;"
+  class="nav-link text-body p-0"
+  id="dropdownMenuButton"
+  data-bs-toggle="dropdown"
+  aria-expanded="false"
+>
+  <i class="fa fa-bell cursor-pointer"></i>
+</a>; */}
 
 
 createApp(App).use(store).use(router).mount('#app')
