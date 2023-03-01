@@ -161,6 +161,7 @@ import {
   SET_USERNAME,
   SET_PASSWORD,
   SET_EMAIL,
+  SET_TOKEN,
 } from "../store/storeconstants";
 import axios from 'axios'
 import { HTTP } from "@/axios";
@@ -198,10 +199,11 @@ export default {
     },
     login: async function () {
       if (this.input.username != "" && this.input.password != "") {
-    
+        this.$store.commit(`auth/${SET_USERNAME}`, this.input.username)
         const data = {
           username:this.input.username,
-          password:this.input.password
+          password:this.input.password,
+          token:this.$route.query.token
         };
         const url = "";
         this.success = false;
@@ -224,13 +226,18 @@ export default {
               this.$store.commit(`auth/${SET_AUTHENTICATION}`, true);
               this.$store.commit(`auth/${SET_USERNAME}`, this.input.username);
               this.$store.commit(`auth/${SET_PASSWORD}`, this.input.password);
-              this.output = this.$router.push("/dashboard");
+              this.$store.commit(`auth/${SET_TOKEN}`, this.token)
+              this.output = this.$router.push("/display");
+
             } else {
+              this.$store.commit(`auth/${SET_AUTHENTICATION}`, false);
               this.output = "wrong username and password";
             }
+            localStorage.setItem('username', username)
           });
+          
       } else {
-        this.$store.commit(`auth/${SET_AUTHENTICATION}`, false);
+        
         this.output = "Username and password can not be empty";
       }
     },

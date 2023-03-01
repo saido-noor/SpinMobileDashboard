@@ -11,8 +11,12 @@ import Login from '../views/Login.vue'
 import PracticeView from '../views/PracticeView.vue'
 import AddCorporate from '../components/AddCorporate.vue'
 import ResetPassword from '../views/ResetPassword.vue'
-import ToggleComponent from '../components/ToggleComponent.vue'
-import TableComponent from '../components/TableComponent.vue'
+// import ToggleComponent from '../components/Toggle.vue'
+// import TableComponent from '../components/TableComponent.vue'
+import Sidebar from '../components/Sidebar.vue'
+import DisplayUserViewVue from '../views/DisplayUserView.vue'
+import SuccessMessage from '../components/SuccessMessage.vue'
+
 const routes = [
   {
     path: "/login",
@@ -20,18 +24,28 @@ const routes = [
     component: LoginView,
   },
   {
+    path: "/display",
+    name: "DisplayUserView",
+    component: DisplayUserViewVue,
+  },
+  {
     path: "/",
     name: "app",
   },
+  // {
+  //   path: "/toggle",
+  //   name: "ToggleComponent",
+  //   component: ToggleComponent,
+  // },
   {
-    path: "/toggle",
-    name: "ToggleComponent",
-    component: ToggleComponent,
+    path: "/sidebar",
+    name: "Sidebar",
+    component: Sidebar,
   },
   {
-    path: "/table",
-    name: "TableComponent",
-    component: TableComponent,
+    path: "/succuss",
+    name: "SuccessMessage",
+    component: SuccessMessage,
   },
   {
     path: "/transaction",
@@ -49,7 +63,7 @@ const routes = [
     component: WalletView,
   },
   {
-    path: "/corporate",
+    path: "/corporates",
     name: "CorporateView",
     component: CorporateView,
   },

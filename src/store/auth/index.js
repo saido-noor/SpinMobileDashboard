@@ -8,7 +8,8 @@ export default {
       authenticated: false,
       username: "",
       password:"",
-      token:localStorage.getItem('token')
+      token:localStorage.getItem('token'),
+      userProfile:""
       // email:"",
     };
   },

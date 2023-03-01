@@ -24,11 +24,13 @@
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "jsonwebtoken": "^9.0.0",
+    "v-toaster": "^1.0.3",
     "vue": "^3.2.45",
     "vue-axios": "^3.5.2",
     "vue-js-modal": "^2.0.1",
     "vue-material": "^1.0.0-beta-15",
     "vue-router": "^4.0.3",
+    "vue-toasted": "^1.1.28",
     "vuex": "^4.0.2",
     "vuex-persistedstate": "^4.1.0"
   },

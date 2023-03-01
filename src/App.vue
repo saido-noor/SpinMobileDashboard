@@ -1,5 +1,6 @@
 <template>
   <div class="app">
+    
     <!-- <Navbar/> -->
    
     <RouterView/>
@@ -20,13 +21,15 @@ import DashboardView from './views/DashboardView.vue';
 import TransactionsView from './views/TransactionsView.vue';
 import LoginView from './views/LoginView.vue';
 import { mapState, mapActions } from 'vuex'
+import SuccessMessage from './components/SuccessMessage.vue';
 
 export default{
  components:{
 
     DashboardView,
     TransactionsView,
-    LoginView
+    LoginView,
+    SuccessMessage
 },
 // computed: {
 //         ...mapState({

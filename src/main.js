@@ -2,10 +2,13 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-import { IconsPlugin } from "bootstrap-vue";
+import Vuex from "vuex";
+// import { IconsPlugin } from "bootstrap-vue";
 
 // configuring font awesome css 
 import "../node_modules/@fortawesome/fontawesome-free/css/all.css";
+import Toasted from "vue-toasted";
+
 //configuring bootstrap css,js
 // import "../node_modules/bootstrap/dist/css/bootstrap.css";
 // import "../node_modules/bootstrap/dist/js/bootstrap.bundle";

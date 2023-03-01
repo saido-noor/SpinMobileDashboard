@@ -1,502 +1,179 @@
 <template>
-  <div>
-    <aside
-      class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3"
-      id="sidenav-main"
-    >
-      <div class="sidenav-header">
-        <i
-          class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
-          aria-hidden="true"
-          id="iconSidenav"
-        ></i>
-        <a class="navbar-brand m-0" href="#" target="_blank">
-          <img src="../assets/logo.png" alt="" />
-        </a>
-      </div>
-
-      <hr class="horizontal dark mt-2" />
-      <div class="collapse navbar-collapse w-auto" id="sidenav-collapse-main">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <router-link to="/dashboard" class="nav-link">
-              <div
-                class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center"
-              >
-                <svg
-                  width="12px"
-                  height="12px"
-                  viewBox="0 0 45 40"
-                  version="1.1"
-                  xmlns="http://www.w3.org/2000/svg"
-                  xmlns:xlink="http://www.w3.org/1999/xlink"
-                >
-                  <title>shop</title>
-                  <g
-                    stroke="none"
-                    stroke-width="1"
-                    fill="none"
-                    fill-rule="evenodd"
-                  >
-                    <g
-                      transform="translate(-1716.000000, -439.000000)"
-                      fill="#FFFFFF"
-                      fill-rule="nonzero"
-                    >
-                      <g transform="translate(1716.000000, 291.000000)">
-                        <g transform="translate(0.000000, 148.000000)">
-                          <path
-                            class="color-background opacity-6"
-                            d="M46.7199583,10.7414583 L40.8449583,0.949791667 C40.4909749,0.360605034 39.8540131,0 39.1666667,0 L7.83333333,0 C7.1459869,0 6.50902508,0.360605034 6.15504167,0.949791667 L0.280041667,10.7414583 C0.0969176761,11.0460037 -1.23209662e-05,11.3946378 -1.23209662e-05,11.75 C-0.00758042603,16.0663731 3.48367543,19.5725301 7.80004167,19.5833333 L7.81570833,19.5833333 C9.75003686,19.5882688 11.6168794,18.8726691 13.0522917,17.5760417 C16.0171492,20.2556967 20.5292675,20.2556967 23.494125,17.5760417 C26.4604562,20.2616016 30.9794188,20.2616016 33.94575,17.5760417 C36.2421905,19.6477597 39.5441143,20.1708521 42.3684437,18.9103691 C45.1927731,17.649886 47.0084685,14.8428276 47.0000295,11.75 C47.0000295,11.3946378 46.9030823,11.0460037 46.7199583,10.7414583 Z"
-                          ></path>
-                          <path
-                            class="color-background"
-                            d="M39.198,22.4912623 C37.3776246,22.4928106 35.5817531,22.0149171 33.951625,21.0951667 L33.92225,21.1107282 C31.1430221,22.6838032 27.9255001,22.9318916 24.9844167,21.7998837 C24.4750389,21.605469 23.9777983,21.3722567 23.4960833,21.1018359 L23.4745417,21.1129513 C20.6961809,22.6871153 17.4786145,22.9344611 14.5386667,21.7998837 C14.029926,21.6054643 13.533337,21.3722507 13.0522917,21.1018359 C11.4250962,22.0190609 9.63246555,22.4947009 7.81570833,22.4912623 C7.16510551,22.4842162 6.51607673,22.4173045 5.875,22.2911849 L5.875,44.7220845 C5.875,45.9498589 6.7517757,46.9451667 7.83333333,46.9451667 L19.5833333,46.9451667 L19.5833333,33.6066734 L27.4166667,33.6066734 L27.4166667,46.9451667 L39.1666667,46.9451667 C40.2482243,46.9451667 41.125,45.9498589 41.125,44.7220845 L41.125,22.2822926 C40.4887822,22.4116582 39.8442868,22.4815492 39.198,22.4912623 Z"
-                          ></path>
-                        </g>
-                      </g>
-                    </g>
-                  </g>
-                </svg>
-              </div>
-              <span class="nav-link-text ms-1">Dashboard</span>
-            </router-link>
-          </li>
-          <li class="nav-item">
-            <router-link to="/transaction" class="nav-link">
-              <div
-                class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center"
-              >
-                <svg
-                  width="12px"
-                  height="12px"
-                  viewBox="0 0 42 42"
-                  version="1.1"
-                  xmlns="http://www.w3.org/2000/svg"
-                  xmlns:xlink="http://www.w3.org/1999/xlink"
-                >
-                  <title>office</title>
-                  <g
-                    stroke="none"
-                    stroke-width="1"
-                    fill="none"
-                    fill-rule="evenodd"
-                  >
-                    <g
-                      transform="translate(-1869.000000, -293.000000)"
-                      fill="#FFFFFF"
-                      fill-rule="nonzero"
-                    >
-                      <g transform="translate(1716.000000, 291.000000)">
-                        <g
-                          id="office"
-                          transform="translate(153.000000, 2.000000)"
-                        >
-                          <path
-                            class="color-background opacity-6"
-                            d="M12.25,17.5 L8.75,17.5 L8.75,1.75 C8.75,0.78225 9.53225,0 10.5,0 L31.5,0 C32.46775,0 33.25,0.78225 33.25,1.75 L33.25,12.25 L29.75,12.25 L29.75,3.5 L12.25,3.5 L12.25,17.5 Z"
-                          ></path>
-                          <path
-                            class="color-background"
-                            d="M40.25,14 L24.5,14 C23.53225,14 22.75,14.78225 22.75,15.75 L22.75,38.5 L19.25,38.5 L19.25,22.75 C19.25,21.78225 18.46775,21 17.5,21 L1.75,21 C0.78225,21 0,21.78225 0,22.75 L0,40.25 C0,41.21775 0.78225,42 1.75,42 L40.25,42 C41.21775,42 42,41.21775 42,40.25 L42,15.75 C42,14.78225 41.21775,14 40.25,14 Z M12.25,36.75 L7,36.75 L7,33.25 L12.25,33.25 L12.25,36.75 Z M12.25,29.75 L7,29.75 L7,26.25 L12.25,26.25 L12.25,29.75 Z M35,36.75 L29.75,36.75 L29.75,33.25 L35,33.25 L35,36.75 Z M35,29.75 L29.75,29.75 L29.75,26.25 L35,26.25 L35,29.75 Z M35,22.75 L29.75,22.75 L29.75,19.25 L35,19.25 L35,22.75 Z"
-                          ></path>
-                        </g>
-                      </g>
-                    </g>
-                  </g>
-                </svg>
-              </div>
-              <span class="nav-link-text ms-1">Transaction</span>
-            </router-link>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" href="">
-              <div
-                class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center"
-              >
-                <svg
-                  width="12px"
-                  height="12px"
-                  viewBox="0 0 43 36"
-                  version="1.1"
-                  xmlns="http://www.w3.org/2000/svg"
-                  xmlns:xlink="http://www.w3.org/1999/xlink"
-                >
-                  <title>credit-card</title>
-                  <g
-                    stroke="none"
-                    stroke-width="1"
-                    fill="none"
-                    fill-rule="evenodd"
-                  >
-                    <g
-                      transform="translate(-2169.000000, -745.000000)"
-                      fill="#FFFFFF"
-                      fill-rule="nonzero"
-                    >
-                      <g transform="translate(1716.000000, 291.000000)">
-                        <g transform="translate(453.000000, 454.000000)">
-                          <path
-                            class="color-background opacity-6"
-                            d="M43,10.7482083 L43,3.58333333 C43,1.60354167 41.3964583,0 39.4166667,0 L3.58333333,0 C1.60354167,0 0,1.60354167 0,3.58333333 L0,10.7482083 L43,10.7482083 Z"
-                          ></path>
-                          <path
-                            class="color-background"
-                            d="M0,16.125 L0,32.25 C0,34.2297917 1.60354167,35.8333333 3.58333333,35.8333333 L39.4166667,35.8333333 C41.3964583,35.8333333 43,34.2297917 43,32.25 L43,16.125 L0,16.125 Z M19.7083333,26.875 L7.16666667,26.875 L7.16666667,23.2916667 L19.7083333,23.2916667 L19.7083333,26.875 Z M35.8333333,26.875 L28.6666667,26.875 L28.6666667,23.2916667 L35.8333333,23.2916667 L35.8333333,26.875 Z"
-                          ></path>
-                        </g>
-                      </g>
-                    </g>
-                  </g>
-                </svg>
-              </div>
-              <span class="nav-link-text ms-1">Users</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <router-link to="/wallet" class="nav-link">
-              <div
-                class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center"
-              >
-                <svg
-                  width="12px"
-                  height="12px"
-                  viewBox="0 0 42 42"
-                  version="1.1"
-                  xmlns="http://www.w3.org/2000/svg"
-                  xmlns:xlink="http://www.w3.org/1999/xlink"
-                >
-                  <title>box-3d-50</title>
-                  <g
-                    stroke="none"
-                    stroke-width="1"
-                    fill="none"
-                    fill-rule="evenodd"
-                  >
-                    <g
-                      transform="translate(-2319.000000, -291.000000)"
-                      fill="#FFFFFF"
-                      fill-rule="nonzero"
-                    >
-                      <g transform="translate(1716.000000, 291.000000)">
-                        <g transform="translate(603.000000, 0.000000)">
-                          <path
-                            class="color-background"
-                            d="M22.7597136,19.3090182 L38.8987031,11.2395234 C39.3926816,10.9925342 39.592906,10.3918611 39.3459167,9.89788265 C39.249157,9.70436312 39.0922432,9.5474453 38.8987261,9.45068056 L20.2741875,0.1378125 L20.2741875,0.1378125 C19.905375,-0.04725 19.469625,-0.04725 19.0995,0.1378125 L3.1011696,8.13815822 C2.60720568,8.38517662 2.40701679,8.98586148 2.6540352,9.4798254 C2.75080129,9.67332903 2.90771305,9.83023153 3.10122239,9.9269862 L21.8652864,19.3090182 C22.1468139,19.4497819 22.4781861,19.4497819 22.7597136,19.3090182 Z"
-                          ></path>
-                          <path
-                            class="color-background opacity-6"
-                            d="M23.625,22.429159 L23.625,39.8805372 C23.625,40.4328219 24.0727153,40.8805372 24.625,40.8805372 C24.7802551,40.8805372 24.9333778,40.8443874 25.0722402,40.7749511 L41.2741875,32.673375 L41.2741875,32.673375 C41.719125,32.4515625 42,31.9974375 42,31.5 L42,14.241659 C42,13.6893742 41.5522847,13.241659 41,13.241659 C40.8447549,13.241659 40.6916418,13.2778041 40.5527864,13.3472318 L24.1777864,21.5347318 C23.8390024,21.7041238 23.625,22.0503869 23.625,22.429159 Z"
-                          ></path>
-                          <path
-                            class="color-background opacity-6"
-                            d="M20.4472136,21.5347318 L1.4472136,12.0347318 C0.953235098,11.7877425 0.352562058,11.9879669 0.105572809,12.4819454 C0.0361450918,12.6208008 6.47121774e-16,12.7739139 0,12.929159 L0,30.1875 L0,30.1875 C0,30.6849375 0.280875,31.1390625 0.7258125,31.3621875 L19.5528096,40.7750766 C20.0467945,41.0220531 20.6474623,40.8218132 20.8944388,40.3278283 C20.963859,40.1889789 21,40.0358742 21,39.8806379 L21,22.429159 C21,22.0503869 20.7859976,21.7041238 20.4472136,21.5347318 Z"
-                          ></path>
-                        </g>
-                      </g>
-                    </g>
-                  </g>
-                </svg>
-              </div>
-              <span class="nav-link-text ms-1">Wallet</span>
-            </router-link>
-          </li>
-          <li class="nav-item">
-            <router-link to="/corporate" class="nav-link">
-              <div
-                class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center"
-              >
-                <svg
-                  width="12px"
-                  height="12px"
-                  viewBox="0 0 40 40"
-                  version="1.1"
-                  xmlns="http://www.w3.org/2000/svg"
-                  xmlns:xlink="http://www.w3.org/1999/xlink"
-                >
-                  <title>settings</title>
-                  <g
-                    stroke="none"
-                    stroke-width="1"
-                    fill="none"
-                    fill-rule="evenodd"
-                  >
-                    <g
-                      transform="translate(-2020.000000, -442.000000)"
-                      fill="#FFFFFF"
-                      fill-rule="nonzero"
-                    >
-                      <g transform="translate(1716.000000, 291.000000)">
-                        <g transform="translate(304.000000, 151.000000)">
-                          <polygon
-                            class="color-background opacity-6"
-                            points="18.0883333 15.7316667 11.1783333 8.82166667 13.3333333 6.66666667 6.66666667 0 0 6.66666667 6.66666667 13.3333333 8.82166667 11.1783333 15.315 17.6716667"
-                          ></polygon>
-                          <path
-                            class="color-background opacity-6"
-                            d="M31.5666667,23.2333333 C31.0516667,23.2933333 30.53,23.3333333 30,23.3333333 C29.4916667,23.3333333 28.9866667,23.3033333 28.48,23.245 L22.4116667,30.7433333 L29.9416667,38.2733333 C32.2433333,40.575 35.9733333,40.575 38.275,38.2733333 L38.275,38.2733333 C40.5766667,35.9716667 40.5766667,32.2416667 38.275,29.94 L31.5666667,23.2333333 Z"
-                          ></path>
-                          <path
-                            class="color-background"
-                            d="M33.785,11.285 L28.715,6.215 L34.0616667,0.868333333 C32.82,0.315 31.4483333,0 30,0 C24.4766667,0 20,4.47666667 20,10 C20,10.99 20.1483333,11.9433333 20.4166667,12.8466667 L2.435,27.3966667 C0.95,28.7083333 0.0633333333,30.595 0.00333333333,32.5733333 C-0.0583333333,34.5533333 0.71,36.4916667 2.11,37.89 C3.47,39.2516667 5.27833333,40 7.20166667,40 C9.26666667,40 11.2366667,39.1133333 12.6033333,37.565 L27.1533333,19.5833333 C28.0566667,19.8516667 29.01,20 30,20 C35.5233333,20 40,15.5233333 40,10 C40,8.55166667 39.685,7.18 39.1316667,5.93666667 L33.785,11.285 Z"
-                          ></path>
-                        </g>
-                      </g>
-                    </g>
-                  </g>
-                </svg>
-              </div>
-              <span class="nav-link-text ms-1">Corporate</span>
-            </router-link>
-          </li>
-        </ul>
-      </div>
-      <div class="sidenav-footer mx-3">
-        <div
-          class="card card-background shadow-none card-background-mask-secondary"
-          id="sidenavCard"
-        >
-          <!-- <div class="full-background" style="background-image: url('../assets/img/curved-images/white-curved.jpg')"></div> -->
-          <!-- <div class="card-body text-start p-3 w-100">
-          <div class="icon icon-shape icon-sm bg-white shadow text-center mb-3 d-flex align-items-center justify-content-center border-radius-md">
-            <i class="ni ni-diamond text-dark text-gradient text-lg top-0" aria-hidden="true" id="sidenavCardIcon"></i>
-          </div>
-          <div class="docs-info">
-            <h6 class="text-white up mb-0">Need help?</h6>
-            <p class="text-xs font-weight-bold">Please check our docs</p>
-            <a href="https://www.creative-tim.com/learning-lab/bootstrap/license/soft-ui-dashboard" target="_blank" class="btn btn-white btn-sm w-100 mb-0">Documentation</a>
-          </div>
-        </div> -->
+<header id="header" class="header fixed-top d-flex align-items-center">
+         <div class="d-flex align-items-center justify-content-between"><span class="d-none d-lg-block logo d-flex align-items-center" ><img src="../assets/logo.png" alt=""></span>  
+            <i class="fa-solid fa-bars toggle-sidebar-btn" @click="toggleSidenav()"></i>
+            
         </div>
-      </div>
-    </aside>
-    <main
-      class="main-content position-relative max-height-vh-100 h-100 border-radius-lg"
-    >
-      <!-- Navbar -->
-      <nav
-        class="navbar navbar-main navbar-expand-lg px-0 mx-4 my-3"
-        id="navbarBlur"
-        navbar-scroll="true"
-      >
-        <div class="container-fluid py-1 px-3">
-          <nav aria-label="breadcrumb">
-            <ol
-              class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5"
-            >
-              <li class="breadcrumb-item text-sm">
-                <a class="opacity-5 text-dark" href="javascript:;">Pages</a>
-              </li>
-              <li
-                class="breadcrumb-item text-sm text-dark active"
-                aria-current="page"
-              >
-                Users
-              </li>
-            </ol>
-            <h6 class="font-weight-bolder mb-0">Users</h6>
-          </nav>
-          <div
-            class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4"
-            id="navbar"
-          >
-            <div class="ms-md-auto pe-md-3 d-flex align-items-center">
-              <div class="input-group">
-                <span class="input-group-text text-body"
-                  ><i class="fas fa-search" aria-hidden="true"></i
-                ></span>
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="Type here..."
-                />
-              </div>
-            </div>
-            <ul class="navbar-nav justify-content-end">
-              <li class="nav-item d-flex align-items-center"></li>
-              <li class="nav-item d-flex align-items-center">
-                <a
-                  href="javascript:;"
-                  class="nav-link text-body font-weight-bold px-0"
-                >
-                </a>
-                <router-link to="/profile" class="nav-link">
-                  <i
-                    class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
-                    aria-hidden="true"
-                    id="iconSidenav"
-                  ></i>
-                  <a class="navbar-brand m-0" href="#" target="_blank">
-                    <img
-                      src="../assets/marie.jpg"
-                      alt=""
-                      class="avatar avatar-md rounded-circle me-0"
-                    />
-                  </a>
-                </router-link>
-              </li>
-              <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
-                <a
-                  href="javascript:;"
-                  class="nav-link text-body p-0"
-                  id="iconNavbarSidenav"
-                >
-                  <div class="sidenav-toggler-inner">
-                    <i class="sidenav-toggler-line"></i>
-                    <i class="sidenav-toggler-line"></i>
-                    <i class="sidenav-toggler-line"></i>
-                  </div>
-                </a>
-              </li>
-              <li class="nav-item px-3 d-flex align-items-center">
-                <a href="javascript:;" class="nav-link text-body p-0">
-                  <i
-                    class="fa fa-cog fixed-plugin-button-nav cursor-pointer"
-                  ></i>
-                </a>
-              </li>
-              <li class="nav-item dropdown pe-2 d-flex align-items-center">
-                <a
-                  href="javascript:;"
-                  class="nav-link text-body p-0"
-                  id="dropdownMenuButton"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  <i class="fa fa-bell cursor-pointer"></i>
-                </a>
-                <ul
-                  class="dropdown-menu dropdown-menu-end px-2 py-3 me-sm-n4"
-                  aria-labelledby="dropdownMenuButton"
-                >
-                  <li class="mb-2">
-                    <a
-                      class="dropdown-item border-radius-md"
-                      href="javascript:;"
-                    >
-                      <div class="d-flex py-1">
-                        <div class="my-auto">
-                          <!-- <img src="../assets/img/team-2.jpg" class="avatar avatar-sm  me-3 "> -->
-                        </div>
-                        <div class="d-flex flex-column justify-content-center">
-                          <h6 class="text-sm font-weight-normal mb-1">
-                            <span class="font-weight-bold">New message</span>
-                            from Laur
-                          </h6>
-                          <p class="text-xs text-secondary mb-0">
-                            <i class="fa fa-clock me-1"></i>
-                            13 minutes ago
-                          </p>
-                        </div>
-                      </div>
-                    </a>
-                  </li>
-                  <li class="mb-2">
-                    <a
-                      class="dropdown-item border-radius-md"
-                      href="javascript:;"
-                    >
-                      <div class="d-flex py-1">
-                        <div class="my-auto">
-                          <!-- <img src="../assets/img/small-logos/logo-spotify.svg" class="avatar avatar-sm bg-gradient-dark  me-3 "> -->
-                        </div>
-                        <div class="d-flex flex-column justify-content-center">
-                          <h6 class="text-sm font-weight-normal mb-1">
-                            <span class="font-weight-bold">New album</span> by
-                            Travis Scott
-                          </h6>
-                          <p class="text-xs text-secondary mb-0">
-                            <i class="fa fa-clock me-1"></i>
-                            1 day
-                          </p>
-                        </div>
-                      </div>
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      class="dropdown-item border-radius-md"
-                      href="javascript:;"
-                    >
-                      <div class="d-flex py-1">
-                        <div
-                          class="avatar avatar-sm bg-gradient-secondary me-3 my-auto"
-                        >
-                          <svg
-                            width="12px"
-                            height="12px"
-                            viewBox="0 0 43 36"
-                            version="1.1"
-                            xmlns="http://www.w3.org/2000/svg"
-                            xmlns:xlink="http://www.w3.org/1999/xlink"
-                          >
-                            <title>credit-card</title>
-                            <g
-                              stroke="none"
-                              stroke-width="1"
-                              fill="none"
-                              fill-rule="evenodd"
-                            >
-                              <g
-                                transform="translate(-2169.000000, -745.000000)"
-                                fill="#FFFFFF"
-                                fill-rule="nonzero"
-                              >
-                                <g
-                                  transform="translate(1716.000000, 291.000000)"
-                                >
-                                  <g
-                                    transform="translate(453.000000, 454.000000)"
-                                  >
-                                    <path
-                                      class="color-background"
-                                      d="M43,10.7482083 L43,3.58333333 C43,1.60354167 41.3964583,0 39.4166667,0 L3.58333333,0 C1.60354167,0 0,1.60354167 0,3.58333333 L0,10.7482083 L43,10.7482083 Z"
-                                      opacity="0.593633743"
-                                    ></path>
-                                    <path
-                                      class="color-background"
-                                      d="M0,16.125 L0,32.25 C0,34.2297917 1.60354167,35.8333333 3.58333333,35.8333333 L39.4166667,35.8333333 C41.3964583,35.8333333 43,34.2297917 43,32.25 L43,16.125 L0,16.125 Z M19.7083333,26.875 L7.16666667,26.875 L7.16666667,23.2916667 L19.7083333,23.2916667 L19.7083333,26.875 Z M35.8333333,26.875 L28.6666667,26.875 L28.6666667,23.2916667 L35.8333333,23.2916667 L35.8333333,26.875 Z"
-                                    ></path>
-                                  </g>
-                                </g>
-                              </g>
-                            </g>
-                          </svg>
-                        </div>
-                        <div class="d-flex flex-column justify-content-center">
-                          <h6 class="text-sm font-weight-normal mb-1">
-                            Payment successfully completed
-                          </h6>
-                          <p class="text-xs text-secondary mb-0">
-                            <i class="fa fa-clock me-1"></i>
-                            2 days
-                          </p>
-                        </div>
-                      </div>
-                    </a>
-                  </li>
-                </ul>
-              </li>
+         <!-- <div class="search-bar">
+            <form class="search-form d-flex align-items-center" method="POST" action="#"> <input type="text" name="query" placeholder="Search" title="Enter search keyword"> <button type="submit" title="Search"><i class="bi bi-search"></i></button></form>
+         </div> -->
+         <nav class="header-nav ms-auto">
+            
+            <ul class="d-flex align-items-center">
+                
+                <li class="nav-item  pe-3">
+                  <a class="nav-link nav-profile d-flex align-items-center pe-0" href="/profile" > <img src="../assets/marie.jpg" alt="" class="rounded-circle" >  </a>
+                  
+               </li>  
+               <li class="nav-item  pe-4" ><a href="javascript:;" class="nav-link text-body p-0" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fa fa-gear cursor-pointer"></i>
+              </a></li>   
+               <li class="nav-item  pe-3" ><a href="javascript:;" class="nav-link text-body p-0" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fa fa-bell cursor-pointer"></i>
+              </a></li>          
+               
+               
             </ul>
-          </div>
-        </div>
-      </nav>
-      <!-- End Navbar -->
-      <div class="container-fluid py-4">
+         </nav>
+      </header>
+    
+    <aside id="sidebar" class="sidebar">
+         <ul class="sidebar-nav" id="sidebar-nav">
+            <!-- <li class="nav-item"> <router-link to="" > <a class="nav-link " href="#"> <i class="fa-regular fa-user"></i><span>Dashboard</span> </a></router-link></li>
+             -->
+            <li class="nav-item" >
+          <a class="nav-link collapsed " href="/display">
+            
+          <i class="fa-solid fa-gauge"></i>
+            <span class="nav-link-text ms-1">Dashboard</span>
+          </a>
+        </li>
+        
+        
+            <li class="nav-item">
+               
+                <a class="nav-link collapsed" href="/transaction"> <i class="fa-solid fa-wallet"></i><span>Transaction</span> </a>
+        
+                <!-- <a href="" class="nav-link collapsed">
+            <router-link to="">
+                
+          
+             <i class="fa-regular fa-user"></i><span>Transaction</span>
+    
+          </router-link>
+          </a> -->
+    
+               <!-- <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#"><i class="fa-regular fa-user"></i><span>Transaction</span><i class="bi bi-chevron-down ms-auto"></i> </a> -->
+               <!-- <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                  <li> <a href="components-alerts.html"> <i class="bi bi-circle"></i><span>Alerts</span> </a></li>
+                  <li> <a href="components-accordion.html"> <i class="bi bi-circle"></i><span>Accordion</span> </a></li>
+                  <li> <a href="components-badges.html"> <i class="bi bi-circle"></i><span>Badges</span> </a></li>
+                  <li> <a href="components-breadcrumbs.html"> <i class="bi bi-circle"></i><span>Breadcrumbs</span> </a></li>
+                  <li> <a href="components-buttons.html"> <i class="bi bi-circle"></i><span>Buttons</span> </a></li>
+                  <li> <a href="components-cards.html"> <i class="bi bi-circle"></i><span>Cards</span> </a></li>
+                  <li> <a href="components-carousel.html"> <i class="bi bi-circle"></i><span>Carousel</span> </a></li>
+                  <li> <a href="components-list-group.html"> <i class="bi bi-circle"></i><span>List group</span> </a></li>
+                  <li> <a href="components-modal.html"> <i class="bi bi-circle"></i><span>Modal</span> </a></li>
+                  <li> <a href="components-tabs.html"> <i class="bi bi-circle"></i><span>Tabs</span> </a></li>
+                  <li> <a href="components-pagination.html"> <i class="bi bi-circle"></i><span>Pagination</span> </a></li>
+                  <li> <a href="components-progress.html"> <i class="bi bi-circle"></i><span>Progress</span> </a></li>
+                  <li> <a href="components-spinners.html"> <i class="bi bi-circle"></i><span>Spinners</span> </a></li>
+                  <li> <a href="components-tooltips.html"> <i class="bi bi-circle"></i><span>Tooltips</span> </a></li>
+               </ul> -->
+            </li>
+            <li class="nav-item">
+               
+                <a class="nav-link collapsed" href="#"> <i class="fa-solid fa-user"></i><span>Users</span> </a>
+        
+               <!-- <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#"> <i class="fa-regular fa-user"></i><span>Users</span><i class="bi bi-chevron-down ms-auto"></i> </a> -->
+               <!-- <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                  <li> <a href="forms-elements.html"> <i class="bi bi-circle"></i><span>Form Elements</span> </a></li>
+                  <li> <a href="forms-layouts.html"> <i class="bi bi-circle"></i><span>Form Layouts</span> </a></li>
+                  <li> <a href="forms-editors.html"> <i class="bi bi-circle"></i><span>Form Editors</span> </a></li>
+                  <li> <a href="forms-validation.html"> <i class="bi bi-circle"></i><span>Form Validation</span> </a></li>
+               </ul> -->
+            </li>
+            <li class="nav-item">
+                 
+                <a class="nav-link collapsed" href="/wallet"> <i class="fa-solid fa-wallet"></i><span>Wallet</span> </a>
+          
+        
+        <!-- <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                  <li> <a href="tables-general.html"> <i class="bi bi-circle"></i><span>General Tables</span> </a></li>
+                  <li> <a href="tables-data.html"> <i class="bi bi-circle"></i><span>Data Tables</span> </a></li>
+               </ul> -->
+            </li>
+            <li class="nav-item">
+           
+                <a class="nav-link collapsed" href="/corporates"> <i class="fa-solid fa-code-compare"></i><span>Corporates</span> </a>
+           
+        
+        
+        <!-- <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                  <li> <a href="charts-chartjs.html"> <i class="bi bi-circle"></i><span>Chart.js</span> </a></li>
+                  <li> <a href="charts-apexcharts.html"> <i class="bi bi-circle"></i><span>ApexCharts</span> </a></li>
+                  <li> <a href="charts-echarts.html"> <i class="bi bi-circle"></i><span>ECharts</span> </a></li>
+               </ul> -->
+            </li>
+            <!-- <li class="nav-item">
+               <a class="nav-link collapsed" data-bs-target="#icons-nav" data-bs-toggle="collapse" href="#"> <i class="bi bi-gem"></i><span>Icons</span><i class="bi bi-chevron-down ms-auto"></i> </a>
+               <ul id="icons-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                  <li> <a href="icons-bootstrap.html"> <i class="bi bi-circle"></i><span>Bootstrap Icons</span> </a></li>
+                  <li> <a href="icons-remix.html"> <i class="bi bi-circle"></i><span>Remix Icons</span> </a></li>
+                  <li> <a href="icons-boxicons.html"> <i class="bi bi-circle"></i><span>Boxicons</span> </a></li>
+               </ul>
+            </li> -->
+            <!-- <li class="nav-heading">Pages</li>
+            <li class="nav-item"> <a class="nav-link collapsed" href="users-profile.html"> <i class="bi bi-person"></i> <span>Profile</span> </a></li>
+            <li class="nav-item"> <a class="nav-link collapsed" href="pages-faq.html"> <i class="bi bi-question-circle"></i> <span>F.A.Q</span> </a></li>
+            <li class="nav-item"> <a class="nav-link collapsed" href="pages-contact.html"> <i class="bi bi-envelope"></i> <span>Contact</span> </a></li>
+            <li class="nav-item"> <a class="nav-link collapsed" href="pages-register.html"> <i class="bi bi-card-list"></i> <span>Register</span> </a></li>
+            <li class="nav-item"> <a class="nav-link collapsed" href="pages-login.html"> <i class="bi bi-box-arrow-in-right"></i> <span>Login</span> </a></li>
+            <li class="nav-item"> <a class="nav-link collapsed" href="pages-error-404.html"> <i class="bi bi-dash-circle"></i> <span>Error 404</span> </a></li>
+            <li class="nav-item"> <a class="nav-link collapsed" href="pages-blank.html"> <i class="bi bi-file-earmark"></i> <span>Blank</span> </a></li> -->
+         </ul>
+      </aside>
+
+      <main id="main" class="main">
+        <div class="pagetitle">
+            <h1>Users</h1>
+            <nav>
+          <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
+             <li class="breadcrumb-item"><a href="/display">Home</a></li>
+            <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Pages</a></li>
+            <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Users</li>
+          </ol>
+            </nav>
+         </div>
+       
+ <section class="section dashboard">
         <div class="row">
-          <div class="col-12">
-            <div class="card mb-4">
-              <div class="card-header pb-0">
-                <h6 class="h6">Users</h6>
-                <button
-                  type="button"
-                  class="btn btn-primary"
-                  data-bs-toggle="modal"
-                  data-bs-target="#createUserModal"
-                >
-                  Add User
-                </button>
-                <div
+          
+          <div class="col-lg-12">
+            
+           <div class="card">
+           
+            <div class="col-md-12 main-datatable" v-cloak >
+            <div class="card-body">
+              <div class="row d-flex">
+                        
+                        <div class="col-sm-4 createSegment"> 
+                          
+                         <a class="btn dim_button create_new" type="button"  data-bs-toggle="modal"
+                  data-bs-target="#createUserModal"> <span class="glyphicon glyphicon-plus"></span> Create New</a>
+                  <br>
+                  <div class="loader" v-if='isLoading'>
+         
+        </div>
+                  <div class="col-xs-12 col-sm-6 col-sm-offset-3" v-else-if='filteredData.length'>
+                   
+                                  
+            <label class='control-label'>Show</label>
+            <select class="form-control" v-model='perPage'>
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="20">20</option>
+                <option value="50">50</option>
+                <option value="100">100</option>
+            </select>
+        </div>
+        
+        <br>
+        
+                        </div>
+                        
+                        
+                        <div
                   class="modal fade"
                   id="createUserModal"
                   tabindex="-1"
@@ -577,6 +254,22 @@
                               v-model="user_group"
                             />
                           </div>
+                            <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label"
+                              >Role
+                            </label>
+                             <select class="form-control" v-model='organization'>
+                            <option value="Corporates">Corporates</option>
+           
+                             </select>
+                            <!-- <input
+                              class="form-control"
+                              type="text"
+                              placeholder="role"
+                              name="user_group"
+                              v-model="user_group"
+                            /> -->
+                          </div>
                           <button
                             
                             class="btn bg-gradient-success mt-4 mb-0"
@@ -590,106 +283,79 @@
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class="card-body px-0 pt-0 pb-2">
-                <div class="table-responsive p-0">
-                  <table class="table align-items-center mb-0" id="tb">
-                    <tr>
-                      <!-- <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Id</th> -->
-                      <th
-                        class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"
-                      >
-                        username
-                      </th>
-                    
-                      <th
-                        class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"
-                      >
-                        first_name
-                      </th>
-                      <th
-                        class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"
-                      >
-                        last_name
-                      </th>
-                        <th
-                        class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"
-                      >
-                        email
-                      </th>
-                      
-
-                      <!-- <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">date_joined</th> -->
-                      <!-- <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">last_login</th> -->
-                      <!-- <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">is_active</th> -->
-
-                      <th
-                        class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"
-                      >
-                        action
-                      </th>
-                       <th
-                          class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"
-                        >
-                          state
-                        </th>
-                    </tr>
-                    <!-- <th
-                        class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2"
-                        id="lname"
-                      >
-                        Last_Name
-                      </th> -->
-                    <!-- <th
-                        class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"
-                        id="role"
-                      >
-                        Role
-                      </th> -->
-                    <!-- <th class="text-secondary opacity-7">
-                      
-                        </th> -->
-
-                    <tbody cellspacing="0">
-                      <tr v-for="user in this.users">
-                        <!-- <td scope="row">{{ index + 1 }}</td> -->
-                        <!-- <td >{{user.id}}</td> -->
-                        <td>{{ user.username }}</td>
-                        <td>{{ user.first_name }}</td>
-                        <td>{{ user.last_name }}</td>
-                          <td>{{ user.email }}</td>
-
-                        <!-- <td >{{user.date_joined }}</td>  -->
-                        <!-- <td >{{user.last_login }}</td> -->
-                        <!-- <td >{{user.is_active }}</td>   -->
-
-                        <!-- <router-link to="" class="btn btn-success"> Edit
-                  </router-link> -->
-                        <td>
-                          <button
-                            type="button"
-                            @click="edit(user)"
-                            class="btn btn-link bg-gradient-success px-3 mb-0 fas fa-pencil-alt  me-2"
-                            data-bs-toggle="modal"
-                            data-bs-target="#updateUserModal"
-                          >
+                
+                        <div class="col-sm-8 add_flex">
+                            <div class="form-group searchInput">
+                                <label for="email">Search:</label>
+                                <input type="search" class="form-control" id="filterbox" placeholder=" " v-model="searchQuery">
+                            </div>
+                        </div> 
+                    </div>
                             
-                          </button>
-                          <router-link to="/">
-                              <!-- <button 
-                          class="btn btn-link bg-gradient-success px-3 mb-0 fas fa-refresh me-2" @click="resetUser(user)"
-                          >
-                            
-                          </button> -->
-                          </router-link>
-                          <button class="btn btn-link bg-gradient-success fas fa-ban   px-3 mb-0 me-2" @click="toggle(user)">{{ user.isDisabled ? '' : '' }}</button>
-                      
-                       </td>
-                       <td><span :class="{ mode_on: user.is_active }">{{ user.is_active ? 'Active' : 'Disabled' }}</span></td>
-                    
-                      </tr>
-                      <!-- Modal -->
-                      <div
+        
+                    <div class="overflow-x">
+                      <div class="message">
+                           <transition name="fade">
+                     <div v-if="buttonClicked" class="success-message">
+                                  <span class="check"><i class="fa fa-check-circle"></i></span>
+                                  {{ buttonClicked }}
+                                
+                                </div>
+                                </transition>
+                                  
+                                  </div>
+                        <table style="width:100%;" id="filtertable" class="table cust-datatable dataTable no-footer" >
+                            <thead>
+                                <tr>
+                                    <!-- <th style="min-width:50px;">ID</th> -->
+                                    <th style="min-width:90px;">Username</th>
+                                    <th style="min-width:80px;">First Name</th>
+                                    <th style="min-width:80px;">Last Name</th>
+                                    <th style="min-width:80px;">Email</th>
+                                    <th style="min-width:80px;">Organization</th>
+                                    <th style="min-width:80px;">Status</th>
+                                    <th style="min-width:50px;">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                               
+                                
+                                <tr v-for="user in filteredData ">
+                                    <td>{{ user.username }}</td>
+                                    <td>{{ user.first_name }}</td>
+                                    <td>{{ user.last_name }}</td>
+                                    <td>{{ user.email }}</td>
+                                    <td><span>{{ user.organization ? 'Corporates' : '' }}</span></td>
+                                    <td>
+                                   <span class="mode mode_on" :class="{ mode_on: user.is_active } ">{{ user.is_active ? 'Active' : 'Disabled' }}</span></td>
+
+                                    <!-- <td></td>
+                                    <td></td>
+                                    <td><span class="mode mode_process"></span></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td><span class="mode mode_on"></span></td> -->
+                                    <td>
+                                       <span class="actionCust">
+                                            <a href="#" type="button" data-bs-toggle="modal"
+                            data-bs-target="#updateUserModal"><i class="fa fa-pencil-alt text-success font-weight-600" @click="edit(user)"  ></i></a>
+                                        </span>
+                                        <span class="actionCust">
+                                          
+                                            <a href="#" type="button"  @click="toggleUser(user)"><i class="fa fa-toggle-on text-success">{{ user.isDisabled ? '' : '' }}</i></a>
+                                            
+
+                                             <!-- <p v-if="successMessage">{{ successMessage }}</p> -->
+                                        </span>
+                                        
+                                    </td>
+                                </tr>
+
+                                
+                                
+                                
+                                
+                                <div
                         class="modal fade"
                         id="updateUserModal"
                         ref="createUserModal"
@@ -793,22 +459,33 @@
                           </div>
                         </div>
                       </div>
-                      <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Edit
-</button> -->
-
-                      <!-- <td>{{item.Last_Name}}</td>  
-                 <td>{{item.Role}}</td>    -->
-                    </tbody>
-                  </table>
-                </div>
-              </div>
+                                     
+                            </tbody>
+                        </table>
+                        <br>
+                         <div class="text-center">
+                <button class="btn bg-success  btn-sm" v-show='showPrev' @click.stop.prevent='renderList(currentPage-1)'>Prev</button>
+                Page {{currentPage}} of {{totalPages}}
+                <button class=" btn bg-success btn-sm" v-show='showNext' @click.stop.prevent='renderList(currentPage+1)'>Next</button>
             </div>
+            
+        
+                    </div>
+                 <!-- <div class="col-xs-12 col-sm-6 col-sm-offset-3" v-else>
+            Nothing to show
+        </div> -->
+              
+            </div>
+            </div>
+            
+           </div>
           </div>
+          
         </div>
-      </div>
-    </main>
-  </div>
+      </section>
+      </main>
+     
+ 
 </template>
 <script>
 import axios from "axios";
@@ -816,36 +493,87 @@ import { HTTP } from "@/axios";
 
 // import "bootstrap/dist/css/bootstrap.min.css";
 // import "bootstrap/dist/js/bootstrap.min.js";
+
 export default {
   name: "UsersView",
 
   data() {
     return {
+      isLoading: true,
       username: "",
       email: "",
       first_name: "",
       last_name: "",
       user_group: "",
+      organization:"",
       users: [],
+     
+      filteredData: [],
+      perPage: "5",
+      pageToOpen: 1,
+      currentPage: 1,
       isDisabled: false,
-      state:''
+      state:'',
+      searchQuery:'',
+      buttonClicked: false,
       
     
      
     };
   },
-  mounted: function () {
-    HTTP.post("/api/users/get-users/")
-      .then((response) => {
-        this.users = response.data.users;
-        console.log(response);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+computed: {
+   
+ // filteredData() {
+    //   return this.users.filter(user => {
+    //     return user.username.toLowerCase().includes(this.searchQuery.toLowerCase());
+              
+    //   });
+    // },
+    
+      totalPages(){
+            //calculate the total number of pages based on the number of items to show per page and the total items we got from server
+            return this.users.length && (this.users.length > this.perPage) ? Math.ceil(this.users.length/this.perPage) : 1;
+        },
+           start(){
+            return (this.pageToOpen - 1) * this.perPage;
+        },
+          stop(){
+            //stop at the end of the array if array length OR the items left are less than the number of items to show per page
+            //do the calculation if otherwise
+            if((this.users.length - this.start) >= this.perPage){
+                return (this.pageToOpen * this.perPage) - 1;
+            }
+
+            else{
+                return this.users.length - 1;
+            }
+        },
+        showNext(){
+            return this.currentPage < this.totalPages;
+        },
+
+        showPrev(){
+            return this.currentPage > 1;
+        }        
+  },
+  watch:{
+    
+    perPage:function(){
+      this.renderList();
+
+    }
+    
+  },
+  
+  created() {
+    this.getUsers();
+  
   },
   methods: {
-toggle(user) {
+    
+    toggleUser(user) {
+      
+  this.isLoading = false
       this.username = user.username;
       this.first_name = user.first_name;
       this.email = user.email;
@@ -861,14 +589,24 @@ toggle(user) {
           username:this.username,
         
         }).then(response=>{
+          this.getUsers()
           user.isDisabled= !user.isDisabled;
         this.user= response.data.user;
         this.state = response.data.state
         console.log(response);
         console.log(response.data.user.state);
+        
+        this.buttonClicked = "User disabled "
+          setTimeout(() => {
+        this.buttonClicked = "";
+      }, 2000);
+        // this.successMessage = 'Success! User is disabled.';
+        // alert(`User ${!user.isDisabled ? 'enabled' : 'disabled'} successfully.`);
+
       })
       .catch((error) => {
         console.log(error);
+       
       });
       } if(!this.isDisabled){
          HTTP.post('/api/users/enable/',{
@@ -876,18 +614,26 @@ toggle(user) {
           username:this.username,
           
         }).then(response=>{
+          this.getUsers()
           user.isDisabled = !user.isDisabled;
        this.user = response.data.user,
         this.state = response.data.state
+        this.buttonClicked = "User enabled"
+          setTimeout(() => {
+        this.buttonClicked = "";
+      }, 2000);
+        // this.successMessage = 'Success! User is enabled.';
         console.log(response);
         console.log(response.data.user.state);
+        // alert(`User ${!user.isDisabled ? 'enabled' : 'disabled'} successfully.`);
       })
       .catch((error) => {
         console.log(error);
+        // alert('An error occurred.');
       });
       }
     },
-    edit(user) {
+     edit(user) {
       this.username = user.username;
       this.first_name = user.first_name;
       this.email = user.email;
@@ -910,6 +656,7 @@ toggle(user) {
             new_first_name: this.first_name,
             new_last_name: this.last_name,
             new_email: this.email,
+            
           }
         )
         .then((response) => {
@@ -944,6 +691,7 @@ toggle(user) {
         first_name:this.first_name,
         last_name:this.last_name,
         user_group:this.user_group,
+        organization:this.organization
         
         };
         const url = "";
@@ -961,7 +709,51 @@ toggle(user) {
      
         
     },
-  },
+    getUsers(){
+        this.isLoading = true;
+        
+    HTTP.post("/api/users/get-users/")
+      .then((response) => {
+        this.users = response.data.users;
+        this.isLoading = false;
+        console.log(response);
+        this.renderList();
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    },
+     async renderList(pageNumber=1){
+            //clear currently displayed list
+            this.filteredData = [];
+
+            //set countries to display
+            if(this.users.length){
+                let _this = this;
+
+                try {
+await new Promise(function (res, rej) {
+//set the page to open to the pageNumber in the parameter in order to allow start and stop to update accordingly
+_this.pageToOpen = pageNumber;
+
+//add the necessary data to `countriesToDisplay` array
+for (let i = _this.start; i <= _this.stop; i++) {
+_this.filteredData.push(_this.users[i]);
+}
+
+res();
+});
+//Now update the current page to the page we just loaded
+_this.currentPage = _this.pageToOpen;
+} catch {
+console.log('render err');
+}                  
+            }
+        }
+    },
+
+   
+}
   // methods:{
   //   getUsers(){
   //     axios.get('https://jsonplaceholder.typicode.com/users').then(res=>{
@@ -970,10 +762,696 @@ toggle(user) {
   //     })
   //   }
   // }
-};
+
 </script>
 
 <style>
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
+.message{
+
+ padding-left: 460px;
+}
+.success-message {
+  position: absolute;
+   top: 15px;
+
+ color: white;
+  background-color: rgb(78, 150, 78);
+  padding: 20px 40px;
+  border-radius: 5px;
+  border-left: 6px solid rgb(28, 78, 28);
+}
+.check{
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  transform: translateY(-50%);
+  font-size: 30px;
+  color: white;
+}
+.loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 50px;
+  height: 50px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+[v-cloak] {
+    display: none;
+}
+:root {
+	scroll-behavior: smooth;
+  }
+  
+  body {
+	font-family: "Open Sans", sans-serif;
+	background: #f6f9ff;
+	color: #444444;
+  }
+  
+  a {
+	color: #008000;
+	text-decoration: none;
+  }
+  
+  a:hover {
+	color: #008000;
+	text-decoration: none;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+	font-family: "Nunito", sans-serif;
+  }
+  /*--------------------------------------------------------------
+  # Page Title
+  --------------------------------------------------------------*/
+  .pagetitle {
+	margin-bottom: 10px;
+  }
+  .pagetitle h1 {
+	font-size: 24px;
+	margin-bottom: 0;
+	font-weight: 600;
+	color: #333841;
+  }
+  
+  /*--------------------------------------------------------------
+  # Main
+  --------------------------------------------------------------*/
+  #main {
+	margin-top: 35px;
+	padding: 30px 20px;
+	transition: all 0.3s;
+  }
+  @media (max-width: 1199px) {
+	#main {
+	  padding: 20px;
+	}
+  }
+  
+.dropdown-menu {
+	border-radius: 4px;
+	padding: 10px 0;
+	-webkit-animation-name: dropdown-animate;
+	animation-name: dropdown-animate;
+	-webkit-animation-duration: 0.2s;
+	animation-duration: 0.2s;
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
+	border: 0;
+	box-shadow: 0 5px 30px 0 rgba(82, 63, 105, 0.2);
+  }
+  .dropdown-menu .dropdown-header, .dropdown-menu .dropdown-footer {
+	text-align: center;
+	font-size: 15px;
+	padding: 10px 25px;
+  }
+  .dropdown-menu .dropdown-footer a {
+	color: #444444;
+	text-decoration: underline;
+  }
+  .dropdown-menu .dropdown-footer a:hover {
+	text-decoration: none;
+  }
+  .dropdown-menu .dropdown-divider {
+	color: #a5c5fe;
+	margin: 0;
+  }
+  .dropdown-menu .dropdown-item {
+	font-size: 14px;
+	padding: 10px 15px;
+	transition: 0.3s;
+  }
+  .dropdown-menu .dropdown-item i {
+	margin-right: 10px;
+	font-size: 18px;
+	line-height: 0;
+  }
+  .dropdown-menu .dropdown-item:hover {
+	background-color: #f6f9ff;
+  }
+  
+  @media (min-width: 768px) {
+	.dropdown-menu-arrow::before {
+	  content: "";
+	  width: 13px;
+	  height: 13px;
+	  background: #fff;
+	  position: absolute;
+	  top: -7px;
+	  right: 20px;
+	  transform: rotate(45deg);
+	  border-top: 1px solid #eaedf1;
+	  border-left: 1px solid #eaedf1;
+	}
+  }
+  @-webkit-keyframes dropdown-animate {
+	0% {
+	  opacity: 0;
+	}
+	100% {
+	  opacity: 1;
+	}
+	0% {
+	  opacity: 0;
+	}
+  }
+  @keyframes dropdown-animate {
+	0% {
+	  opacity: 0;
+	}
+	100% {
+	  opacity: 1;
+	}
+	0% {
+	  opacity: 0;
+	}
+  }
+  /* Light Backgrounds */
+  .bg-primary-light {
+	background-color: #cfe2ff;
+	border-color: #cfe2ff;
+  }
+  
+  .bg-secondary-light {
+	background-color: #e2e3e5;
+	border-color: #e2e3e5;
+  }
+  
+  .bg-success-light {
+	background-color: #d1e7dd;
+	border-color: #d1e7dd;
+  }
+  
+  .bg-danger-light {
+	background-color: #f8d7da;
+	border-color: #f8d7da;
+  }
+  
+  .bg-warning-light {
+	background-color: #fff3cd;
+	border-color: #fff3cd;
+  }
+  
+  .bg-info-light {
+	background-color: #cff4fc;
+	border-color: #cff4fc;
+  }
+  
+  .bg-dark-light {
+	background-color: #d3d3d4;
+	border-color: #d3d3d4;
+  }
+  
+  /* Card */
+  .card {
+	margin-bottom: 30px;
+	border: none;
+	border-radius: 5px;
+	box-shadow: 0px 0 30px rgba(1, 41, 112, 0.1);
+  }
+  
+  .card-header, .card-footer {
+	border-color: #ebeef4;
+	background-color: #fff;
+	color: #798eb3;
+	padding: 15px;
+  }
+  
+  .card-title {
+	padding: 20px 0 15px 0;
+	font-size: 18px;
+	font-weight: 500;
+	color: #012970;
+	font-family: "Poppins", sans-serif;
+  }
+  .card-title span {
+	color: #899bbd;
+	font-size: 14px;
+	font-weight: 400;
+  }
+  .card-body {
+	padding: 0 20px 20px 20px;
+  }
+  
+  .card-img-overlay {
+	background-color: rgba(255, 255, 255, 0.6);
+  }
+  
+  /* Alerts */
+  .alert-heading {
+	font-weight: 500;
+	font-family: "Poppins", sans-serif;
+	font-size: 20px;
+  }
+  
+  /* Close Button */
+  .btn-close {
+	background-size: 25%;
+  }
+  .btn-close:focus {
+	outline: 0;
+	box-shadow: none;
+  }
+  
+  /* Accordion */
+  .accordion-item {
+	border: 1px solid #ebeef4;
+  }
+  
+  .accordion-button:focus {
+	outline: 0;
+	box-shadow: none;
+  }
+  .accordion-button:not(.collapsed) {
+	color: #012970;
+	background-color: #f6f9ff;
+  }
+  
+  .accordion-flush .accordion-button {
+	padding: 15px 0;
+	background: none;
+	border: 0;
+  }
+  .accordion-flush .accordion-button:not(.collapsed) {
+	box-shadow: none;
+	color: #4154f1;
+  }
+  .accordion-flush .accordion-body {
+	padding: 0 0 15px 0;
+	color: #3e4f6f;
+	font-size: 15px;
+  }
+  
+  /* Breadcrumbs */
+  .breadcrumb {
+	font-size: 14px;
+	font-family: "Nunito", sans-serif;
+	
+	font-weight: 600;
+  }
+  .breadcrumb a {
+	color: #899bbd;
+	transition: 0.3s;
+  }
+  .breadcrumb a:hover {
+	color: #51678f;
+  }
+  .breadcrumb .breadcrumb-item::before {
+	color: #899bbd;
+  }
+  .breadcrumb .active {
+	color: #51678f;
+	font-weight: 600;
+  }
+  
+  /* Bordered Tabs */
+  .nav-tabs-bordered {
+	border-bottom: 2px solid #ebeef4;
+  }
+  .nav-tabs-bordered .nav-link {
+	margin-bottom: -2px;
+	border: none;
+	color: #2c384e;
+  }
+  .nav-tabs-bordered .nav-link:hover, .nav-tabs-bordered .nav-link:focus {
+	color: #008000;
+  }
+  .nav-tabs-bordered .nav-link.active {
+	background-color: #fff;
+	color: #008000;
+	border-bottom: 2px solid #008000;
+  }
+  
+  /*--------------------------------------------------------------
+  # Header
+  --------------------------------------------------------------*/
+  .logo {
+	line-height: 1;
+  }
+  @media (min-width: 1200px) {
+	.logo {
+	  width: 280px;
+	}
+  }
+  .logo img {
+	max-height: 40px;
+	margin-right: 6px;
+  }
+  .logo span {
+	font-size: 26px;
+	font-weight: 700;
+	color: #012970;
+	font-family: "Nunito", sans-serif;
+  }
+  
+  .header {
+	transition: all 0.5s;
+	z-index: 997;
+	height: 50px;
+	box-shadow: 0px 2px 20px rgba(1, 41, 112, 0.1);
+	background-color: #fff;
+	padding-left: 20px;
+	/* Toggle Sidebar Button */
+	/* Search Bar */
+  }
+  .header .toggle-sidebar-btn {
+	font-size: 22px;
+	
+	cursor: pointer;
+	color: #012970;
+  }
+  .header .search-bar {
+	min-width: 360px;
+	padding: 0 20px;
+  }
+  @media (max-width: 1199px) {
+	.header .search-bar {
+	  position: fixed;
+	  top: 50px;
+	  left: 0;
+	  right: 0;
+	  padding: 20px;
+	  box-shadow: 0px 0px 15px 0px rgba(1, 41, 112, 0.1);
+	  background: white;
+	  z-index: 9999;
+	  transition: 0.3s;
+	  visibility: hidden;
+	  opacity: 0;
+	}
+	.header .search-bar-show {
+	  top: 60px;
+	  visibility: visible;
+	  opacity: 1;
+	}
+  }
+  .header .search-form {
+	width: 100%;
+  }
+  .header .search-form input {
+	border: 0;
+	font-size: 14px;
+	color: #012970;
+	border: 1px solid rgba(1, 41, 112, 0.2);
+	padding: 7px 38px 7px 8px;
+	border-radius: 3px;
+	transition: 0.3s;
+	width: 100%;
+  }
+  .header .search-form input:focus, .header .search-form input:hover {
+	outline: none;
+	box-shadow: 0 0 10px 0 rgba(1, 41, 112, 0.15);
+	border: 1px solid rgba(1, 41, 112, 0.3);
+  }
+  .header .search-form button {
+	border: 0;
+	padding: 0;
+	margin-left: -30px;
+	background: none;
+  }
+  .header .search-form button i {
+	color: #012970;
+  }
+  
+  /*--------------------------------------------------------------
+  # Header Nav
+  --------------------------------------------------------------*/
+  .header-nav ul {
+	list-style: none;
+  }
+  .header-nav > ul {
+	margin: 0;
+	padding: 0;
+  }
+  .header-nav .nav-icon {
+	font-size: 20px;
+	color: #012970;
+  }
+  .header-nav .nav-profile {
+	color: #012970;
+  }
+  .header-nav .nav-profile img {
+	max-height: 36px;
+  }
+  .header-nav .nav-profile span {
+	font-size: 14px;
+	font-weight: 600;
+  }
+  .header-nav .badge-number {
+	position: absolute;
+	inset: 4px 6px auto auto;
+	font-weight: normal;
+	font-size: 11px;
+	padding: 3px 6px;
+  }
+  .header-nav .notifications .notification-item {
+	display: flex;
+	align-items: center;
+	padding: 15px 10px;
+	transition: 0.3s;
+  }
+  .header-nav .notifications .notification-item i {
+	margin: 0 20px 0 10px;
+	font-size: 24px;
+  }
+  .header-nav .notifications .notification-item h4 {
+	font-size: 16px;
+	font-weight: 600;
+	margin-bottom: 5px;
+  }
+  .header-nav .notifications .notification-item p {
+	font-size: 13px;
+	margin-bottom: 3px;
+	color: #919191;
+  }
+  .header-nav .notifications .notification-item:hover {
+	background-color: #f6f9ff;
+  }
+  .header-nav .messages .message-item {
+	padding: 15px 10px;
+	transition: 0.3s;
+  }
+  .header-nav .messages .message-item a {
+	display: flex;
+  }
+  .header-nav .messages .message-item img {
+	margin: 0 20px 0 10px;
+	max-height: 40px;
+  }
+  .header-nav .messages .message-item h4 {
+	font-size: 16px;
+	font-weight: 600;
+	margin-bottom: 5px;
+	color: #444444;
+  }
+  .header-nav .messages .message-item p {
+	font-size: 13px;
+	margin-bottom: 3px;
+	color: #919191;
+  }
+  .header-nav .messages .message-item:hover {
+	background-color: #f6f9ff;
+  }
+  .header-nav .profile {
+	min-width: 240px;
+	padding-bottom: 0;
+  }
+  .header-nav .profile .dropdown-header h6 {
+	font-size: 18px;
+	margin-bottom: 0;
+	font-weight: 600;
+	color: #444444;
+  }
+  .header-nav .profile .dropdown-header span {
+	font-size: 14px;
+  }
+  .header-nav .profile .dropdown-item {
+	font-size: 14px;
+	padding: 10px 15px;
+	transition: 0.3s;
+  }
+  .header-nav .profile .dropdown-item i {
+	margin-right: 10px;
+	font-size: 18px;
+	line-height: 0;
+  }
+  .header-nav .profile .dropdown-item:hover {
+	background-color: #f6f9ff;
+  }
+
+  /*--------------------------------------------------------------
+  # Sidebar
+  --------------------------------------------------------------*/
+  .sidebar {
+	position: fixed;
+	top: 50px;
+	left: 0;
+	bottom: 0;
+	width: 250px;
+	z-index: 996;
+	transition: all 0.3s;
+	padding: 20px;
+	overflow-y: auto;
+	scrollbar-width: thin;
+	scrollbar-color: #aab7cf transparent;
+	box-shadow: 0px 0px 20px rgba(1, 41, 112, 0.1);
+	background-color: #fff;
+  }
+  @media (max-width: 1199px) {
+	.sidebar {
+	  left: -300px;
+	}
+  }
+  .sidebar::-webkit-scrollbar {
+	width: 5px;
+	height: 8px;
+	background-color: #fff;
+  }
+  .sidebar::-webkit-scrollbar-thumb {
+	background-color: #aab7cf;
+  }
+  
+  @media (min-width: 1200px) {
+	#main, #footer {
+	  margin-left: 250px;
+	}
+  }
+  @media (max-width: 1199px) {
+	.toggle-sidebar .sidebar {
+	  left: 0;
+	}
+  }
+  @media (min-width: 1200px) {
+	.toggle-sidebar #main, .toggle-sidebar #footer {
+	  margin-left: 0;
+	}
+	.toggle-sidebar .sidebar {
+	  left: -300px;
+	}
+  }
+  
+  .sidebar-nav {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+  }
+  .sidebar-nav li {
+	padding: 1px;
+	margin: 0;
+	list-style: none;
+  }
+  .sidebar-nav .nav-item {
+	margin-bottom: 11px;
+  }
+  .sidebar-nav .nav-heading {
+	font-size: 16px;
+	text-transform: uppercase;
+	color: #899bbd;
+	font-weight: 600;
+	margin: 10px 0 5px 15px;
+  }
+  .sidebar-nav .nav-link {
+	display: flex;
+	align-items: center;
+	font-size: 15px;
+	font-weight: 600;
+	color: #4154f1;
+	transition: 0.3;
+	background: #f6f9ff;
+	padding: 10px 15px;
+	border-radius: 4px;
+  }
+  .sidebar-nav .nav-link i {
+	font-size: 16px;
+	margin-right: 19px;
+    padding: 5px;
+	color: #4154f1;
+  }
+  .sidebar-nav .nav-link.collapsed {
+	color: #012970;
+	background: #fff;
+  }
+  .sidebar-nav .nav-link.collapsed i {
+	color: #899bbd;
+  }
+  .sidebar-nav .nav-link:hover {
+	color: #008000;
+	background: white;
+  }
+  .sidebar-nav .nav-link:hover i {
+	color: #008000;
+  }
+  .sidebar-nav .nav-link .bi-chevron-down {
+	margin-right: 0;
+	transition: transform 0.2s ease-in-out;
+  }
+  .sidebar-nav .nav-link:not(.collapsed) .bi-chevron-down {
+	transform: rotate(180deg);
+  }
+  .sidebar-nav .nav-content {
+	padding: 5px 0 0 0;
+	margin: 0;
+	list-style: none;
+  }
+  .sidebar-nav .nav-content a {
+	display: flex;
+	align-items: center;
+	font-size: 14px;
+	font-weight: 600;
+	color: white;
+	transition: 0.3;
+	padding: 10px 0 10px 40px;
+	transition: 0.3s;
+  }
+  .sidebar-nav .nav-content a i {
+	font-size: 6px;
+	margin-right: 8px;
+	line-height: 0;
+	border-radius: 50%;
+  }
+  .sidebar-nav .nav-content a:hover, .sidebar-nav .nav-content a.active {
+	color: white;
+  }
+  .sidebar-nav .nav-content a.active i {
+	background-color: white;
+  }
+
+  /*--------------------------------------------------------------
+  # Dashboard
+  --------------------------------------------------------------*/
+  /* Filter dropdown */
+
+  .section{
+    margin-right: 19px;
+  }
+  .section .dashboard  {
+	position: absolute;
+	right: 0px;
+	top: 20px;
+  }
+  
+  
+  
 .badge {
   font-size: 12px;
 }
@@ -984,5 +1462,274 @@ toggle(user) {
 
 .card-header .btn {
   float: right;
+}
+
+.p-30{
+    padding:30px;
+}
+.main-datatable {
+    padding: 0px; 
+    border: 1px solid #f3f2f2;
+    border-bottom: 0;
+    box-shadow: 0px 2px 10px 2px rgba(0,0,0,.05);
+}
+.d-flex{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.card_body{ 
+    background-color: white;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+.main-datatable .row {
+    margin: 0;
+} 
+.searchInput {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    position: relative;
+    justify-content: flex-end;
+    margin: 20px 0px;
+    padding: 0px 4px;
+}
+.searchInput input {
+    border: 1px solid #e5e5e5;
+    border-radius: 50px;
+    margin-left: 8px;
+    height: 34px;
+    width: 100%;
+    padding: 0px 25px 0px 10px;
+    transition: all .6s ease;
+}
+.searchInput label {
+    color: #767676;
+    font-weight: normal;
+}
+.searchInput input:placeholder-shown {
+    width: 13%;
+}
+.searchInput:hover input:placeholder-shown {
+    width: 100%;
+    cursor: pointer;
+}
+.searchInput:after {
+    font-family: 'FontAwesome';
+    color: #d4d4d4;
+    position: relative;
+    content: "\f002";
+    right: 25px;
+}
+
+.dim_button {
+    display: inline-block;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    text-align: center;
+    padding-top: 6px;
+    background: rgb(57, 85, 136);
+    margin-right: 10px;
+    position: relative;
+    cursor: pointer;
+    font-weight: 600;
+    margin-bottom: 20px;
+} 
+.createSegment a { 
+    margin-bottom: 0px;
+    border-radius: 50px;
+    background: #ffffff;
+    border: 1px solid #008000;
+    color: black;
+    transition: all .4s ease;
+}
+.createSegment a:hover, .createSegment a:focus {
+    transition: all .4s ease;
+    background: #008000;
+    color: #fff;
+}
+.add_flex{
+    display: flex;
+    justify-content: flex-end;
+    padding-right:0px;
+}
+.main-datatable .dataTable.no-footer {
+    border-bottom: 1px solid #eee;
+}
+.main-datatable .cust-datatable thead {
+    background-color: #f9f9f9;
+}
+.main-datatable .cust-datatable>thead>tr>th {
+    border-bottom-width: 0;
+    color: #443f3f;
+    font-weight: 600;
+    padding: 16px 15px;
+    vertical-align: middle;
+    padding-left: 18px;
+    text-align: center;
+}
+.main-datatable .cust-datatable>tbody td {
+    padding: 10px 15px 10px 18px;
+    color: #333232;
+    font-size: 13px;
+    font-weight: 500;
+    word-break: break-word;
+    border-color: #eee;
+    text-align: center;
+    vertical-align: middle;
+}
+.main-datatable .cust-datatable>tbody tr {
+    border-top: none;
+}
+.main-datatable .table > tbody > tr:nth-child(even) {
+    background: #f9f9f9;
+}
+.btn-group.open .dropdown-toggle {
+    box-shadow: none;
+}
+.main-datatable .dropdown_icon {
+    display: inline-block;
+    color: #8a8a8a;
+    font-size: 12px;
+    border: 1px solid #d4d4d4;
+    padding: 10px 11px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.btn-group i{
+    color: #8e8e8e; 
+    margin: 2px;
+}
+.main-datatable .actionCust a {
+    display: inline-block;
+    color: #8a8a8a;
+    font-size: 12px;
+    border: 1px solid #d4d4d4;
+    padding: 10px 11px;
+    margin: -9px 3px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.main-datatable .actionCust a i{
+    color: #8e8e8e;
+    margin: 2px;
+}
+.main-datatable .dropdown-menu {
+    padding: 0;
+    border-radius: 4px;
+    box-shadow: 10px 10px 20px #c8c8c8;
+    margin-top: 10px;
+    left: -65px;
+    top: 32px;
+}
+.main-datatable .dropdown-menu > li > a {
+    display: block;
+    padding: 12px 20px;
+    clear: both;
+    font-weight: normal;
+    line-height: 1.42857;
+    color: #333333;
+    white-space: nowrap;
+    border-bottom: 1px solid #d4d4d4;
+}
+.main-datatable .dropdown-menu > li > a:hover, 
+.main-datatable .dropdown-menu > li > a:focus {
+    color: #fff;
+    background: #007bff;
+}
+.main-datatable .dropdown-menu > li > a:hover i{
+    color: #fff; 
+}
+.main-datatable .dropdown-menu:before {
+    position: absolute;
+    top: -7px;
+    left: 78px;
+    display: inline-block;
+    border-right: 7px solid transparent;
+    border-bottom: 7px solid #d4d4d4;
+    border-left: 7px solid transparent;
+    border-bottom-color: #d4d4d4;
+    content: '';
+}
+.main-datatable .dropdown-menu:after {
+    position: absolute;
+    top: -6px;
+    left: 78px;
+    display: inline-block;
+    border-right: 6px solid transparent;
+    border-bottom: 6px solid #ffffff;
+    border-left: 6px solid transparent;
+    content: '';
+}
+.dropdown-menu i {
+    margin-right: 8px;
+}
+.main-datatable .dataTables_wrapper .dataTables_paginate .paginate_button {
+    color: #999999 !important;
+    background-color: #f6f6f6 !important;
+    border-color: #d4d4d4 !important;
+    border-radius: 40px;
+    margin: 5px 3px;
+}
+.main-datatable .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+    color: #fff !important;
+    border: 1px solid #3d96f5 !important;
+    background: #4da3ff !important;
+    box-shadow: none;
+}
+.main-datatable .dataTables_wrapper .dataTables_paginate .paginate_button.current, 
+.main-datatable .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+    color: #fff !important;
+    border-color: transparent !important;
+    background: #007bff !important;
+}
+.main-datatable .dataTables_paginate {
+    padding-top: 0 !important;
+    margin: 15px 10px;
+    float: right !important;
+}
+.mode{
+    padding:4px 10px;
+    line-height: 13px;
+    color:#fff;
+    font-weight: 400;
+    border-radius: 1rem;
+    -webkit-border-radius: 1rem;
+    -moz-border-radius: 1rem;
+    -ms-border-radius: 1rem;
+    -o-border-radius: 1rem;
+    font-size:11px;
+    letter-spacing: 0.4px;
+}
+.mode_on{
+    background-color: #09922d;
+}
+.mode_off{
+    background-color: #8b9096;
+}
+.mode_process{
+    background-color: #ff8000;
+}
+.mode_done{
+    background-color: #03a9f3;
+}
+@media only screen and (max-width:1200px){
+    .overflow-x{
+        overflow-x:scroll;
+    }
+    .overflow-x::-webkit-scrollbar{
+        width:5px;
+        height:6px;
+    }
+    .overflow-x::-webkit-scrollbar-thumb{
+        background-color: #888;
+    }
+    .overflow-x::-webkit-scrollbar-track{
+         background-color: #f1f1f1;
+    }
 }
 </style>
