@@ -1,4 +1,4 @@
-import { IS_USER_AUTHENTICATED, GET_USERNAME, GET_PASSWORD, GET_TOKEN, GET_USERPROFILE } from "../storeconstants";
+import { IS_USER_AUTHENTICATED, GET_USERNAME, GET_PASSWORD, GET_TOKEN, GET_USERPROFILE, GET_SAVED_SINGLE_USER_CONNECTIONS } from "../storeconstants";
 
 export default {
   [IS_USER_AUTHENTICATED](state) {
@@ -16,6 +16,9 @@ export default {
   },
   [GET_USERPROFILE](state){
     return state.GET_USERPROFILE
+  },
+  [GET_SAVED_SINGLE_USER_CONNECTIONS](state){
+    return state.GET_SAVED_SINGLE_USER_CONNECTIONS
   }
   // [GET_EMAIL](state) {
   //   return state.email;

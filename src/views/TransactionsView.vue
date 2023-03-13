@@ -13,7 +13,13 @@
             <ul class="d-flex align-items-center">
                 
                 <li class="nav-item  pe-3">
-                  <a class="nav-link nav-profile d-flex align-items-center pe-0" href="/profile" > <img src="../assets/marie.jpg" alt="" class="rounded-circle">  </a>
+                  <RouterLink
+            class="nav-link nav-profile d-flex align-items-center pe-0"
+            to="/profile"
+            @click.prevent.stop=""
+          >
+            <img src="../assets/marie.jpg" alt="" class="rounded-circle" />
+          </RouterLink>
                   
                </li>  
                <li class="nav-item  pe-4" ><a href="javascript:;" class="nav-link text-body p-0" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">

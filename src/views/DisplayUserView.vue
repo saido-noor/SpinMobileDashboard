@@ -8,6 +8,7 @@
         class="fa-solid fa-bars toggle-sidebar-btn"
         @click="toggleSidenav()"
       ></i>
+      
     </div>
     <!-- <div class="search-bar">
             <form class="search-form d-flex align-items-center" method="POST" action="#"> <input type="text" name="query" placeholder="Search" title="Enter search keyword"> <button type="submit" title="Search"><i class="bi bi-search"></i></button></form>
@@ -48,7 +49,7 @@
       </ul>
     </nav>
   </header>
-  <aside id="sidebar" class="sidebar">
+  <aside id="sidebar" class="sidebar " :class="{ 'collapsed': sidebarCollapsed }">
     <ul class="sidebar-nav" id="sidebar-nav">
       <!-- <li class="nav-item"> <router-link to="" > <a class="nav-link " href="#"> <i class="fa-regular fa-user"></i><span>Dashboard</span> </a></router-link></li>
              -->
@@ -357,7 +358,7 @@
                     <li><a class="dropdown-item" href="#">This Year</a></li>
                   </ul>
                 </div>
-                <div class="card-body">
+                <!-- <div class="card-body">
                   <h5 class="card-title">Recent Sales <span>| Today</span></h5>
                   <table class="table table-borderless datatable">
                     <thead>
@@ -404,7 +405,7 @@
                       </tr>
                     </tbody>
                   </table>
-                </div>
+                </div> -->
               </div>
             </div>
             <div class="col-12">
@@ -599,6 +600,9 @@
                 </div>
               </div>
             </div>
+            <br>
+            <br>
+            
           </div>
 
           <div class="card">
@@ -630,7 +634,72 @@
                 <li><a class="dropdown-item" href="#">This Year</a></li>
               </ul>
             </div>
-            <div class="card-body pb-0">
+             <div class="card-body">
+              <h5 class="card-title">Recent Activity <span>| Today</span></h5>
+              <div class="activity">
+                <div class="activity-item d-flex">
+                  <div class="activite-label">32 min</div>
+                  <i
+                    class="bi bi-circle-fill activity-badge text-success align-self-start"
+                  ></i>
+                  <div class="activity-content">
+                    Quia quae rerum
+                    <a href="#" class="fw-bold text-dark">explicabo officiis</a>
+                    beatae
+                  </div>
+                </div>
+                <div class="activity-item d-flex">
+                  <div class="activite-label">56 min</div>
+                  <i
+                    class="bi bi-circle-fill activity-badge text-danger align-self-start"
+                  ></i>
+                  <div class="activity-content">
+                    Voluptatem blanditiis blanditiis eveniet
+                  </div>
+                </div>
+                <div class="activity-item d-flex">
+                  <div class="activite-label">2 hrs</div>
+                  <i
+                    class="bi bi-circle-fill activity-badge text-primary align-self-start"
+                  ></i>
+                  <div class="activity-content">
+                    Voluptates corrupti molestias voluptatem
+                  </div>
+                </div>
+                <div class="activity-item d-flex">
+                  <div class="activite-label">1 day</div>
+                  <i
+                    class="bi bi-circle-fill activity-badge text-info align-self-start"
+                  ></i>
+                  <div class="activity-content">
+                    Tempore autem saepe
+                    <a href="#" class="fw-bold text-dark"
+                      >occaecati voluptatem</a
+                    >
+                    tempore
+                  </div>
+                </div>
+                <div class="activity-item d-flex">
+                  <div class="activite-label">2 days</div>
+                  <i
+                    class="bi bi-circle-fill activity-badge text-warning align-self-start"
+                  ></i>
+                  <div class="activity-content">
+                    Est sit eum reiciendis exercitationem
+                  </div>
+                </div>
+                <div class="activity-item d-flex">
+                  <div class="activite-label">4 weeks</div>
+                  <i
+                    class="bi bi-circle-fill activity-badge text-muted align-self-start"
+                  ></i>
+                  <div class="activity-content">
+                    Dicta dolorem harum nulla eius. Ut quidem quidem sit quas
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- <div class="card-body pb-0">
               <h5 class="card-title">
                 News &amp; Updates <span>| Today</span>
               </h5>
@@ -689,7 +758,7 @@
                   <p>Odit ut eveniet modi reiciendis. ...</p>
                 </div>
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>
@@ -698,28 +767,54 @@
 </template>
 <script>
 import { GET_USERNAME } from "@/store/storeconstants";
-
+import { SAVED_SINGLE_USER_CONNECTIONS } from "@/store/storeconstants";
+import { GET_SAVED_SINGLE_USER_CONNECTIONS } from "@/store/storeconstants";
 export default {
   name: "DisplayUserView",
   data() {
-    return {};
+    return {
+sidebarCollapsed:false
+    };
   },
-
+    created(){
+      this.getUserConnections()
+    },
   mounted(){
-    this.getUsers()
+    this.getUserConnections()
   },
   methods: {
-    getUsers(){
-      
-       let username = this.$store.getters[`auth/${GET_USERNAME}`];
+    getUserConnections(){
+      var savedConnections = 
+      this.$store.state.SAVED_SINGLE_USER_CONNECTIONS
+      if(savedConnections){
+        this.DisplayUserView = savedConnections;
+      } else{
+        this.$store.commit(`auth/${SAVED_SINGLE_USER_CONNECTIONS}`, this.DisplayUserView)
+      }
+    //    let username = this.$store.getters[`auth/${GET_USERNAME}`];
+    //    let user_profile = {
+    //   "username":username
+    // }
    
-    let user_profile = {
-      "username":username
-    }
-    console.log(user_profile);
+      // if(user_profile) {
+      //   this.username = user_profile
+      //    console.log(username);
+
+      // } else{
+      //   this.$store.commit(`auth/${SET_USERPROFILE}`,this.user_profile)
+      // }
     },
+    // getUsers(){
+      
+    //    let username = this.$store.getters[`auth/${GET_USERNAME}`];
+   
+    // let user_profile = {
+    //   "username":username
+    // }
+    // console.log(user_profile);
+    // },
     toggleSidenav() {
-      document.getElementById("sidebar").classList.toggle("toggle-sidebar-btn");
+this.sidebarCollapsed = !this.sidebarCollapsed;
     },
     //         getUsername() {
     //   return this.$store.getters[`auth/${GET_USERNAME}`]
@@ -1238,6 +1333,13 @@ h6 {
   scrollbar-color: #aab7cf transparent;
   box-shadow: 0px 0px 20px rgba(1, 41, 112, 0.1);
   background-color: #fff;
+}
+.sidebar.collapsed {
+  width: 50px;
+}
+
+.sidebar:not(.collapsed) {
+  width: 250px;
 }
 @media (max-width: 1199px) {
   .sidebar {

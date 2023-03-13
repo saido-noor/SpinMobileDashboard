@@ -7,4 +7,7 @@ export const GET_PASSWORD = "[getters] get password";
 export const GET_TOKEN = "[getters] get token";
 export const SET_TOKEN = "[mutations] set token";
 export const SET_USERPROFILE = "[mutations] set userProfile";
+export const GET_USERPROFILE = "[getters] get userProfile"
+export const SAVED_SINGLE_USER_CONNECTIONS = "[mutations] set connections";
+export const GET_SAVED_SINGLE_USER_CONNECTIONS = "[getters] get connections"
 // export const GET_EMAIL = "[getter] get email";

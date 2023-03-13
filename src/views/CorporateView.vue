@@ -12,7 +12,13 @@
             <ul class="d-flex align-items-center">
                 
                 <li class="nav-item  pe-3">
-                  <a class="nav-link nav-profile d-flex align-items-center pe-0" href="/profile" > <img src="../assets/marie.jpg" alt="" class="rounded-circle">  </a>
+                 <RouterLink
+            class="nav-link nav-profile d-flex align-items-center pe-0"
+            to="/profile"
+            @click.prevent.stop=""
+          >
+            <img src="../assets/marie.jpg" alt="" class="rounded-circle" />
+          </RouterLink>
                   
                </li>  
                <li class="nav-item  pe-4" ><a href="javascript:;" class="nav-link text-body p-0" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
@@ -145,21 +151,22 @@
                         <div class="col-sm-4 createSegment"> 
                          <a class="btn dim_button create_new" type="button"  data-bs-toggle="modal"
                   data-bs-target="#createCopModal"> <span class="glyphicon glyphicon-plus"></span> Create New</a>
-                  <div class="loader" v-if='isLoading'>
-         
-        </div>
-                   <div class="col-xs-12 col-sm-6 col-sm-offset-3" v-else-if='filteredData.length'>
-                   
-                                  
-            <label class='control-label'>Show</label>
-            <select class="form-control" v-model='perPage'>
-                <option value="5">5</option>
-                <option value="10">10</option>
-                <option value="20">20</option>
-                <option value="50">50</option>
-                <option value="100">100</option>
-            </select>
-        </div>
+               
+
+                   <div
+                      class="col-xs-12 col-sm-6 col-sm-offset-3"
+                      
+                    >
+                      <label class="control-label">Show</label>
+                      <select class="form-control" v-model="number_of_corporates" @click="getCoporates">
+                      
+                        <option value="5" > 5</option>
+                        <option value="20">10</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                      </select>
+                     
+                    </div>
         <br>
                         </div>
                         
@@ -305,7 +312,7 @@
                         <div class="col-sm-8 add_flex">
                             <div class="form-group searchInput">
                                 <label for="email">Search:</label>
-                                <input type="search" class="form-control" id="filterbox" placeholder=" " v-model="searchQuery">{{ searchData }}
+                                <input type="search" class="form-control" id="filterbox" placeholder=" " v-model="searchQuery" @input="debouncedHandler">
                             </div>
                         </div> 
                     </div>
@@ -317,24 +324,36 @@
                     <div class="overflow-x">
                          
                         <table style="width:100%;" id="filtertable" class="table cust-datatable dataTable no-footer" >
+                          
                             <thead>
+                              
                                 <tr>
                                     <!-- <th style="min-width:50px;">ID</th> -->
-                                    <th style="min-width:90px;">Name</th>
-                                    <th style="min-width:80px;">Email</th>
-                                    <th style="min-width:80px;">Remote Code</th>
+                                    <th style="min-width: 50px">Name</th>
+                                    <th style="min-width: 50px">Email</th>
+                                    <th style="min-width: 50px">Remote Code</th>
                                     <!-- <th style="min-width:90px;">Address</th>
                                     <th style="min-width:90px;">Postal_code</th> -->
-                                    <th style="min-width:80px;">Phone Number</th>
-                                    <th style="min-width:80px;">Country</th>
-                                    <th style="min-width:80px;">Status</th>
+                                    <th style="min-width:50px">Phone Number</th>
+                                    <th style="min-width:50px;">Country</th>
+                                    <th style="min-width:50px;">Status</th>
                                     <th style="min-width:50px;">Action</th>
                                 </tr>
+                                
                             </thead>
+                                    <div class="row text-center text-success mb-2 ">
+                      <div class="d-flex justify-content-center">
+                        <div class="" v-if="isLoading">
+                          <div class="spinner-border align-middle" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                         
                             <tbody>
                                
-                                
-                        <tr v-for="cop in filteredData">
+                        <tr v-for="cop in corporates">
                         <td>{{ cop.name }}</td>
                         <td>{{ cop.main_contact_email }}</td>
                         <td>{{ cop.remote_code }}</td>
@@ -574,14 +593,36 @@
                             </tbody>
                         </table>
                         <br>
-                        <div class="text-center">
-                <button class="btn bg-success  btn-sm" v-show='showPrev' @click.stop.prevent='renderList(currentPage-1)'>Prev</button>
-                Page {{currentPage}} of {{totalPages}}
-                <button class=" btn bg-success btn-sm" v-show='showNext' @click.stop.prevent='renderList(currentPage+1)'>Next</button>
-            </div>
+                      
                     </div>
-              
+                    <!-- <nav aria-label="Page navigation example" v-if="paginate" >
+  <ul class="pagination justify-content-center" >
+   
+    
+    <li class="page-item" ><a class="page-link" href="#"  @click="pagePrev()"
+                    >1</a></li>
+    <li class="page-item"><a class="page-link" href="#" @click="pageNext()">2</a></li>
+    <li class="page-item"><a class="page-link" href="#" @click="pageNext()">3</a></li>
+  
+  </ul>
+</nav> -->
+                    
+               <div class="text-center" v-if="paginate">
+                
+                    <button
+                      class="btn bg-success btn-sm"
+                      @click="pagePrev()"
+                      v-if="show"
+                    >
+                      Prev
+                    </button>
+                    {{ totalPages }}
+                    <button class="btn bg-success btn-sm" @click="pageNext()">
+                      Next
+                    </button>
+                  </div>
             </div>
+            
             </div>
             
            </div>
@@ -597,114 +638,148 @@ import axios from "axios";
 import { HTTP } from "@/axios";
 // import "bootstrap/dist/css/bootstrap.min.css";
 // import "bootstrap/dist/js/bootstrap.min.js";
+import debounce from "lodash.debounce";
 
 export default {
   name: "CorporateView",
   data() {
     return {
-            isLoading:true,
-            name:"",
-            white_label:"",
-            email:"",
-            remote_code:"",
-            phone_number:"",
-            country:"",
-      corporates: [],
-      searchQuery:'',
-      filteredData: [],
-      perPage: "5",
-      pageToOpen: 1,
-      currentPage: 1,
+          isLoading:true,
+          name:"",
+          white_label:"",
+          email:"",
+          remote_code:"",
+          phone_number:"",
+          country:"",
+          corporates: [],
+          searchQuery:'',
+          isSeaching:false,
+          pageNumber: "1",
+          number_of_corporates: "5",
+          show: false,
+          num: false,
+          paginate:true,
+          totalPages:""
+
     };
   },
   computed: {
-    // filteredData() {
-    //   return this.corporates.filter(cop => {
-    //     return cop.name.toLowerCase().includes(this.searchQuery.toLowerCase());
-              
-    //   });
-    // },
-     totalPages(){
-            //calculate the total number of pages based on the number of items to show per page and the total items we got from server
-            return this.corporates.length && (this.corporates.length > this.perPage) ? Math.ceil(this.corporates.length/this.perPage) : 1;
-        },
-           start(){
-            return (this.pageToOpen - 1) * this.perPage;
-        },
-          stop(){
-            //stop at the end of the array if array length OR the items left are less than the number of items to show per page
-            //do the calculation if otherwise
-            if((this.corporates.length - this.start) >= this.perPage){
-                return (this.pageToOpen * this.perPage) - 1;
-            }
-
-            else{
-                return this.corporates.length - 1;
-            }
-        },
-        showNext(){
-            return this.currentPage < this.totalPages;
-        },
-
-        showPrev(){
-            return this.currentPage > 1;
-        }  
-  },
-  watch:{
     
-    perPage:function(){
-      this.renderList();
-
-    }
   },
+ 
     created() {
     this.getCop();
+    this.debouncedHandler = debounce(event => {
+       
+     const name = {"name":this.searchQuery,
+    page:this.pageNumber,
+    number_of_corporates:this.number_of_corporates
+    }
+     console.log(name);
+      HTTP.post(`/api/corporate/search/`,name).then((response) => {
+        
+        this.corporates = response.data.data
+       
+
+        
+        console.log(response);
+        
+        // this.$refs.mainTable.refresh();
+      })
+      .catch((error)=>{
+        console.log(error);
+      }).finally(()=>{
+        this.isSeaching = false
+      })
+      // console.log('New value:', event.target.value);
+    }, 1000);
   
   },
 
+   beforeUnmount() {
+    this.debouncedHandler.cancel();
+  },
   methods: {
+     pagePrev() {
+      this.isLoading = false;
+
+       this.num = false;
+        if ((this.num = true)) {
+        this.pageNumber--;
+      }
+       this.getCop();
+       if (this.pageNumber <= 1) {
+        this.show = false;
+      }
+      // let num = this.pageNumber--;
+
+      // HTTP.post(`/api/users/get-users/`, {
+      //   page: this.pageNumber--,
+      //   number_of_users: this.number_of_users,
+      // })
+      //   .then((response) => {
+      //     this.users = response.data.user;
+      //     this.isLoading = false;
+      //     console.log(response);
+      //   })
+      //   .catch((error) => {
+      //     console.log(error);
+      //   });
+    },
+    pageNext() {
+    
+      this.num = true;
+        if ((this.num = true)) {
+            this.isLoading = false;
+        this.pageNumber++;
+      }
+       this.getCop();
+      // let num = this.pageNumber++;
+
+      // HTTP.post(`/api/users/get-users/`, {
+      //   page: this.pageNumber++,
+      //   number_of_users: this.number_of_users,
+      // })
+      //   .then((response) => {
+      //     this.users = response.data.user;
+      //     this.isLoading = false;
+      //     console.log(response);
+      //   })
+      //   .catch((error) => {
+      //     console.log(error);
+      //   });
+
+
+
+      if (this.pageNumber > 1) {
+        this.show = true;
+      }
+    },
+    getCoporates(){
+      
+      this.getCop()
+    },
     getCop(){
       this.isLoading = true,
-    HTTP.post(
-        "/api/corporate/all-corporates/"
+
+    HTTP.post(`/api/corporate/all-corporates/`,{
+          page: this.pageNumber,
+          number_of_corporates: this.number_of_corporates,
+        }
       )
       .then((response) => {
         this.corporates = response.data.corporates;
+        this.totalPages = response.data.total_pages;
         this.isLoading = false,
         console.log(response);
-        this.renderList();
+        
+       
       })
       .catch((error) => {
         console.log(error);
       });
     },
-    async renderList(pageNumber=1){
-            //clear currently displayed list
-            this.filteredData = [];
-
-            //set countries to display
-            if(this.corporates.length){
-                let _this = this;
-
-                try {
-await new Promise(function (res, rej) {
-//set the page to open to the pageNumber in the parameter in order to allow start and stop to update accordingly
-_this.pageToOpen = pageNumber;
-
-//add the necessary data to `countriesToDisplay` array
-for (let i = _this.start; i <= _this.stop; i++) {
-_this.filteredData.push(_this.corporates[i]);
-}
-
-res();
-});
-//Now update the current page to the page we just loaded
-_this.currentPage = _this.pageToOpen;
-} catch {
-console.log('render err');
-}                  
-            }
-        },
+    
     viewCOp(cop){
    this.name=cop.name,
       this.remote_code= cop.remote_code,

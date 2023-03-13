@@ -218,7 +218,7 @@ export default {
           .then(({data}) => {
             // login successful if there's a user in the response
             //make sure username or password are not empty
-
+            
             console.log(data);
             if (data.code == "100.000.000") {
               this.output = "Authentication complete";

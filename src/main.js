@@ -3,12 +3,15 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import Vuex from "vuex";
+
+
 // import { IconsPlugin } from "bootstrap-vue";
 
 // configuring font awesome css 
 import "../node_modules/@fortawesome/fontawesome-free/css/all.css";
 import Toasted from "vue-toasted";
-
+// import VueSessionStorage from "vue-sessionstorage";
+// .use(VueSessionStorage)
 //configuring bootstrap css,js
 // import "../node_modules/bootstrap/dist/css/bootstrap.css";
 // import "../node_modules/bootstrap/dist/js/bootstrap.bundle";
@@ -19,7 +22,7 @@ import Toasted from "vue-toasted";
 // import "@/assets/static/js/soft-ui-dashboard.js"
 // import "@/assets/static/js/soft-ui-dashboard.min.js"
 
-{/* <a
+/* <a
   href="javascript:;"
   class="nav-link text-body p-0"
   id="dropdownMenuButton"
@@ -27,7 +30,11 @@ import Toasted from "vue-toasted";
   aria-expanded="false"
 >
   <i class="fa fa-bell cursor-pointer"></i>
-</a>; */}
+</a>; */
+const app = createApp(App);
+app.use(store);
+app.use(router);
+app.mount("#app");
+app.use(Vuex);
 
 
-createApp(App).use(store).use(router).mount('#app')

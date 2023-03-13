@@ -13,7 +13,13 @@
             <ul class="d-flex align-items-center">
                 
                 <li class="nav-item  pe-3">
-                  <a class="nav-link nav-profile d-flex align-items-center pe-0" href="/profile" > <img src="../assets/marie.jpg" alt="" class="rounded-circle">  </a>
+                  <RouterLink
+            class="nav-link nav-profile d-flex align-items-center pe-0"
+            to="/profile"
+            @click.prevent.stop=""
+          >
+            <img src="../assets/marie.jpg" alt="" class="rounded-circle" />
+          </RouterLink>
                   
                </li>  
                <li class="nav-item  pe-4" ><a href="javascript:;" class="nav-link text-body p-0" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
@@ -138,205 +144,283 @@
          </div>
     <!-- End Navbar -->
     <section class="section dashboard">
-     
-    
       <div class="row">
-        <div class="col-md-7 mt-4">
+        <div class="col-lg-12">
           <div class="card">
-            <div class="card-header pb-0 px-3">
-              <h6 class="mb-0">Wallet Information</h6>
-            </div>
-            <div class="card-body pt-4 p-3">
-              <ul class="list-group">
-                
-                <li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
+            <div class="col-md-12 main-datatable" v-cloak>
+              <div class="card-body">
+                <div class="row d-flex">
+                 <div class="col-sm-4 createSegment">
                   
-                  <div >
-                    <router-link to="">
-                       <button class="btn btn-primary" @click="loadWallet()">Load Wallet</button>
-                    </router-link>
-                     <form ref="myform"></form>
-                    <!-- <form ref="myform" method="POST" action="https://billing.spinmobile.co/api/load_wallet/" style="display:none;">
-                    <input type="hidden" name="callback_url" :value="callback_url">
-                    <input type="hidden" name="customerFirstName" :value="customerFirstName">
-                    <input type="hidden" name="customerLastName" :value="customerLastName">
-                    <input type="hidden" name="remote_code" :value="remote_code">
-                    </form> -->
-                    <!-- <div class="d-flex flex-column">
-                    <h6 class="mb-3 text-sm">Oliver Liam</h6>
-                    <span class="mb-2 text-xs">Customer Name:
-                    <span class="text-dark font-weight-bold ms-sm-2">{{  }}</span></span>
-                    <span class="mb-2 text-xs">First Name : 
-                    <span class="text-dark ms-sm-2 font-weight-bold">{{  }}</span></span>
-                    <span class="text-xs">Last Name: 
-                    <span class="text-dark ms-sm-2 font-weight-bold">{{  }}</span></span>
-                    <span class="text-xs">Remote_Code 
-                      : 
-                    <span class="text-dark ms-sm-2 font-weight-bold">{{  }}</span></span>
-                  </div> -->
+                    
+                    <div
+                      class="col-xs-12 col-sm-6 col-sm-offset-3"
+                      
+                    >
+                      <label class="control-label">Show</label>
+                      <select class="form-control" v-model="number_of_wallets" @click="getWallets">
+                    
+                        <option value="5">5</option>
+                        <option value="20">10</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                      </select>
+                    </div>
+
+                    <br />
                   </div>
-                 
-                  <!-- <div class="ms-auto text-end">
-                    <a class="btn btn-link text-danger text-gradient px-3 mb-0" href="javascript:;"><i class="far fa-trash-alt me-2"></i>Delete</a>
-                    <a class="btn btn-link text-dark px-3 mb-0" href="javascript:;"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Edit</a>
-                  </div> -->
-                </li>
-              </ul>
+                    <div class="col-sm-8 add_flex">
+                    <div class="form-group searchInput">
+                      <label for="email">Search:</label>
+                      <input
+                        type="search"
+                        class="form-control"
+                        id="filterbox"
+                        placeholder=" "
+                        v-model="searchQuery"
+                        @input="debouncedHandlerAccount"
+                      />
+                     
+                    </div>
+                    
+                  </div>
+                    
+                    </div>
+                <div class="overflow-x">
+                  
+                  <table
+                    style="width: 100%"
+                    ref="mainTable"
+                    id="filtertable"
+                    class="table cust-datatable dataTable no-footer"
+                  >
+                    <thead>
+                      
+                      <tr>
+                        
+                        <!-- <th style="min-width:50px;">ID</th> -->
+                         <th style="min-width: 90px">Coroporates</th>
+                        <th style="min-width: 80px">account number</th>
+                         <th style="min-width: 90px">available</th>
+                       
+                        <th style="min-width: 80px">reserved</th>
+                        <th style="min-width: 80px">current</th>
+                        <th style="min-width: 80px">remote code</th>
+                        
+                       
+                        <th style="min-width: 80px">Status</th>
+                        <!-- <th style="min-width: 50px">Action</th> -->
+                      </tr>
+                    </thead>
+                    
+                    <tbody>
+                       <div class="row text-center text-success mb-2 ">
+                      <div class="d-flex justify-content-center">
+                        <div class="" v-if="isLoading">
+                          <div class="spinner-border align-middle" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                      <tr v-for="cops in copAccounts">
+                        
+                        <td>{{ cops.corporate }}</td>
+                        <td>{{ cops.account_number }}</td>
+                          <td>{{ cops.available }}</td>
+                        
+                        <td>{{ cops.reserved }}</td>
+                        <td>{{ cops.current }}</td>
+                        <td>{{ cops.remote_code }}</td>
+                        <td>
+                          <span
+                            class="mode mode_on"
+                            :class="{ mode_on: cops.state }"
+                            >{{ cops.state }}</span
+                          >
+                        </td>
+                      </tr>
+
+                     
+                    </tbody>
+                  </table>
+                  <br />
+                   <div class="text-center" v-if="paginate">
+                    <button
+                      class="btn bg-success btn-sm"
+                      @click="pagePrev()"
+                      v-if="show"
+                    >
+                      Prev
+                    </button>
+                    {{ totalPages }}
+                    <button class="btn bg-success btn-sm" @click="pageNext()">
+                      Next
+                    </button>
+                  </div>
+                </div>
+                <!-- <div class="col-xs-12 col-sm-6 col-sm-offset-3" v-else>
+            Nothing to show
+        </div> -->
+              </div>
             </div>
           </div>
         </div>
-        <!-- <div class="col-md-5 mt-4">
-          <div class="card h-100 mb-4">
-            <div class="card-header pb-0 px-3">
-              <div class="row">
-                <div class="col-md-6">
-                  <h6 class="mb-0">Your Transaction's</h6>
-                </div>
-                <div class="col-md-6 d-flex justify-content-end align-items-center">
-                  <i class="far fa-calendar-alt me-2"></i>
-                  <small>23 - 30 March 2020</small>
-                </div>
-              </div>
-            </div>
-            <div class="card-body pt-4 p-3">
-              <h6 class="text-uppercase text-body text-xs font-weight-bolder mb-3">Newest</h6>
-              <ul class="list-group">
-                <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
-                  <div class="d-flex align-items-center">
-                    <button class="btn btn-icon-only btn-rounded btn-outline-danger mb-0 me-3 btn-sm d-flex align-items-center justify-content-center"><i class="fas fa-arrow-down"></i></button>
-                    <div class="d-flex flex-column">
-                      <h6 class="mb-1 text-dark text-sm">Netflix</h6>
-                      <span class="text-xs">27 March 2020, at 12:30 PM</span>
-                    </div>
-                  </div>
-                  <div class="d-flex align-items-center text-danger text-gradient text-sm font-weight-bold">
-                    - $ 2,500
-                  </div>
-                </li>
-                <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
-                  <div class="d-flex align-items-center">
-                    <button class="btn btn-icon-only btn-rounded btn-outline-success mb-0 me-3 btn-sm d-flex align-items-center justify-content-center"><i class="fas fa-arrow-up"></i></button>
-                    <div class="d-flex flex-column">
-                      <h6 class="mb-1 text-dark text-sm">Apple</h6>
-                      <span class="text-xs">27 March 2020, at 04:30 AM</span>
-                    </div>
-                  </div>
-                  <div class="d-flex align-items-center text-success text-gradient text-sm font-weight-bold">
-                    + $ 2,000
-                  </div>
-                </li>
-              </ul>
-              <h6 class="text-uppercase text-body text-xs font-weight-bolder my-3">Yesterday</h6>
-              <ul class="list-group">
-                <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
-                  <div class="d-flex align-items-center">
-                    <button class="btn btn-icon-only btn-rounded btn-outline-success mb-0 me-3 btn-sm d-flex align-items-center justify-content-center"><i class="fas fa-arrow-up"></i></button>
-                    <div class="d-flex flex-column">
-                      <h6 class="mb-1 text-dark text-sm">Stripe</h6>
-                      <span class="text-xs">26 March 2020, at 13:45 PM</span>
-                    </div>
-                  </div>
-                  <div class="d-flex align-items-center text-success text-gradient text-sm font-weight-bold">
-                    + $ 750
-                  </div>
-                </li>
-                <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
-                  <div class="d-flex align-items-center">
-                    <button class="btn btn-icon-only btn-rounded btn-outline-success mb-0 me-3 btn-sm d-flex align-items-center justify-content-center"><i class="fas fa-arrow-up"></i></button>
-                    <div class="d-flex flex-column">
-                      <h6 class="mb-1 text-dark text-sm">HubSpot</h6>
-                      <span class="text-xs">26 March 2020, at 12:30 PM</span>
-                    </div>
-                  </div>
-                  <div class="d-flex align-items-center text-success text-gradient text-sm font-weight-bold">
-                    + $ 1,000
-                  </div>
-                </li>
-                <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
-                  <div class="d-flex align-items-center">
-                    <button class="btn btn-icon-only btn-rounded btn-outline-success mb-0 me-3 btn-sm d-flex align-items-center justify-content-center"><i class="fas fa-arrow-up"></i></button>
-                    <div class="d-flex flex-column">
-                      <h6 class="mb-1 text-dark text-sm">Creative Tim</h6>
-                      <span class="text-xs">26 March 2020, at 08:30 AM</span>
-                    </div>
-                  </div>
-                  <div class="d-flex align-items-center text-success text-gradient text-sm font-weight-bold">
-                    + $ 2,500
-                  </div>
-                </li>
-                <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
-                  <div class="d-flex align-items-center">
-                    <button class="btn btn-icon-only btn-rounded btn-outline-dark mb-0 me-3 btn-sm d-flex align-items-center justify-content-center"><i class="fas fa-exclamation"></i></button>
-                    <div class="d-flex flex-column">
-                      <h6 class="mb-1 text-dark text-sm">Webflow</h6>
-                      <span class="text-xs">26 March 2020, at 05:00 AM</span>
-                    </div>
-                  </div>
-                  <div class="d-flex align-items-center text-dark text-sm font-weight-bold">
-                    Pending
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div> -->
       </div>
- 
-  
-
     </section>
   </main>
 
 </template>
 <script>
 import { HTTP } from '@/axios';
+import debounce from "lodash.debounce";
 
 
 export default{
   name:'WalletView',
   data(){
     return{
-       callback_url:'',
-      first_name: '',
-      last_name: '',
-      remote_code: '',
-      organization:''
+      account_number:"",
+      corporate:"",
+      reserved:"",
+      available:"",
+      current:"",
+      remote_code:"",
+   
+      copAccounts:[],
+      isLoading: true,
+      pageNumber: "1",
+      number_of_wallets: "5",
+      show: false,
+      isSeaching:false,
+      searchQuery: "",
+      num: false,
+      paginate:true,
+      totalPages:""
+      
 
     }
   },
-  methods:{
-    loadWallet(){
-      const myform = document.createElement('form');
-      myform.method = 'POST';
-      myform.action = "https://billing.spinmobile.co/api/load_wallet/";
-      myform.style.display = 'none';
+mounted() {
+  this.getCorporateAccount()
+  this.num = false;
+},
+created(){
+ 
+   this.debouncedHandlerAccount = debounce(event => {
+       
+     const corporate = {
+      corporate:this.searchQuery,
+      page: this.pageNumber,
+      number_of_wallets: this.number_of_wallets
     
-      myform.append('Content-Type', 'application/x-www-form-urlencoded');
-      const callback_url = document.createElement('input');
-      callback_url.type = 'hidden';callback_url.name = 'callback_url';callback_url.value = `http://localhost:8080/wallet`;
-      myform.appendChild(callback_url);
-
-      
-      const first_name = document.createElement('input');
-      first_name.type = 'hidden';first_name.name = 'first_name';first_name.value = this.first_name=first_name;
-      myform.appendChild(first_name);
-
-      const last_name = document.createElement('input');
-      last_name.type = 'hidden';last_name.name = 'last_name';last_name.value =this.last_name=last_name;
-      myform.appendChild(last_name);
-
-      const remote_code = document.createElement('input');
-      remote_code.type = 'hidden';remote_code.name = 'remote_code';remote_code.value = this.remote_code = remote_code
-      myform.appendChild(remote_code);
-
-      const organization = document.createElement('input');
-      organization.type = 'hidden';organization.name = 'organization';organization.value = this.organization = organization
-      myform.appendChild(organization);
-
-      myform.append('Accept', 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8');
-      document.body.appendChild(myform);
-      myform.submit();
     }
+     console.log(corporate);
+      HTTP.post(`/api/corporate/search-corporate-accounts/`,corporate)
+      .then((response) => {
+         
+        this.copAccounts = response.data.data
+      
+        
+        console.log(response);
+        
+        // this.$refs.mainTable.refresh();
+      })
+      .catch((error)=>{
+        console.log(error);
+      }).finally(()=>{
+        this.isSeaching = false
+        
+      })
+      // console.log('New value:', event.target.value);
+    }, 1000);
+},
+ beforeUnmount() {
+    this.debouncedHandlerAccount.cancel();
+  },
+computed:{
+
+
+    
+},
+  methods:{
+    getWallets(){
+      this.getCorporateAccount()
+    },
+    pagePrev() {
+      this.isLoading = true;
+
+       this.num = true;
+        if ((this.num = true)) {
+        this.pageNumber--;
+      }
+       this.getCorporateAccount();
+       if (this.pageNumber <= 1) {
+        this.show = false;
+      }
+      // let num = this.pageNumber--;
+
+      // HTTP.post(`/api/users/get-users/`, {
+      //   page: this.pageNumber--,
+      //   number_of_users: this.number_of_users,
+      // })
+      //   .then((response) => {
+      //     this.users = response.data.user;
+      //     this.isLoading = false;
+      //     console.log(response);
+      //   })
+      //   .catch((error) => {
+      //     console.log(error);
+      //   });
+    },
+    pageNext() {
+      this.isLoading = true;
+      this.num = true;
+        if ((this.num = true)) {
+        this.pageNumber++;
+      }
+       this.getCorporateAccount();
+      // let num = this.pageNumber++;
+
+      // HTTP.post(`/api/users/get-users/`, {
+      //   page: this.pageNumber++,
+      //   number_of_users: this.number_of_users,
+      // })
+      //   .then((response) => {
+      //     this.users = response.data.user;
+      //     this.isLoading = false;
+      //     console.log(response);
+      //   })
+      //   .catch((error) => {
+      //     console.log(error);
+      //   });
+
+
+
+      if (this.pageNumber > 1) {
+        this.show = true;
+      }
+    },
+    getCorporateAccount(){
+      this.isLoading = true
+      console.log(this.pageNumber);
+      HTTP.post(`/api/corporate/all-corporate-accounts/`,{
+        page: this.pageNumber,
+        number_of_wallets: this.number_of_wallets,
+      })
+        .then((response) => {
+          this.copAccounts = response.data.data;
+          this.isLoading = false;
+          this.totalPages = response.data.total_pages;
+            console.log(response);
+         
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
+     
+    
   }
   
  
@@ -344,6 +428,190 @@ export default{
 </script>
 
 <style>
+.main-datatable .dataTable.no-footer {
+  border-bottom: 1px solid #eee;
+}
+.main-datatable .cust-datatable thead {
+  background-color: #f9f9f9;
+}
+.main-datatable .cust-datatable > thead > tr > th {
+  border-bottom-width: 0;
+  color: #443f3f;
+  font-weight: 600;
+  padding: 16px 15px;
+  vertical-align: middle;
+  padding-left: 18px;
+  text-align: center;
+}
+.main-datatable .cust-datatable > tbody td {
+  padding: 10px 15px 10px 18px;
+  color: #333232;
+  font-size: 13px;
+  font-weight: 500;
+  word-break: break-word;
+  border-color: #eee;
+  text-align: center;
+  vertical-align: middle;
+}
+.main-datatable .cust-datatable > tbody tr {
+  border-top: none;
+}
+.main-datatable .table > tbody > tr:nth-child(even) {
+  background: #f9f9f9;
+}
+.btn-group.open .dropdown-toggle {
+  box-shadow: none;
+}
+.main-datatable .dropdown_icon {
+  display: inline-block;
+  color: #8a8a8a;
+  font-size: 12px;
+  border: 1px solid #d4d4d4;
+  padding: 10px 11px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.btn-group i {
+  color: #8e8e8e;
+  margin: 2px;
+}
+.main-datatable .actionCust a {
+  display: inline-block;
+  color: #8a8a8a;
+  font-size: 12px;
+  border: 1px solid #d4d4d4;
+  padding: 10px 11px;
+  margin: -9px 3px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.main-datatable .actionCust a i {
+  color: #8e8e8e;
+  margin: 2px;
+}
+.main-datatable .dropdown-menu {
+  padding: 0;
+  border-radius: 4px;
+  box-shadow: 10px 10px 20px #c8c8c8;
+  margin-top: 10px;
+  left: -65px;
+  top: 32px;
+}
+.main-datatable .dropdown-menu > li > a {
+  display: block;
+  padding: 12px 20px;
+  clear: both;
+  font-weight: normal;
+  line-height: 1.42857;
+  color: #333333;
+  white-space: nowrap;
+  border-bottom: 1px solid #d4d4d4;
+}
+.main-datatable .dropdown-menu > li > a:hover,
+.main-datatable .dropdown-menu > li > a:focus {
+  color: #fff;
+  background: #007bff;
+}
+.main-datatable .dropdown-menu > li > a:hover i {
+  color: #fff;
+}
+.main-datatable .dropdown-menu:before {
+  position: absolute;
+  top: -7px;
+  left: 78px;
+  display: inline-block;
+  border-right: 7px solid transparent;
+  border-bottom: 7px solid #d4d4d4;
+  border-left: 7px solid transparent;
+  border-bottom-color: #d4d4d4;
+  content: "";
+}
+.main-datatable .dropdown-menu:after {
+  position: absolute;
+  top: -6px;
+  left: 78px;
+  display: inline-block;
+  border-right: 6px solid transparent;
+  border-bottom: 6px solid #ffffff;
+  border-left: 6px solid transparent;
+  content: "";
+}
+.dropdown-menu i {
+  margin-right: 8px;
+}
+.main-datatable .dataTables_wrapper .dataTables_paginate .paginate_button {
+  color: #999999 !important;
+  background-color: #f6f6f6 !important;
+  border-color: #d4d4d4 !important;
+  border-radius: 40px;
+  margin: 5px 3px;
+}
+.main-datatable
+  .dataTables_wrapper
+  .dataTables_paginate
+  .paginate_button:hover {
+  color: #fff !important;
+  border: 1px solid #3d96f5 !important;
+  background: #4da3ff !important;
+  box-shadow: none;
+}
+.main-datatable
+  .dataTables_wrapper
+  .dataTables_paginate
+  .paginate_button.current,
+.main-datatable
+  .dataTables_wrapper
+  .dataTables_paginate
+  .paginate_button.current:hover {
+  color: #fff !important;
+  border-color: transparent !important;
+  background: #007bff !important;
+}
+.main-datatable .dataTables_paginate {
+  padding-top: 0 !important;
+  margin: 15px 10px;
+  float: right !important;
+}
+.mode {
+  padding: 4px 10px;
+  line-height: 13px;
+  color: #fff;
+  font-weight: 400;
+  border-radius: 1rem;
+  -webkit-border-radius: 1rem;
+  -moz-border-radius: 1rem;
+  -ms-border-radius: 1rem;
+  -o-border-radius: 1rem;
+  font-size: 11px;
+  letter-spacing: 0.4px;
+}
+.mode_on {
+  background-color: #09922d;
+}
+.mode_off {
+  background-color: #8b9096;
+}
+.mode_process {
+  background-color: #ff8000;
+}
+.mode_done {
+  background-color: #03a9f3;
+}
+@media only screen and (max-width: 1200px) {
+  .overflow-x {
+    overflow-x: scroll;
+  }
+  .overflow-x::-webkit-scrollbar {
+    width: 5px;
+    height: 6px;
+  }
+  .overflow-x::-webkit-scrollbar-thumb {
+    background-color: #888;
+  }
+  .overflow-x::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+  }
+}
 :root {
 	scroll-behavior: smooth;
   }

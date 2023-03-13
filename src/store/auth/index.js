@@ -9,7 +9,8 @@ export default {
       username: "",
       password:"",
       token:localStorage.getItem('token'),
-      userProfile:""
+      userProfile:"",
+      savedSingleUserConnections: {}
       // email:"",
     };
   },
