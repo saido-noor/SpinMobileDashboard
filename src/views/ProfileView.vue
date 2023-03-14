@@ -12,7 +12,7 @@
     <!-- <div class="search-bar">
             <form class="search-form d-flex align-items-center" method="POST" action="#"> <input type="text" name="query" placeholder="Search" title="Enter search keyword"> <button type="submit" title="Search"><i class="bi bi-search"></i></button></form>
          </div> -->
-    <nav class="header-nav ms-auto">
+    <!-- <nav class="header-nav ms-auto">
       <ul class="d-flex align-items-center">
         <li class="nav-item pe-3"></li>
         <li class="nav-item pe-4">
@@ -38,7 +38,7 @@
           </a>
         </li>
       </ul>
-    </nav>
+    </nav> -->
   </header>
   <aside id="sidebar" class="sidebar">
     <ul class="sidebar-nav" id="sidebar-nav">
@@ -153,31 +153,58 @@
         </ol>
       </nav>
     </div>
+<section class="section dashboard">
+<div class="container ">
+<div class="row">
+      <div class="col-md-12">
+        <div class="profile-header">
+							<div class="row align-items-center">
+								<div class="col-auto profile-image">
+									<a href="#"> <img class="rounded-circle" alt="User Image" src="../assets/img.avif"> </a>
+								</div>
+								<div class="col ml-md-n2 profile-user-info">
+									<h5 class="user-name mb-3">Username -- {{profile.first_name}} {{ profile.last_name }}</h5>
+									<p class=" mt-1">User Group -- {{profile.user_groups}}</p>
+                  <div class="about-text"><p>Last Login -- {{ new Date(profile.last_login).toLocaleDateString(undefined, {timeZone: 'UTC'}) }}</p></div>
+									<div class="user-Location mt-1"><p>Date Created --{{ new Date(profile.date_joined).toLocaleDateString(defined, {timeZone: 'UTC'}) }}</p></div>
+									
+								</div>
+							
+							</div>
+						</div>
+      </div>
+      
+      
 
-    <div class="container">
-      <div class="">
-        <div class="col-lg-3 text-center mx-auto mb-3">
-          <img
-            src="../assets/img.avif"
-            alt="Profile Picture"
-            class="img-thumbnail rounded-circle"
-          />
-          <p>{{ username }}  <br>  <span>{{ profile.user_status_active ? "Active" : "Disabled" }}</span></p>
-          <p>{{ profile.user_groups }}</p>
-        
-        </div>
-        <br />
+    </div>
+         
+          <div class="message">
+                    <transition name="fade">
+                      <div v-if="buttonClicked" class="success-message">
+                        <span class="check"
+                          ><i class="fa fa-check-circle"></i
+                        ></span>
+                        {{ buttonClicked }}
+                      </div>
+                    </transition>
+                  </div>
+<div class="">
 
-        <div class="card-body">
-          <div class="row">
-            <div class="col-md-10" v-if="user_show">
+    <br>
+    <br>
+    <div class="profile-menu">
+							<ul class="nav nav-tabs nav-tabs-solid ml-5">
+								<li class="nav-item"> <i class="nav-link active"  href="">Personal Information</i> </li>
+							
+							</ul>
+               <div class="col-md-7  mt-5 d-flex align-items-start" v-if="user_show">
               <form class="row g-3">
                 <div class="form-group row">
                   <label
-                    class="col-xl-3 col-lg-3 text-end mb-lg-0 align-self-center"
+                    class="col-xl-2 col-lg-3 text-end mb-lg-0 align-self-center"
                     >Username</label
                   >
-                  <div class="col-lg-9 col-xl-8">
+                  <div class="col-lg-10 col-xl-8 text-start mb-lg-0 align-self-center">
                     <input
                       class="form-control"
                       type="text"
@@ -188,7 +215,7 @@
                 </div>
                 <div class="form-group row mt-3">
                   <label
-                    class="col-xl-3 col-lg-3 text-end mb-lg-0 align-self-center"
+                    class="col-xl-2 col-lg-3 text-end mb-lg-0 align-self-center"
                     >First Name</label
                   >
                   <div class="col-lg-9 col-xl-8">
@@ -202,7 +229,7 @@
 
                 <div class="form-group row">
                   <label
-                    class="col-xl-3 col-lg-3 text-end mb-lg-0 align-self-center"
+                    class="col-xl-2 col-lg-3 text-end mb-lg-0 align-self-center"
                     >Last Name</label
                   >
                   <div class="col-lg-9 col-xl-8">
@@ -216,7 +243,7 @@
 
                 <div class="form-group row">
                   <label
-                    class="col-xl-3 col-lg-3 text-end mb-lg-0 align-self-center"
+                    class="col-xl-2 col-lg-3 text-end mb-lg-0 align-self-center"
                     >Email Address</label
                   >
                   <div class="col-lg-9 col-xl-8">
@@ -228,9 +255,9 @@
                     </div>
                   </div>
                 </div>
-
+                <br>
                 <div class="form-group row mb-3">
-                  <div class="col-lg-9 col-xl-8 offset-lg-3">
+                  <div class="col-lg-1 col-xl-7 text-end offset-lg-3">
                     <button
                       type="submit"
                       class="btn btn-primary me-3"
@@ -250,12 +277,89 @@
                 </div>
               </form>
             </div>
+						</div>
+</div>
+</div>
+
+    </section>
+   
+    <!-- <div class="container">
+      
+      <div class="">
+        <div class="col-md-2 text-center mx-auto mb-3 pe-5">
+          <img
+            src="../assets/img.avif"
+            alt="Profile Picture"
+            class="img-thumbnail rounded-circle"
+        
+          />
+        
+            <div class="container text-center fs-6">
+  <div class="row row-cols-auto fs-6">
+    <div class="col fs-6"> {{ username }}</div>
+    <div class="col fs-6">{{ profile.first_name }}</div>
+    <div class="col fs-6">{{ profile.last_name }}</div>
+ 
+  </div>
+</div>
+                      
+         
+            
+            
+          <div class="message">
+                    <transition name="fade">
+                      <div v-if="buttonClicked" class="success-message">
+                        <span class="check"
+                          ><i class="fa fa-check-circle"></i
+                        ></span>
+                        {{ buttonClicked }}
+                      </div>
+                    </transition>
+                  </div>
+ 
+
+        
+        </div>
+        <br />
+
+        <div class="card-body " >
+           
+          <div class="row">
+            
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
   </main>
 </template>
+       <!-- <span>
+
+            <p>Username-{{ username }}  <br>
+              Last Login -{{ profile.last_login }}
+
+              Date Joined -{{ profile.date_joined }}
+              <span>Status-{{ profile.user_status_active ? "Active" : "Disabled" }}</span></p>
+          <p>UserGroup-{{ profile.user_groups }}</p>
+        </span> -->
+
+                        <!-- <div class="row">
+                <div class="cols-3">
+                <p class="">
+                          -  - 
+                          {{ profile.last_login }}
+                        </p>
+                </div>
+                <div class="col">
+                  <p class="" >
+                          Since {{ new Date(profile.date_joined) }}
+                        </p>
+                </div>
+                <div class="col">
+            <p class="">
+                          {{ profile.user_groups }} 
+                        </p>
+                </div>
+              </div> -->
 <script>
 import { HTTP } from "@/axios";
 import { GET_USERNAME } from "@/store/storeconstants";
@@ -272,7 +376,11 @@ export default {
       show_user: true,
       user_show: false,
       user_status_active:"",
-      user_groups:""
+      user_groups:"",
+      date_joined:"",
+      last_login:"",
+      buttonClicked: false,
+
     };
   },
   created() {
@@ -292,6 +400,10 @@ export default {
         this.user = response.data.user;
         this.UserConnections();
         console.log(response);
+            this.buttonClicked = "User Succesfully Updated ";
+            setTimeout(() => {
+              this.buttonClicked = "";
+            }, 2000);
         if (user.data === "100.000.000") {
           
         }
@@ -331,6 +443,7 @@ export default {
         }
         this.show_user = false;
         this.user_show = true;
+     
       });
     },
     getProfile() {},
@@ -349,6 +462,40 @@ export default {
 };
 </script>
 <style>
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
+.message {
+  padding-left: 460px;
+  top: 20px;
+  bottom: 20px;
+}
+
+.success-message {
+  position: absolute;
+  top: 195px;
+  right: 80px;
+ 
+  color: white;
+  background-color: rgb(78, 150, 78);
+  padding: 20px 40px;
+  border-radius: 5px;
+  border-left: 6px solid rgb(28, 78, 28);
+}
+.check {
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  transform: translateY(-50%);
+  font-size: 30px;
+  color: white;
+}
 /*--------------------------------------------------------------
   # Profie Page
   --------------------------------------------------------------*/

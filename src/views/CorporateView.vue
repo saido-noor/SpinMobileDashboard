@@ -11,22 +11,17 @@
             
             <ul class="d-flex align-items-center">
                 
-                <li class="nav-item  pe-3">
+                <li class="nav-item  pe-5">
                  <RouterLink
             class="nav-link nav-profile d-flex align-items-center pe-0"
             to="/profile"
             @click.prevent.stop=""
           >
-            <img src="../assets/marie.jpg" alt="" class="rounded-circle" />
+            <img src="../assets/img.avif" alt="" class="rounded-circle" />
           </RouterLink>
                   
                </li>  
-               <li class="nav-item  pe-4" ><a href="javascript:;" class="nav-link text-body p-0" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                <i class="fa fa-gear cursor-pointer"></i>
-              </a></li>   
-               <li class="nav-item  pe-3" ><a href="javascript:;" class="nav-link text-body p-0" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                <i class="fa fa-bell cursor-pointer"></i>
-              </a></li>          
+             
                
                
             </ul>
@@ -341,15 +336,7 @@
                                 </tr>
                                 
                             </thead>
-                                    <div class="row text-center text-success mb-2 ">
-                      <div class="d-flex justify-content-center">
-                        <div class="" v-if="isLoading">
-                          <div class="spinner-border align-middle" role="status">
-                            <span class="visually-hidden">Loading...</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                             
                          
                             <tbody>
                                
@@ -606,6 +593,21 @@
   
   </ul>
 </nav> -->
+<div class="row mb-2">
+                    <div class="col-sm-2 mx-auto">
+                      <div class="" v-if="isLoading">
+                        <!-- <div
+                            class="spinner-border align-middle"
+                            role="status"
+                          >
+                            <span class="visually-hidden">Loading...</span>
+                          </div> -->
+                        <i
+                          class="fas fa-spinner fa-spin fa-3x text-success"
+                        ></i>
+                      </div>
+                    </div>
+                  </div>
                     
                <div class="text-center" v-if="paginate">
                 

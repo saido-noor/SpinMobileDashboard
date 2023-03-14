@@ -12,22 +12,22 @@
             
             <ul class="d-flex align-items-center">
                 
-                <li class="nav-item  pe-3">
+                <li class="nav-item  pe-5">
                   <RouterLink
             class="nav-link nav-profile d-flex align-items-center pe-0"
             to="/profile"
             @click.prevent.stop=""
           >
-            <img src="../assets/marie.jpg" alt="" class="rounded-circle" />
+            <img src="../assets/img.avif" alt="" class="rounded-circle" />
           </RouterLink>
                   
                </li>  
-               <li class="nav-item  pe-4" ><a href="javascript:;" class="nav-link text-body p-0" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+               <!-- <li class="nav-item  pe-4" ><a href="javascript:;" class="nav-link text-body p-0" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
                 <i class="fa fa-gear cursor-pointer"></i>
               </a></li>   
                <li class="nav-item  pe-3" ><a href="javascript:;" class="nav-link text-body p-0" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
                 <i class="fa fa-bell cursor-pointer"></i>
-              </a></li>          
+              </a></li>           -->
                
                
             </ul>
@@ -147,12 +147,136 @@
      
     
       <div class="row">
-        <div class="col-md-7 mt-4">
+        <div class="col-lg-12 mt-4">
           <div class="card">
             <div class="card-header pb-0 px-3">
               <h6 class="mb-0">Transaction Information</h6>
+              
             </div>
-            <div class="card-body pt-4 p-3">
+             <div class="col-md-12 " v-cloak>
+              <div class="card-body">
+                <div class="row d-flex">
+                 <div class="col-sm-4 createSegment">
+                  
+                    
+                    <div
+                      class="col-xs-12 col-sm-6 col-sm-offset-3"
+                      
+                    >
+                      <label class="control-label">Show</label>
+                      <select class="form-control" v-model="number_of_wallets" @click="getWallets">
+                    
+                        <option value="5">5</option>
+                        <option value="20">10</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                      </select>
+                    </div>
+
+                    <br />
+                  </div>
+                    <div class="col-sm-8 add_flex">
+                    <div class="form-group searchInput">
+                      <label for="email">Search:</label>
+                      <input
+                        type="search"
+                        class="form-control"
+                        id="filterbox"
+                        placeholder=" "
+                        v-model="searchQuery"
+                        @input="debouncedHandlerAccount"
+                      />
+                     
+                    </div>
+                    
+                  </div>
+                    
+                    </div>
+                <div class="overflow-x">
+                  
+                  <table
+                    style="width: 100%"
+                    ref="mainTable"
+                    id="filtertable"
+                    class="table cust-datatable dataTable no-footer"
+                  >
+                    <thead>
+                      
+                      <tr>
+                        
+                        <!-- <th style="min-width:50px;">ID</th> -->
+                         <th style="min-width: 90px">merchant Reference</th>
+                         
+                        <th style="min-width: 80px">bill Number</th>
+                         <th style="min-width: 90px">order Amount</th>
+                        <th style="min-width: 80px">transaction_name</th>
+                        <th style="min-width: 80px">total Amount</th>
+                        <th style="min-width: 80px">service Charge</th>
+                        
+                       
+                        <th style="min-width: 80px">Status</th>
+                        <!-- <th style="min-width: 50px">Action</th> -->
+                      </tr>
+                    </thead>
+                    
+                    <tbody>
+                   
+                      <tr v-for="tran in transaction">
+                        
+                        <td>{{ tran.merchant_reference }}</td>
+                        <td>{{ tran.bill_number }}</td>
+                          <td>{{ tran.order_amount }}</td>
+                        
+                        <td>{{ tran.transaction_name }}</td>
+                        <td>{{ tran.total_amount }}</td>
+                        <td>{{ tran.service_charge }}</td>
+                        <td>
+                          <span
+                            class="mode mode_on"
+                            :class="{ mode_on: tran.transaction_state }"
+                            >{{ tran.transaction_state }}</span
+                          >
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <div class="row mb-2">
+                    <div class="col-sm-2 mx-auto">
+                      <div class="" v-if="isLoading">
+                        <!-- <div
+                            class="spinner-border align-middle"
+                            role="status"
+                          >
+                            <span class="visually-hidden">Loading...</span>
+                          </div> -->
+                        <i
+                          class="fas fa-spinner fa-spin fa-3x text-success"
+                        ></i>
+                      </div>
+                    </div>
+                  </div>
+                  <br />
+                   <!-- <div class="text-center" v-if="paginate">
+                    <button
+                      class="btn bg-success btn-sm"
+                      @click="pagePrev()"
+                      v-if="show"
+                    >
+                      Prev
+                    </button>
+                    {{ totalPages }}
+                    <button class="btn bg-success btn-sm" @click="pageNext()">
+                      Next
+                    </button>
+                  </div> -->
+                </div>
+                <!-- <div class="col-xs-12 col-sm-6 col-sm-offset-3" v-else>
+            Nothing to show
+        </div> -->
+              </div>
+            </div>
+            
+            <!-- <div class="card-body pt-4 p-3">
               <ul class="list-group">
                 <li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
                   <div class="d-flex flex-column">
@@ -191,10 +315,10 @@
                   </div>
                 </li>
               </ul>
-            </div>
+            </div> -->
           </div>
         </div>
-        <div class="col-md-5 mt-4">
+        <!-- <div class="col-md-5 mt-4">
           <div class="card h-100 mb-4">
             <div class="card-header pb-0 px-3">
               <div class="row">
@@ -288,7 +412,7 @@
               </ul>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
  
   
@@ -298,7 +422,60 @@
 
 </template>
 
+<script>
+import { HTTP } from "@/axios";
+export default{
+  name:'TransactionsView',
+  data(){
+    return{
+      isLoading: true,
+      merchant_reference:"",
+      bill_number:"",
+      order_amount:"",
+      transaction_name:"",
+      total_amount:"",
+      service_charge:"",
+      transaction_state:"",
+      transaction:[],
 
+
+    }
+  },
+  created(){
+    this.getTransaction()
+  },
+  methods:{
+    getTransaction(){
+       this.isLoading = true;
+       HTTP.post(`/api/dt-transaction-summary/`,{
+        "draw": 1,
+    "columns": [
+    ],
+    "start": 0,
+    "length": 10,
+    "search": {
+        "value": "",
+        "regex": false
+    },
+    "state_filter": "",
+    "status_filter": "",
+    "transaction_type_filter": "",
+    "organization_id": "a0419932-be6a-4261-b0d2-468070f9efe1"
+       }).then((response) => {
+          this.transaction = response.data.data;
+          this.isLoading = false;
+       
+
+          console.log(response);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+  }
+
+}
+</script>
 <style>
 :root {
 	scroll-behavior: smooth;
@@ -1128,6 +1305,3 @@
 
 
 
-<script>
-
-</script>

@@ -15,16 +15,16 @@
          </div> -->
     <nav class="header-nav ms-auto">
       <ul class="d-flex align-items-center">
-        <li class="nav-item pe-3">
+        <li class="nav-item pe-5">
           <RouterLink
             class="nav-link nav-profile d-flex align-items-center pe-0"
             to="/profile"
             @click.prevent.stop=""
           >
-            <img src="../assets/marie.jpg" alt="" class="rounded-circle" />
+            <img src="../assets/img.avif" alt="" class="rounded-circle" />
           </RouterLink>
         </li>
-        <li class="nav-item pe-4">
+        <!-- <li class="nav-item pe-4">
           <a
             href="javascript:;"
             class="nav-link text-body p-0"
@@ -45,7 +45,7 @@
           >
             <i class="fa fa-bell cursor-pointer"></i>
           </a>
-        </li>
+        </li> -->
       </ul>
     </nav>
   </header>
