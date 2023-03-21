@@ -10,9 +10,6 @@
       ></i>
       
     </div>
-    <!-- <div class="search-bar">
-            <form class="search-form d-flex align-items-center" method="POST" action="#"> <input type="text" name="query" placeholder="Search" title="Enter search keyword"> <button type="submit" title="Search"><i class="bi bi-search"></i></button></form>
-         </div> -->
     <nav class="header-nav ms-auto">
       <ul class="d-flex align-items-center">
         <li class="nav-item pe-5">
@@ -24,35 +21,11 @@
             <img src="../assets/img.avif" alt="" class="rounded-circle" />
           </RouterLink>
         </li>
-        <!-- <li class="nav-item pe-4">
-          <a
-            href="javascript:;"
-            class="nav-link text-body p-0"
-            id="dropdownMenuButton"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
-            <i class="fa fa-gear cursor-pointer"></i>
-          </a>
-        </li>
-        <li class="nav-item pe-3">
-          <a
-            href="javascript:;"
-            class="nav-link text-body p-0"
-            id="dropdownMenuButton"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
-            <i class="fa fa-bell cursor-pointer"></i>
-          </a>
-        </li> -->
       </ul>
     </nav>
   </header>
-  <aside id="sidebar" class="sidebar " :class="{ 'collapsed': sidebarCollapsed }">
+  <aside id="sidebar" class="sidebar " :class="{ 'sidebar': sidebarCollapsed }">
     <ul class="sidebar-nav" id="sidebar-nav">
-      <!-- <li class="nav-item"> <router-link to="" > <a class="nav-link " href="#"> <i class="fa-regular fa-user"></i><span>Dashboard</span> </a></router-link></li>
-             -->
       <li class="nav-item">
         <a class="nav-link collapsed" href="">
           <i class="fa-solid fa-gauge"></i>
@@ -64,84 +37,22 @@
         <a class="nav-link collapsed" href="/transaction">
           <i class="fa-solid fa-wallet"></i><span>Transaction</span>
         </a>
-
-        <!-- <a href="" class="nav-link collapsed">
-            <router-link to="">
-                
-          
-             <i class="fa-regular fa-user"></i><span>Transaction</span>
-    
-          </router-link>
-          </a> -->
-
-        <!-- <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#"><i class="fa-regular fa-user"></i><span>Transaction</span><i class="bi bi-chevron-down ms-auto"></i> </a> -->
-        <!-- <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-                  <li> <a href="components-alerts.html"> <i class="bi bi-circle"></i><span>Alerts</span> </a></li>
-                  <li> <a href="components-accordion.html"> <i class="bi bi-circle"></i><span>Accordion</span> </a></li>
-                  <li> <a href="components-badges.html"> <i class="bi bi-circle"></i><span>Badges</span> </a></li>
-                  <li> <a href="components-breadcrumbs.html"> <i class="bi bi-circle"></i><span>Breadcrumbs</span> </a></li>
-                  <li> <a href="components-buttons.html"> <i class="bi bi-circle"></i><span>Buttons</span> </a></li>
-                  <li> <a href="components-cards.html"> <i class="bi bi-circle"></i><span>Cards</span> </a></li>
-                  <li> <a href="components-carousel.html"> <i class="bi bi-circle"></i><span>Carousel</span> </a></li>
-                  <li> <a href="components-list-group.html"> <i class="bi bi-circle"></i><span>List group</span> </a></li>
-                  <li> <a href="components-modal.html"> <i class="bi bi-circle"></i><span>Modal</span> </a></li>
-                  <li> <a href="components-tabs.html"> <i class="bi bi-circle"></i><span>Tabs</span> </a></li>
-                  <li> <a href="components-pagination.html"> <i class="bi bi-circle"></i><span>Pagination</span> </a></li>
-                  <li> <a href="components-progress.html"> <i class="bi bi-circle"></i><span>Progress</span> </a></li>
-                  <li> <a href="components-spinners.html"> <i class="bi bi-circle"></i><span>Spinners</span> </a></li>
-                  <li> <a href="components-tooltips.html"> <i class="bi bi-circle"></i><span>Tooltips</span> </a></li>
-               </ul> -->
       </li>
       <li class="nav-item">
         <a class="nav-link collapsed" href="/users">
           <i class="fa-solid fa-user"></i><span>Users</span>
         </a>
-
-        <!-- <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#"> <i class="fa-regular fa-user"></i><span>Users</span><i class="bi bi-chevron-down ms-auto"></i> </a> -->
-        <!-- <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-                  <li> <a href="forms-elements.html"> <i class="bi bi-circle"></i><span>Form Elements</span> </a></li>
-                  <li> <a href="forms-layouts.html"> <i class="bi bi-circle"></i><span>Form Layouts</span> </a></li>
-                  <li> <a href="forms-editors.html"> <i class="bi bi-circle"></i><span>Form Editors</span> </a></li>
-                  <li> <a href="forms-validation.html"> <i class="bi bi-circle"></i><span>Form Validation</span> </a></li>
-               </ul> -->
       </li>
       <li class="nav-item">
         <a class="nav-link collapsed" href="/wallet">
           <i class="fa-solid fa-wallet"></i><span>Wallet</span>
         </a>
-
-        <!-- <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-                  <li> <a href="tables-general.html"> <i class="bi bi-circle"></i><span>General Tables</span> </a></li>
-                  <li> <a href="tables-data.html"> <i class="bi bi-circle"></i><span>Data Tables</span> </a></li>
-               </ul> -->
       </li>
       <li class="nav-item">
         <a class="nav-link collapsed" href="/corporates">
           <i class="fa-solid fa-code-compare"></i><span>Corporates</span>
         </a>
-
-        <!-- <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-                  <li> <a href="charts-chartjs.html"> <i class="bi bi-circle"></i><span>Chart.js</span> </a></li>
-                  <li> <a href="charts-apexcharts.html"> <i class="bi bi-circle"></i><span>ApexCharts</span> </a></li>
-                  <li> <a href="charts-echarts.html"> <i class="bi bi-circle"></i><span>ECharts</span> </a></li>
-               </ul> -->
       </li>
-      <!-- <li class="nav-item">
-               <a class="nav-link collapsed" data-bs-target="#icons-nav" data-bs-toggle="collapse" href="#"> <i class="bi bi-gem"></i><span>Icons</span><i class="bi bi-chevron-down ms-auto"></i> </a>
-               <ul id="icons-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-                  <li> <a href="icons-bootstrap.html"> <i class="bi bi-circle"></i><span>Bootstrap Icons</span> </a></li>
-                  <li> <a href="icons-remix.html"> <i class="bi bi-circle"></i><span>Remix Icons</span> </a></li>
-                  <li> <a href="icons-boxicons.html"> <i class="bi bi-circle"></i><span>Boxicons</span> </a></li>
-               </ul>
-            </li> -->
-      <!-- <li class="nav-heading">Pages</li>
-            <li class="nav-item"> <a class="nav-link collapsed" href="users-profile.html"> <i class="bi bi-person"></i> <span>Profile</span> </a></li>
-            <li class="nav-item"> <a class="nav-link collapsed" href="pages-faq.html"> <i class="bi bi-question-circle"></i> <span>F.A.Q</span> </a></li>
-            <li class="nav-item"> <a class="nav-link collapsed" href="pages-contact.html"> <i class="bi bi-envelope"></i> <span>Contact</span> </a></li>
-            <li class="nav-item"> <a class="nav-link collapsed" href="pages-register.html"> <i class="bi bi-card-list"></i> <span>Register</span> </a></li>
-            <li class="nav-item"> <a class="nav-link collapsed" href="pages-login.html"> <i class="bi bi-box-arrow-in-right"></i> <span>Login</span> </a></li>
-            <li class="nav-item"> <a class="nav-link collapsed" href="pages-error-404.html"> <i class="bi bi-dash-circle"></i> <span>Error 404</span> </a></li>
-            <li class="nav-item"> <a class="nav-link collapsed" href="pages-blank.html"> <i class="bi bi-file-earmark"></i> <span>Blank</span> </a></li> -->
     </ul>
   </aside>
   <main id="main" class="main">
@@ -161,45 +72,33 @@
         </ol>
       </nav>
     </div>
-    <section class="section dashboard">
+    <section class="section1 dashboard">
       <div class="row">
-        <div class="col-lg-8">
+        <div class="col-lg-9">
           <div class="row">
-            <div class="col-xxl-4 col-md-6">
+            <div class="col">
               <div class="card info-card sales-card">
-                <div class="filter">
-                  <a class="icon" href="#" data-bs-toggle="dropdown"
-                    ><i class="bi bi-three-dots"></i
-                  ></a>
-                  <ul
-                    class="dropdown-menu dropdown-menu-end dropdown-menu-arrow"
-                  >
-                    <li class="dropdown-header text-start">
-                      <h6>Filter</h6>
-                    </li>
-                    <li><a class="dropdown-item" href="#">Today</a></li>
-                    <li><a class="dropdown-item" href="#">This Month</a></li>
-                    <li><a class="dropdown-item" href="#">This Year</a></li>
-                  </ul>
-                </div>
+               
                 <div class="card-body">
-                  <h5 class="card-title">Sales <span>| Today</span></h5>
-                  <div class="d-flex align-items-center">
+                  <h5 class="card-title">Total Users</h5>
+                  <div class="d-flex  me-3">
                     <div
                       class="card-icon rounded-circle d-flex align-items-center justify-content-center"
                     >
-                      <i class="fa-solid fa-cart-shopping"></i>
+                      <i class="fa-solid fa-user"></i>
+                       
                     </div>
-                    <div class="ps-3">
-                      <h6>145</h6>
-                      <span class="text-success small pt-1 fw-bold">12%</span>
-                      <span class="text-muted small pt-2 ps-1">increase</span>
+                    <span class=""> <h6>{{ no_of_users }}</h6></span>
+                    <div class="">
+                     
+                     
+                      <span class="text-muted small pt-2 ps-6"></span>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="col-xxl-4 col-md-6">
+            <div class="col">
               <div class="card info-card revenue-card">
                 <div class="filter">
                   <a class="icon" href="#" data-bs-toggle="dropdown"
@@ -217,23 +116,26 @@
                   </ul>
                 </div>
                 <div class="card-body">
-                  <h5 class="card-title">Revenue <span>| This Month</span></h5>
+                  <h5 class="card-title">Number Of Transaction</h5>
                   <div class="d-flex align-items-center">
                     <div
                       class="card-icon rounded-circle d-flex align-items-center justify-content-center"
                     >
-                      <i class="fa-solid fa-dollar-sign"></i>
+                      <i class="fa-solid fa-wallet"></i>
                     </div>
                     <div class="ps-3">
-                      <h6>$3,264</h6>
-                      <span class="text-success small pt-1 fw-bold">8%</span>
-                      <span class="text-muted small pt-2 ps-1">increase</span>
+                      <h6>{{ number_of_transactions }}</h6>
+                      <!-- <span class="text-success small pt-1 fw-bold">8%</span>
+                      <span class="text-muted small pt-2 ps-1">increase</span> -->
+                    </div>
+                    <div>
+                       <span class="text-muted small pt-2 ps-7"></span>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="col-xxl-4 col-xl-12">
+            <div class="col">
               <div class="card info-card customers-card">
                 <div class="filter">
                   <a class="icon" href="#" data-bs-toggle="dropdown"
@@ -251,24 +153,26 @@
                   </ul>
                 </div>
                 <div class="card-body">
-                  <h5 class="card-title">Customers <span>| This Year</span></h5>
+                  <h5 class="card-title">Total TopUps</h5>
                   <div class="d-flex align-items-center">
                     <div
                       class="card-icon rounded-circle d-flex align-items-center justify-content-center"
                     >
-                      <i class="fa-solid fa-regular fa-users"></i>
+                      <i class="fa-solid fa-regular fa-check-circle"></i>
                     </div>
                     <div class="ps-3">
-                      <h6>1244</h6>
-                      <span class="text-danger small pt-1 fw-bold">12%</span>
-                      <span class="text-muted small pt-2 ps-1">decrease</span>
+                      <h6>{{ top_ups }}</h6>
+                     
+                    </div>
+                    <div>
+                       <span class="text-muted small pt-2 ps-7"></span>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="col-12">
-              <div class="card">
+               <div class="col">
+              <div class="card info-card sales-card">
                 <div class="filter">
                   <a class="icon" href="#" data-bs-toggle="dropdown"
                     ><i class="bi bi-three-dots"></i
@@ -285,64 +189,33 @@
                   </ul>
                 </div>
                 <div class="card-body">
-                  <h5 class="card-title">Reports <span>/Today</span></h5>
-                  <div id="reportsChart"></div>
-                  <!-- <script>document.addEventListener("DOMContentLoaded", () => {
-                                 new ApexCharts(document.querySelector("#reportsChart"), {
-                                   series: [{
-                                     name: 'Sales',
-                                     data: [31, 40, 28, 51, 42, 82, 56],
-                                   }, {
-                                     name: 'Revenue',
-                                     data: [11, 32, 45, 32, 34, 52, 41]
-                                   }, {
-                                     name: 'Customers',
-                                     data: [15, 11, 32, 18, 9, 24, 11]
-                                   }],
-                                   chart: {
-                                     height: 350,
-                                     type: 'area',
-                                     toolbar: {
-                                       show: false
-                                     },
-                                   },
-                                   markers: {
-                                     size: 4
-                                   },
-                                   colors: ['#4154f1', '#2eca6a', '#ff771d'],
-                                   fill: {
-                                     type: "gradient",
-                                     gradient: {
-                                       shadeIntensity: 1,
-                                       opacityFrom: 0.3,
-                                       opacityTo: 0.4,
-                                       stops: [0, 90, 100]
-                                     }
-                                   },
-                                   dataLabels: {
-                                     enabled: false
-                                   },
-                                   stroke: {
-                                     curve: 'smooth',
-                                     width: 2
-                                   },
-                                   xaxis: {
-                                     type: 'datetime',
-                                     categories: ["2018-09-19T00:00:00.000Z", "2018-09-19T01:30:00.000Z", "2018-09-19T02:30:00.000Z", "2018-09-19T03:30:00.000Z", "2018-09-19T04:30:00.000Z", "2018-09-19T05:30:00.000Z", "2018-09-19T06:30:00.000Z"]
-                                   },
-                                   tooltip: {
-                                     x: {
-                                       format: 'dd/MM/yy HH:mm'
-                                     },
-                                   }
-                                 }).render();
-                                 });
-                              </script>  -->
+                  <h5 class="card-title">Total Corporates</h5>
+                  <div class="d-flex ">
+                    <div
+                      class="card-icon rounded-circle d-flex align-items-center justify-content-center"
+                    >
+                      <i class="fa-solid fa-code-compare"></i>
+                       
+                    </div>
+                    <span class=""> <h6>{{ total_cop}}</h6></span>
+                    <div class="">
+                     
+                     
+                      <span class="text-muted small pt-2 ps-5"></span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-            <div class="col-12">
-              <div class="card recent-sales overflow-auto">
+            
+             
+      </div>
+          
+      
+          </div>
+          <div class="row">
+ <div class="col-xxl-4 col-xl-12">
+              <div class="card info-card customers-card">
                 <div class="filter">
                   <a class="icon" href="#" data-bs-toggle="dropdown"
                     ><i class="bi bi-three-dots"></i
@@ -358,410 +231,66 @@
                     <li><a class="dropdown-item" href="#">This Year</a></li>
                   </ul>
                 </div>
-                <!-- <div class="card-body">
-                  <h5 class="card-title">Recent Sales <span>| Today</span></h5>
-                  <table class="table table-borderless datatable">
-                    <thead>
-                      <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Customer</th>
-                        <th scope="col">Product</th>
-                        <th scope="col">Price</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <th scope="row"><a href="#">#2457</a></th>
-                        <td>Brandon Jacob</td>
-                        <td>
-                          <a href="#" class="text-primary"
-                            >At praesentium minu</a
-                          >
-                        </td>
-                        <td>$64</td>
-                        <td><span class="badge bg-success">Approved</span></td>
-                      </tr>
-                      <tr>
-                        <th scope="row"><a href="#">#2147</a></th>
-                        <td>Bridie Kessler</td>
-                        <td>
-                          <a href="#" class="text-primary"
-                            >Blanditiis dolor omnis similique</a
-                          >
-                        </td>
-                        <td>$47</td>
-                        <td><span class="badge bg-warning">Pending</span></td>
-                      </tr>
-                      <tr>
-                        <th scope="row"><a href="#">#2049</a></th>
-                        <td>Ashleigh Langosh</td>
-                        <td>
-                          <a href="#" class="text-primary"
-                            >At recusandae consectetur</a
-                          >
-                        </td>
-                        <td>$147</td>
-                        <td><span class="badge bg-success">Approved</span></td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div> -->
-              </div>
-            </div>
-            <div class="col-12">
-              <div class="card top-selling overflow-auto">
-                <div class="filter">
-                  <a class="icon" href="#" data-bs-toggle="dropdown"
-                    ><i class="bi bi-three-dots"></i
-                  ></a>
-                  <ul
-                    class="dropdown-menu dropdown-menu-end dropdown-menu-arrow"
-                  >
-                    <li class="dropdown-header text-start">
-                      <h6>Filter</h6>
-                    </li>
-                    <li><a class="dropdown-item" href="#">Today</a></li>
-                    <li><a class="dropdown-item" href="#">This Month</a></li>
-                    <li><a class="dropdown-item" href="#">This Year</a></li>
-                  </ul>
-                </div>
-                <div class="card-body pb-0">
-                  <h5 class="card-title">Top Selling <span>| Today</span></h5>
-                  <table class="table table-borderless">
-                    <thead>
-                      <tr>
-                        <th scope="col">Preview</th>
-                        <th scope="col">Product</th>
-                        <th scope="col">Price</th>
-                        <th scope="col">Sold</th>
-                        <th scope="col">Revenue</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <th scope="row">
-                          <a href="#"
-                            ><img src="assets/img/product-1.jpg" alt=""
-                          /></a>
-                        </th>
-                        <td>
-                          <a href="#" class="text-primary fw-bold"
-                            >Ut inventore ipsa voluptas nulla</a
-                          >
-                        </td>
-                        <td>$64</td>
-                        <td class="fw-bold">124</td>
-                        <td>$5,828</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">
-                          <a href="#"
-                            ><img src="assets/img/product-2.jpg" alt=""
-                          /></a>
-                        </th>
-                        <td>
-                          <a href="#" class="text-primary fw-bold"
-                            >Exercitationem similique doloremque</a
-                          >
-                        </td>
-                        <td>$46</td>
-                        <td class="fw-bold">98</td>
-                        <td>$4,508</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">
-                          <a href="#"
-                            ><img src="assets/img/product-3.jpg" alt=""
-                          /></a>
-                        </th>
-                        <td>
-                          <a href="#" class="text-primary fw-bold"
-                            >Doloribus nisi exercitationem</a
-                          >
-                        </td>
-                        <td>$59</td>
-                        <td class="fw-bold">74</td>
-                        <td>$4,366</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">
-                          <a href="#"
-                            ><img src="assets/img/product-4.jpg" alt=""
-                          /></a>
-                        </th>
-                        <td>
-                          <a href="#" class="text-primary fw-bold"
-                            >Officiis quaerat sint rerum error</a
-                          >
-                        </td>
-                        <td>$32</td>
-                        <td class="fw-bold">63</td>
-                        <td>$2,016</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">
-                          <a href="#"
-                            ><img src="assets/img/product-5.jpg" alt=""
-                          /></a>
-                        </th>
-                        <td>
-                          <a href="#" class="text-primary fw-bold"
-                            >Sit unde debitis delectus repellendus</a
-                          >
-                        </td>
-                        <td>$79</td>
-                        <td class="fw-bold">41</td>
-                        <td>$3,239</td>
-                      </tr>
-                    </tbody>
-                  </table>
+                <div class="card-body">
+                  <h5 class="card-title">Total Balance</h5>
+                  <div class="d-flex align-items-center">
+                    <div
+                      class="card-icon rounded-circle d-flex align-items-center justify-content-center"
+                    >
+                      <i class="fa-solid fa-dollar-sign"></i>
+                    </div>
+                    <div class="ps-3">
+                      <h6>{{ total_ba}}</h6>
+                      
+                    </div>
+                    <div>
+                       <span class="text-muted small pt-2 ps-5"></span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-lg-4">
+
+        <div class="row">
           <div class="card">
-            <div class="filter">
-              <a class="icon" href="#" data-bs-toggle="dropdown"
-                ><i class="bi bi-three-dots"></i
-              ></a>
-              <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                <li class="dropdown-header text-start">
-                  <h6>Filter</h6>
-                </li>
-                <li><a class="dropdown-item" href="#">Today</a></li>
-                <li><a class="dropdown-item" href="#">This Month</a></li>
-                <li><a class="dropdown-item" href="#">This Year</a></li>
-              </ul>
-            </div>
-            <div class="card-body">
-              <h5 class="card-title">Recent Activity <span>| Today</span></h5>
-              <div class="activity">
-                <div class="activity-item d-flex">
-                  <div class="activite-label">32 min</div>
-                  <i
-                    class="bi bi-circle-fill activity-badge text-success align-self-start"
-                  ></i>
-                  <div class="activity-content">
-                    Quia quae rerum
-                    <a href="#" class="fw-bold text-dark">explicabo officiis</a>
-                    beatae
-                  </div>
-                </div>
-                <div class="activity-item d-flex">
-                  <div class="activite-label">56 min</div>
-                  <i
-                    class="bi bi-circle-fill activity-badge text-danger align-self-start"
-                  ></i>
-                  <div class="activity-content">
-                    Voluptatem blanditiis blanditiis eveniet
-                  </div>
-                </div>
-                <div class="activity-item d-flex">
-                  <div class="activite-label">2 hrs</div>
-                  <i
-                    class="bi bi-circle-fill activity-badge text-primary align-self-start"
-                  ></i>
-                  <div class="activity-content">
-                    Voluptates corrupti molestias voluptatem
-                  </div>
-                </div>
-                <div class="activity-item d-flex">
-                  <div class="activite-label">1 day</div>
-                  <i
-                    class="bi bi-circle-fill activity-badge text-info align-self-start"
-                  ></i>
-                  <div class="activity-content">
-                    Tempore autem saepe
-                    <a href="#" class="fw-bold text-dark"
-                      >occaecati voluptatem</a
-                    >
-                    tempore
-                  </div>
-                </div>
-                <div class="activity-item d-flex">
-                  <div class="activite-label">2 days</div>
-                  <i
-                    class="bi bi-circle-fill activity-badge text-warning align-self-start"
-                  ></i>
-                  <div class="activity-content">
-                    Est sit eum reiciendis exercitationem
-                  </div>
-                </div>
-                <div class="activity-item d-flex">
-                  <div class="activite-label">4 weeks</div>
-                  <i
-                    class="bi bi-circle-fill activity-badge text-muted align-self-start"
-                  ></i>
-                  <div class="activity-content">
-                    Dicta dolorem harum nulla eius. Ut quidem quidem sit quas
-                  </div>
-                </div>
-              </div>
-            </div>
-            <br>
-            <br>
-            
+            <h1></h1>
           </div>
 
-          <div class="card">
-            <div class="filter">
-              <a class="icon" href="#" data-bs-toggle="dropdown"
-                ><i class="bi bi-three-dots"></i
-              ></a>
-              <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                <li class="dropdown-header text-start">
-                  <h6>Filter</h6>
-                </li>
-                <li><a class="dropdown-item" href="#">Today</a></li>
-                <li><a class="dropdown-item" href="#">This Month</a></li>
-                <li><a class="dropdown-item" href="#">This Year</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="card">
-            <div class="filter">
-              <a class="icon" href="#" data-bs-toggle="dropdown"
-                ><i class="bi bi-three-dots"></i
-              ></a>
-              <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                <li class="dropdown-header text-start">
-                  <h6>Filter</h6>
-                </li>
-                <li><a class="dropdown-item" href="#">Today</a></li>
-                <li><a class="dropdown-item" href="#">This Month</a></li>
-                <li><a class="dropdown-item" href="#">This Year</a></li>
-              </ul>
-            </div>
-             <div class="card-body">
-              <h5 class="card-title">Recent Activity <span>| Today</span></h5>
-              <div class="activity">
-                <div class="activity-item d-flex">
-                  <div class="activite-label">32 min</div>
-                  <i
-                    class="bi bi-circle-fill activity-badge text-success align-self-start"
-                  ></i>
-                  <div class="activity-content">
-                    Quia quae rerum
-                    <a href="#" class="fw-bold text-dark">explicabo officiis</a>
-                    beatae
-                  </div>
-                </div>
-                <div class="activity-item d-flex">
-                  <div class="activite-label">56 min</div>
-                  <i
-                    class="bi bi-circle-fill activity-badge text-danger align-self-start"
-                  ></i>
-                  <div class="activity-content">
-                    Voluptatem blanditiis blanditiis eveniet
-                  </div>
-                </div>
-                <div class="activity-item d-flex">
-                  <div class="activite-label">2 hrs</div>
-                  <i
-                    class="bi bi-circle-fill activity-badge text-primary align-self-start"
-                  ></i>
-                  <div class="activity-content">
-                    Voluptates corrupti molestias voluptatem
-                  </div>
-                </div>
-                <div class="activity-item d-flex">
-                  <div class="activite-label">1 day</div>
-                  <i
-                    class="bi bi-circle-fill activity-badge text-info align-self-start"
-                  ></i>
-                  <div class="activity-content">
-                    Tempore autem saepe
-                    <a href="#" class="fw-bold text-dark"
-                      >occaecati voluptatem</a
-                    >
-                    tempore
-                  </div>
-                </div>
-                <div class="activity-item d-flex">
-                  <div class="activite-label">2 days</div>
-                  <i
-                    class="bi bi-circle-fill activity-badge text-warning align-self-start"
-                  ></i>
-                  <div class="activity-content">
-                    Est sit eum reiciendis exercitationem
-                  </div>
-                </div>
-                <div class="activity-item d-flex">
-                  <div class="activite-label">4 weeks</div>
-                  <i
-                    class="bi bi-circle-fill activity-badge text-muted align-self-start"
-                  ></i>
-                  <div class="activity-content">
-                    Dicta dolorem harum nulla eius. Ut quidem quidem sit quas
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- <div class="card-body pb-0">
-              <h5 class="card-title">
-                News &amp; Updates <span>| Today</span>
-              </h5>
-              <div class="news">
-                <div class="post-item clearfix">
-                  <img src="assets/img/news-1.jpg" alt="" />
-                  <h4><a href="#">Nihil blanditiis at in nihil autem</a></h4>
-                  <p>
-                    Sit recusandae non aspernatur laboriosam. Quia enim eligendi
-                    sed ut harum...
-                  </p>
-                </div>
-                <div class="post-item clearfix">
-                  <img src="assets/img/news-2.jpg" alt="" />
-                  <h4><a href="#">Quidem autem et impedit</a></h4>
-                  <p>
-                    Illo nemo neque maiores vitae officiis cum eum turos elan
-                    dries werona nande...
-                  </p>
-                </div>
-                <div class="post-item clearfix">
-                  <img src="assets/img/news-3.jpg" alt="" />
-                  <h4>
-                    <a href="#"
-                      >Id quia et et ut maxime similique occaecati ut</a
-                    >
-                  </h4>
-                  <p>
-                    Fugiat voluptas vero eaque accusantium eos. Consequuntur sed
-                    ipsam et totam...
-                  </p>
-                </div>
-                <div class="post-item clearfix">
-                  <img src="assets/img/news-4.jpg" alt="" />
-                  <h4><a href="#">Laborum corporis quo dara net para</a></h4>
-                  <p>
-                    Qui enim quia optio. Eligendi aut asperiores enim
-                    repellendusvel rerum cuder...
-                  </p>
-                </div>
-                <div class="post-item clearfix">
-                  <img src="assets/img/news-5.jpg" alt="" />
-                  <h4>
-                    <a href="#">Et dolores corrupti quae illo quod dolor</a>
-                  </h4>
-                  <p>
-                    Odit ut eveniet modi reiciendis. Atque cupiditate libero
-                    beatae dignissimos eius...
-                  </p>
-                </div>
-                <div class="post-item clearfix">
-                  <img src="assets/img/news-5.jpg" alt="" />
-                  <h4>
-                    <a href="#">Et dolores corrupti quae illo quod dolor</a>
-                  </h4>
-                  <p>Odit ut eveniet modi reiciendis. ...</p>
-                </div>
-              </div>
-            </div> -->
-          </div>
         </div>
+<!--   
+        <div class="row">
+  <div class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Special title treatment</h5>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
       </div>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Special title treatment</h5>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Special title treatment</h5>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+    
     </section>
   </main>
 </template>
@@ -769,20 +298,144 @@
 import { GET_USERNAME } from "@/store/storeconstants";
 import { SAVED_SINGLE_USER_CONNECTIONS } from "@/store/storeconstants";
 import { GET_SAVED_SINGLE_USER_CONNECTIONS } from "@/store/storeconstants";
+import { HTTP } from "@/axios";
+
 export default {
   name: "DisplayUserView",
   data() {
     return {
-sidebarCollapsed:false
+sidebarCollapsed:false,
+no_of_users:"",
+pageNumber:"1",
+number_of_users:"",
+number_of_transactions:"",
+top_ups:"",
+total_ba:"",
+number_of_corporates:"",
+total_cop:"",
+number_of_wallets:""
     };
   },
     created(){
+      
       this.getUserConnections()
+      
+
+     
     },
   mounted(){
-    this.getUserConnections()
+    this.getUserConnections(),
+     this.getTotalUser()
+      this.getNoTran()
+      this.getToP()
+       this.getToCorporates()
+      this.getTotalBal()
   },
   methods: {
+ 
+    getTotalBal(){
+       HTTP.post(`/api/corporate/all-corporate-accounts/`,{
+        page: "1",
+        number_of_wallets: "5"
+      })
+        .then((response) => {
+          this.total_ba = response.data.total_balance
+            console.log(response);
+         
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
+    getTotalUser(){
+    HTTP.post(`/api/users/get-users/`, {
+     
+      page:this.pageNumber,
+      number_of_users:"5"
+      })
+        .then((response) => {
+          this.no_of_users = response.data.total_number_of_users
+          console.log(response);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
+     getNoTran(){
+      
+       HTTP.post(`/api/dt-all-transaction-summary/`,{
+        "draw": 1,
+    "columns": [
+    ],
+    "start": 0,
+    "length": 10,
+    "search": {
+        "value": "",
+        "regex": false
+    },
+    "state_filter": "",
+    "status_filter": "",
+    "transaction_type_filter": "",
+    "organization_id": ""
+       }).then((response) => {
+          this.number_of_transactions= response.data.recordsTotal,
+
+          console.log(response);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
+    
+    getToP(){
+       HTTP.post(`/api/dt-all-transaction-summary/`,{
+        "draw": 1,
+    "columns": [
+    ],
+    "start": 0,
+    "length": 10,
+    "search": {
+        "value": "",
+        "regex": false
+    },
+    "state_filter": "",
+    "status_filter": "",
+    "transaction_type_filter": "",
+    "organization_id": ""
+       }).then((response) => {
+          this.top_ups= response.data.successfulTransactionsTotal,
+
+          console.log(response);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
+    
+
+   getToCorporates(){
+      HTTP.post(`/api/corporate/all-corporates/`,{
+        page:"1",
+        number_of_corporates:"5"
+      
+        }
+      )
+      .then((response) => {
+        this.total_cop= response.data.total_number_of_corporates
+        console.log(response);
+        
+       
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    },
+
+
+
+
+
+
     getUserConnections(){
       var savedConnections = 
       this.$store.state.SAVED_SINGLE_USER_CONNECTIONS
@@ -791,6 +444,8 @@ sidebarCollapsed:false
       } else{
         this.$store.commit(`auth/${SAVED_SINGLE_USER_CONNECTIONS}`, this.DisplayUserView)
       }
+
+
     //    let username = this.$store.getters[`auth/${GET_USERNAME}`];
     //    let user_profile = {
     //   "username":username
@@ -878,7 +533,7 @@ h6 {
 }
 @media (max-width: 1199px) {
   #main {
-    padding: 20px;
+    padding: 10px;
   }
 }
 
@@ -1468,8 +1123,10 @@ h6 {
   --------------------------------------------------------------*/
 /* Filter dropdown */
 
-.section {
-  margin-right: 19px;
+.section1 {
+  margin-right: 9px;
+
+  
 }
 .dashboard .filter {
   position: absolute;

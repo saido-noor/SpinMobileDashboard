@@ -163,7 +163,7 @@
 									<a href="#"> <img class="rounded-circle" alt="User Image" src="../assets/img.avif"> </a>
 								</div>
 								<div class="col ml-md-n2 profile-user-info">
-									<h5 class="user-name mb-3">Username -- {{profile.first_name}} {{ profile.last_name }}</h5>
+									<h5 class="user-name mb-3">Username --  {{ username }} </h5>
 									<p class=" mt-1">User Group -- {{profile.user_groups}}</p>
                   <div class="about-text"><p>Last Login -- {{ new Date(profile.last_login).toLocaleDateString(undefined, {timeZone: 'UTC'}) }}</p></div>
 									<div class="user-Location mt-1"><p>Date Created --{{ new Date(profile.date_joined).toLocaleDateString(defined, {timeZone: 'UTC'}) }}</p></div>

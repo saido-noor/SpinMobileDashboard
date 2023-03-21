@@ -153,7 +153,7 @@
               <h6 class="mb-0">Transaction Information</h6>
               
             </div>
-             <div class="col-md-12 " v-cloak>
+             <div class="col-md-12  main-datatable" v-cloak>
               <div class="card-body">
                 <div class="row d-flex">
                  <div class="col-sm-4 createSegment">
@@ -447,7 +447,7 @@ export default{
   methods:{
     getTransaction(){
        this.isLoading = true;
-       HTTP.post(`/api/dt-transaction-summary/`,{
+       HTTP.post(`/api/dt-all-transaction-summary/`,{
         "draw": 1,
     "columns": [
     ],
@@ -460,7 +460,7 @@ export default{
     "state_filter": "",
     "status_filter": "",
     "transaction_type_filter": "",
-    "organization_id": "a0419932-be6a-4261-b0d2-468070f9efe1"
+    "organization_id": ""
        }).then((response) => {
           this.transaction = response.data.data;
           this.isLoading = false;

@@ -15,7 +15,6 @@ import ResetPassword from '../views/ResetPassword.vue'
 // import TableComponent from '../components/TableComponent.vue'
 import Sidebar from '../components/Sidebar.vue'
 import DisplayUserViewVue from '../views/DisplayUserView.vue'
-import SuccessMessage from '../components/SuccessMessage.vue'
 
 const routes = [
   {
@@ -42,11 +41,7 @@ const routes = [
     name: "Sidebar",
     component: Sidebar,
   },
-  {
-    path: "/succuss",
-    name: "SuccessMessage",
-    component: SuccessMessage,
-  },
+
   {
     path: "/transaction",
     name: "TransactionsView",
