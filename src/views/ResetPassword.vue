@@ -51,9 +51,8 @@
 </style>
 <script>
 import { HTTP } from "@/axios";
-import { GET_TOKEN } from "@/store/storeconstants";
-import axios from "axios";
-import { mapGetters } from "vuex";
+
+
 export default {
   name: "ResetPassword",
   data() {

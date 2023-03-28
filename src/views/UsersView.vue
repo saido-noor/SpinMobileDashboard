@@ -9,50 +9,26 @@
         @click="toggleSidenav()"
       ></i>
     </div>
-    <!-- <div class="search-bar">
-            <form class="search-form d-flex align-items-center" method="POST" action="#"> <input type="text" name="query" placeholder="Search" title="Enter search keyword"> <button type="submit" title="Search"><i class="bi bi-search"></i></button></form>
-         </div> -->
+  
     <nav class="header-nav ms-auto">
       <ul class="d-flex align-items-center">
         <li class="nav-item pe-5">
           <RouterLink
             class="nav-link nav-profile d-flex align-items-center pe-0"
             to="/profile"
-            @click.prevent.stop=""
+          
           >
             <img src="../assets/img.avif" alt="" class="rounded-circle" />
           </RouterLink>
         </li>
-        <!-- <li class="nav-item pe-4">
-          <a
-            href="javascript:;"
-            class="nav-link text-body p-0"
-            id="dropdownMenuButton"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
-            <i class="fa fa-gear cursor-pointer"></i>
-          </a>
-        </li>
-        <li class="nav-item pe-3">
-          <a
-            href="javascript:;"
-            class="nav-link text-body p-0"
-            id="dropdownMenuButton"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
-            <i class="fa fa-bell cursor-pointer"></i>
-          </a>
-        </li> -->
+      
       </ul>
     </nav>
   </header>
 
   <aside id="sidebar" class="sidebar">
     <ul class="sidebar-nav" id="sidebar-nav">
-      <!-- <li class="nav-item"> <router-link to="" > <a class="nav-link " href="#"> <i class="fa-regular fa-user"></i><span>Dashboard</span> </a></router-link></li>
-             -->
+ 
       <li class="nav-item">
         <a class="nav-link collapsed" href="/display">
           <i class="fa-solid fa-gauge"></i>
@@ -64,84 +40,25 @@
         <a class="nav-link collapsed" href="/transaction">
           <i class="fa-solid fa-wallet"></i><span>Transaction</span>
         </a>
-
-        <!-- <a href="" class="nav-link collapsed">
-            <router-link to="">
-                
-          
-             <i class="fa-regular fa-user"></i><span>Transaction</span>
-    
-          </router-link>
-          </a> -->
-
-        <!-- <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#"><i class="fa-regular fa-user"></i><span>Transaction</span><i class="bi bi-chevron-down ms-auto"></i> </a> -->
-        <!-- <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-                  <li> <a href="components-alerts.html"> <i class="bi bi-circle"></i><span>Alerts</span> </a></li>
-                  <li> <a href="components-accordion.html"> <i class="bi bi-circle"></i><span>Accordion</span> </a></li>
-                  <li> <a href="components-badges.html"> <i class="bi bi-circle"></i><span>Badges</span> </a></li>
-                  <li> <a href="components-breadcrumbs.html"> <i class="bi bi-circle"></i><span>Breadcrumbs</span> </a></li>
-                  <li> <a href="components-buttons.html"> <i class="bi bi-circle"></i><span>Buttons</span> </a></li>
-                  <li> <a href="components-cards.html"> <i class="bi bi-circle"></i><span>Cards</span> </a></li>
-                  <li> <a href="components-carousel.html"> <i class="bi bi-circle"></i><span>Carousel</span> </a></li>
-                  <li> <a href="components-list-group.html"> <i class="bi bi-circle"></i><span>List group</span> </a></li>
-                  <li> <a href="components-modal.html"> <i class="bi bi-circle"></i><span>Modal</span> </a></li>
-                  <li> <a href="components-tabs.html"> <i class="bi bi-circle"></i><span>Tabs</span> </a></li>
-                  <li> <a href="components-pagination.html"> <i class="bi bi-circle"></i><span>Pagination</span> </a></li>
-                  <li> <a href="components-progress.html"> <i class="bi bi-circle"></i><span>Progress</span> </a></li>
-                  <li> <a href="components-spinners.html"> <i class="bi bi-circle"></i><span>Spinners</span> </a></li>
-                  <li> <a href="components-tooltips.html"> <i class="bi bi-circle"></i><span>Tooltips</span> </a></li>
-               </ul> -->
       </li>
       <li class="nav-item">
         <a class="nav-link collapsed" href="#">
           <i class="fa-solid fa-user"></i><span>Users</span>
         </a>
 
-        <!-- <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#"> <i class="fa-regular fa-user"></i><span>Users</span><i class="bi bi-chevron-down ms-auto"></i> </a> -->
-        <!-- <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-                  <li> <a href="forms-elements.html"> <i class="bi bi-circle"></i><span>Form Elements</span> </a></li>
-                  <li> <a href="forms-layouts.html"> <i class="bi bi-circle"></i><span>Form Layouts</span> </a></li>
-                  <li> <a href="forms-editors.html"> <i class="bi bi-circle"></i><span>Form Editors</span> </a></li>
-                  <li> <a href="forms-validation.html"> <i class="bi bi-circle"></i><span>Form Validation</span> </a></li>
-               </ul> -->
+     
       </li>
       <li class="nav-item">
         <a class="nav-link collapsed" href="/wallet">
           <i class="fa-solid fa-wallet"></i><span>Wallet</span>
         </a>
-
-        <!-- <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-                  <li> <a href="tables-general.html"> <i class="bi bi-circle"></i><span>General Tables</span> </a></li>
-                  <li> <a href="tables-data.html"> <i class="bi bi-circle"></i><span>Data Tables</span> </a></li>
-               </ul> -->
       </li>
       <li class="nav-item">
         <a class="nav-link collapsed" href="/corporates">
           <i class="fa-solid fa-code-compare"></i><span>Corporates</span>
         </a>
 
-        <!-- <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-                  <li> <a href="charts-chartjs.html"> <i class="bi bi-circle"></i><span>Chart.js</span> </a></li>
-                  <li> <a href="charts-apexcharts.html"> <i class="bi bi-circle"></i><span>ApexCharts</span> </a></li>
-                  <li> <a href="charts-echarts.html"> <i class="bi bi-circle"></i><span>ECharts</span> </a></li>
-               </ul> -->
       </li>
-      <!-- <li class="nav-item">
-               <a class="nav-link collapsed" data-bs-target="#icons-nav" data-bs-toggle="collapse" href="#"> <i class="bi bi-gem"></i><span>Icons</span><i class="bi bi-chevron-down ms-auto"></i> </a>
-               <ul id="icons-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-                  <li> <a href="icons-bootstrap.html"> <i class="bi bi-circle"></i><span>Bootstrap Icons</span> </a></li>
-                  <li> <a href="icons-remix.html"> <i class="bi bi-circle"></i><span>Remix Icons</span> </a></li>
-                  <li> <a href="icons-boxicons.html"> <i class="bi bi-circle"></i><span>Boxicons</span> </a></li>
-               </ul>
-            </li> -->
-      <!-- <li class="nav-heading">Pages</li>
-            <li class="nav-item"> <a class="nav-link collapsed" href="users-profile.html"> <i class="bi bi-person"></i> <span>Profile</span> </a></li>
-            <li class="nav-item"> <a class="nav-link collapsed" href="pages-faq.html"> <i class="bi bi-question-circle"></i> <span>F.A.Q</span> </a></li>
-            <li class="nav-item"> <a class="nav-link collapsed" href="pages-contact.html"> <i class="bi bi-envelope"></i> <span>Contact</span> </a></li>
-            <li class="nav-item"> <a class="nav-link collapsed" href="pages-register.html"> <i class="bi bi-card-list"></i> <span>Register</span> </a></li>
-            <li class="nav-item"> <a class="nav-link collapsed" href="pages-login.html"> <i class="bi bi-box-arrow-in-right"></i> <span>Login</span> </a></li>
-            <li class="nav-item"> <a class="nav-link collapsed" href="pages-error-404.html"> <i class="bi bi-dash-circle"></i> <span>Error 404</span> </a></li>
-            <li class="nav-item"> <a class="nav-link collapsed" href="pages-blank.html"> <i class="bi bi-file-earmark"></i> <span>Blank</span> </a></li> -->
     </ul>
   </aside>
 
@@ -291,13 +208,7 @@
                               >
                                 <option value="Corporates">Corporates</option>
                               </select>
-                              <!-- <input
-                              class="form-control"
-                              type="text"
-                              placeholder="role"
-                              name="user_group"
-                              v-model="user_group"
-                            /> -->
+                    
                             </div>
                             <button
                               class="btn bg-gradient-success mt-4 mb-0"
@@ -305,7 +216,6 @@
                             >
                               Submit
                             </button>
-                            <!-- <button @click="createUser" type="submit" class="btn btn-primary" >Save</button> -->
                           </form>
                         </div>
                       </div>
@@ -346,7 +256,7 @@
                   >
                     <thead>
                       <tr>
-                        <!-- <th style="min-width:50px;">ID</th> -->
+           
                         <th style="min-width: 90px">Username</th>
                         <th style="min-width: 80px">First Name</th>
                         <th style="min-width: 80px">Last Name</th>
@@ -358,7 +268,8 @@
                     </thead>
 
                     <tbody>
-                      <tr v-for="user in users">
+                      <tr v-for="(user, ) in users" :key="user.id">
+            
                         <td>{{ user.username }}</td>
                         <td>{{ user.first_name }}</td>
                         <td>{{ user.last_name }}</td>
@@ -378,12 +289,7 @@
                           >
                         </td>
 
-                        <!-- <td></td>
-                                    <td></td>
-                                    <td><span class="mode mode_process"></span></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td><span class="mode mode_on"></span></td> -->
+                       
                         <td>
                           <span class="actionCust">
                             <a
@@ -404,7 +310,6 @@
                               }}</i></a
                             >
 
-                            <!-- <p v-if="successMessage">{{ successMessage }}</p> -->
                           </span>
                         </td>
                       </tr>
@@ -507,7 +412,6 @@
                                 >
                                   Save
                                 </button>
-                                <!-- <button @click="createUser" type="submit" class="btn btn-primary" >Save</button> -->
                               </form>
                             </div>
                           </div>
@@ -518,12 +422,7 @@
                   <div class="row mb-2">
                     <div class="col-sm-2 mx-auto">
                       <div class="" v-if="isLoading">
-                        <!-- <div
-                            class="spinner-border align-middle"
-                            role="status"
-                          >
-                            <span class="visually-hidden">Loading...</span>
-                          </div> -->
+                 
                         <i
                           class="fas fa-spinner fa-spin fa-3x text-success"
                         ></i>
@@ -540,14 +439,14 @@
                       Prev
                     </button>
                     {{ totalPages }}
-                    <button class="btn bg-success btn-sm" @click="pageNext()">
+                    <button class="btn bg-success btn-sm" @click="pageNext()"
+                    v-if="showNext"
+                    >
                       Next
                     </button>
                   </div>
                 </div>
-                <!-- <div class="col-xs-12 col-sm-6 col-sm-offset-3" v-else>
-            Nothing to show
-        </div> -->
+
               </div>
             </div>
           </div>
@@ -557,10 +456,9 @@
   </main>
 </template>
 <script>
-import axios from "axios";
+
 import { HTTP } from "@/axios";
-// import "bootstrap/dist/css/bootstrap.min.css";
-// import "bootstrap/dist/js/bootstrap.min.js";
+
 import debounce from "lodash.debounce";
 import { SAVED_SINGLE_USER_CONNECTIONS } from "@/store/storeconstants";
 
@@ -578,6 +476,7 @@ export default {
       organization: "",
       users: [],
       show: false,
+      showNext:true,
       pageNumber: "1",
       number_of_users: "5",
       isDisabled: false,
@@ -596,18 +495,12 @@ export default {
     this.getUsers();
   },
 
-  computed: {
-    // filteredData() {
-    //   return this.users.filter(user => {
-    //     return user.username.toLowerCase().includes(this.searchQuery.toLowerCase());
-    //   });
-    // },
-  },
+ 
 
   created() {
     this.UserConnections();
 
-    this.debouncedHandler = debounce((event) => {
+    this.debouncedHandler = debounce(() => {
       this.paginate = false;
       const username = {
         username: this.searchQuery,
@@ -621,7 +514,7 @@ export default {
           this.paginate = false;
           console.log(response);
 
-          // this.$refs.mainTable.refresh();
+     
         })
         .catch((error) => {
           console.log(error);
@@ -629,7 +522,7 @@ export default {
         .finally(() => {
           this.isSeaching = false;
         });
-      // console.log('New value:', event.target.value);
+    
     }, 1000);
   },
   beforeUnmount() {
@@ -640,28 +533,28 @@ export default {
     getU() {
       this.getUsers();
     },
-    pagePrev() {
+   pagePrev() {
       this.isLoading = true;
 
-      this.num = true;
-      if ((this.num = true)) {
-        this.pageNumber--;
-      }
-      this.getUsers();
       if (this.pageNumber <= 1) {
-        this.show = false;
+       this.show = false
+      } else {
+        this.show = true;
+        this.pageNumber--;
+       
+        this.getUsers();
       }
     },
     pageNext() {
-      this.isLoading = true;
-      this.num = true;
-      if ((this.num = true)) {
-        this.pageNumber++;
-      }
-      this.getUsers();
-
-      if (this.pageNumber > 1) {
+      this.isLoading = false;
+      if (this.pageNumber >= this.totalPages) {
         this.show = true;
+        this.showNext = false;
+      } else{
+        this.show = true
+        this.showNext = true
+        this.pageNumber++;
+        this.getUsers();
       }
     },
     getUsers() {
@@ -694,33 +587,9 @@ export default {
           this.UsersView
         );
       }
-      //    let username = this.$store.getters[`auth/${GET_USERNAME}`];
-      //    let user_profile = {
-      //   "username":username
-      // }
-
-      // if(user_profile) {
-      //   this.username = user_profile
-      //    console.log(username);
-
-      // } else{
-      //   this.$store.commit(`auth/${SET_USERPROFILE}`,this.user_profile)
-      // }
+    
     },
-    // search(){
-    //   if(this.isSeaching){
-    //     return;
-    //   }
-    //   this.isSeaching=true
-    //         setTimeout(()=>{
-    //           this.performSearch()
-    //         }, 1200)
-
-    // },
-
-    // performSearch() {
-
-    // },
+  
 
     toggleUser(user) {
       this.isLoading = false;
@@ -836,7 +705,7 @@ export default {
         user_group: this.user_group,
         organization: this.organization,
       };
-      const url = "";
+
       this.success = false;
       this.error = null;
       HTTP.post(`/api/users/register/`, requestOption, {

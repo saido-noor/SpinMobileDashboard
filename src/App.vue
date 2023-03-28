@@ -17,17 +17,12 @@
 </template>
 <script>
 
-import DashboardView from './views/DashboardView.vue';
-import TransactionsView from './views/TransactionsView.vue';
-import LoginView from './views/LoginView.vue';
-import { mapState, mapActions } from 'vuex'
 
 export default{
  components:{
 
-    DashboardView,
-    TransactionsView,
-    LoginView,
+ 
+ 
     
 },
 // computed: {

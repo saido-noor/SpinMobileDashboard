@@ -160,10 +160,10 @@ import {
   SET_AUTHENTICATION,
   SET_USERNAME,
   SET_PASSWORD,
-  SET_EMAIL,
+
   SET_TOKEN,
 } from "../store/storeconstants";
-import axios from 'axios'
+
 import { HTTP } from "@/axios";
 export default {
   name: "SigIn",
@@ -205,7 +205,7 @@ export default {
           password:this.input.password,
           token:this.$route.query.token
         };
-        const url = "";
+      
         this.success = false;
         this.error = null;
 
@@ -233,7 +233,7 @@ export default {
               this.$store.commit(`auth/${SET_AUTHENTICATION}`, false);
               this.output = "wrong username and password";
             }
-            localStorage.setItem('username', username)
+            localStorage.setItem('username', this.username)
           });
           
       } else {

@@ -1,5 +1,5 @@
 <template>
-  <div class="page-header min-vh-79">
+  <!-- <div class="page-header min-vh-79">
     <div class="container">
       <div class="row">
         <div class="col-xl-4 col-lg-5 col-md-6 d-flex flex-column mx-auto">
@@ -53,103 +53,84 @@
                 </div>
               </form>
             </div>
-            <!-- <div class="card-footer text-center pt-0 px-lg-2 px-1">
-                  <p class="mb-4 text-sm mx-auto">
-                    Don't have an account?
-                    <a href="javascript:;" class="text-info text-gradient font-weight-bold">Sign up</a>
-                  </p>
-                </div> -->
+            
           </div>
         </div>
-        <!-- <div class="col-md-6">
-          <div class="oblique position-absolute top-0 h-100 d-md-block d-none me-n8">
-            <div class="oblique-image bg-cover position-absolute fixed-top ms-auto h-100 z-index-0 ms-n6"
-              style="background-image:url('../assets/img/curved-images/curved6.jpg')"></div>
-          </div>
-        </div> -->
+       
       </div>
     </div>
+  </div> -->
+  <div>
+    
   </div>
 </template>
 
 <script>
-import { getAPI } from "@/axios";
-import useValidate from "@vuelidate/core";
-import { required, minLength } from "@vuelidate/validators";
-import { reactive, computed } from "vue";
-import axios from "axios";
-import {
-  SET_AUTHENTICATION,
-  SET_USERNAME,
-  SET_PASSWORD,
-} from "../store/storeconstants";
+// import { getAPI } from "@/axios";
+// import useValidate from "@vuelidate/core";
+// import { required, minLength } from "@vuelidate/validators";
+// import { reactive, computed } from "vue";
+// import axios from "axios";
+// import {
+//   SET_AUTHENTICATION,
+//   SET_USERNAME,
+//   SET_PASSWORD,
+// } from "../store/storeconstants";
 
-export default {
-  name: "LoginView",
+// export default {
+//   name: "LoginView",
 
-  data() {
-    return {
-      input: {
-        username: "",
-        password: "",
-      },
-      output: "",
-    };
-  },
-  methods: {
-    login: async function () {
-      if (this.input.username != "" && this.input.password != "") {
-        let password = this.input.password;
-        let username = this.input.username;
-        const requestOptions = {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ username, password }),
-        };
-        const url = "";
-        this.success = false;
-        this.error = null;
-        return fetch(
-          `https://7766-197-248-70-213.eu.ngrok.io/api/users/login/`,
-          requestOptions
-        ).then(response => response.json()).then((data) => {
-          // login successful if there's a user in the response
-          //make sure username or password are not empty
+//   data() {
+//     return {
+//       input: {
+//         username: "",
+//         password: "",
+//       },
+//       output: "",
+//     };
+//   },
+//   methods: {
+//     login: async function () {
+//       if (this.input.username != "" && this.input.password != "") {
+//         let password = this.input.password;
+//         let username = this.input.username;
+//         const requestOptions = {
+//           method: "POST",
+//           headers: { "Content-Type": "application/json" },
+//           body: JSON.stringify({ username, password }),
+//         };
+//         const url = "";
+//         this.success = false;
+//         this.error = null;
+//         return fetch(
+//           `https://7766-197-248-70-213.eu.ngrok.io/api/users/login/`,
+//           requestOptions
+//         ).then(response => response.json()).then((data) => {
+  
 
-          console.log(data);
-          if (data.code == "100.000.000") {
-          this.output = "Authentication complete";
-          //store true to the set_authentication and username to the username
-          this.$store.commit(`auth/${SET_AUTHENTICATION}`, true);
-          this.$store.commit(`auth/${SET_USERNAME}`, this.input.username);
-          this.$store.commit(`auth/${SET_PASSWORD}`, this.input.password);
-          this.output = this.$router.push("/dashboard");
-          }else{
-            this.output = "wrong username and password";
-          }
+//           console.log(data);
+//           if (data.code == "100.000.000") {
+//           this.output = "Authentication complete";
+         
+//           this.$store.commit(`auth/${SET_AUTHENTICATION}`, true);
+//           this.$store.commit(`auth/${SET_USERNAME}`, this.input.username);
+//           this.$store.commit(`auth/${SET_PASSWORD}`, this.input.password);
+//           this.output = this.$router.push("/dashboard");
+//           }else{
+//             this.output = "wrong username and password";
+//           }
 
           
-        });
-      } else {
-        this.$store.commit(`auth/${SET_AUTHENTICATION}`, false);
-        this.output = "Username and password can not be empty";
-      }
-    },
-  },
-};
+//         });
+//       } else {
+//         this.$store.commit(`auth/${SET_AUTHENTICATION}`, false);
+//         this.output = "Username and password can not be empty";
+//       }
+//     },
+//   },
+// };
 </script>
-<!-- if(this.input.username !="" && this.input.password !=""){
-            this.output="Authentication complete"
-            //store true to the set_authentication and username to the username
-            this.$store.commit(`auth/${SET_AUTHENTICATION}`,true);
-            this.$store.commit(`auth/${SET_USERNAME}`, this.input.username);
-            this.$store.commit(`auth/${SET_PASSWORD}`, this.input.password);
-            this.output="Authentication complete"
-            this.$router.push('/dashboard')
-        }else{
-            this.$store.commit(`auth/${SET_AUTHENTICATION}`,false);
-            this.output="Username and password can not be empty"
-        } -->
+
 
 <style>
 .page-header {
@@ -641,14 +622,7 @@ legend + * {
   -webkit-appearance: textfield;
 }
 
-/* rtl:raw:
-[type="tel"],
-[type="url"],
-[type="email"],
-[type="number"] {
-  direction: ltr;
-}
-*/
+
 ::-webkit-search-decoration {
   -webkit-appearance: none;
 }

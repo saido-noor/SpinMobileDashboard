@@ -3739,3 +3739,120 @@ wallet
     2 days ago
   </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+doc_type :''
+
+
+
+ async change_document_type() {
+      //  'MPESA Statement', 'BANK Statement', 'TILL Statement', 'PAYBILL Statement'
+      try {
+        $('#changeDestinationModal').modal('hide')
+        this.loading = true
+        if (this.destination == 'Mobile Money') {
+          this.doc_type = 'MPESA Statement'
+        } else if (this.destination == 'Bank') {
+          this.doc_type = 'BANK Statements'
+        } else if (this.destination == 'Till') {
+          this.doc_type = 'TILL Statement' 
+        } else if (this.destination == 'Paybills') {
+          this.doc_type = 'PAYBILL Statement'
+        }
+        console.log(this.doc_type)
+        console.log('destination', this.destination)
+        let response = await this.$axios.post(
+          '/ui/administration/change_document_type/',
+          {
+            token: this.$auth.getToken('local').replace('Bearer ', ''),
+            id: this.file_id,
+            document_type: this.doc_type
+
+          }
+
+        )
+
+        if (response.data.code == '100.000.000') {
+          this.$toast.success('Change destination successful')
+          this.$refs.main_table.refresh()
+          this.loading = false
+        } else {
+          this.$toast.error('Changing destination encountered an error.')
+          this.loading = false
+        }
+      } catch (error) {
+        this.$toast.error('Error changing destination the statement')
+        this.loading = false
+      }
+ 
+    },
+
+
+
+In your component's data function, define an empty array to hold the data returned by the API:
+
+    data() {
+  return {
+    chartData: []
+  }
+}
+
+In the mounted hook of your component, make a request to the API using the axios library or any other library of your choice:
+
+mounted() {
+  axios.get('https://api.example.com/data')
+    .then(response => {
+      this.chartData = response.data
+      this.renderChart()
+    })
+    .catch(error => {
+      console.log(error)
+    })
+}
+
+In this example, we assume that the API returns an array of data in JSON format.
+
+Define a method in your component that will render the chart using ApexCharts:
+
+methods: {
+  renderChart() {
+    this.$refs.chart.renderChart({
+      series: [{
+        name: 'Data',
+        data: this.chartData
+      }],
+      chart: {
+        type: 'line'
+      },
+      xaxis: {
+        categories: ['Category 1', 'Category 2', 'Category 3']
+      }
+    })
+  }
+}
+In this example, we assume that we are rendering a line chart and that the x-axis categories are hardcoded. You can customize these options according to your needs.
+
+In your component's template, use the apexchart component and bind the chart data to it using the :options prop:
+
+
+<template>
+  <div>
+    <apexchart ref="chart" :options="chartOptions"></apexchart>
+  </div>
+</template>
+
+In this example, we assume that we have defined a chartOptions object in the component's data function, which contains any chart options that you want to customize.
+
+That's it! With these steps, you should be able to fetch data from an API and display it as a chart using ApexCharts in Vue.js.

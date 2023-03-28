@@ -142,11 +142,15 @@
             <div class="col-md-12 main-datatable">
             <div class="card-body">
                <div class="row d-flex">
-                        
+                    
+
                         <div class="col-sm-4 createSegment"> 
+                          <br>
+                          
                          <a class="btn dim_button create_new" type="button"  data-bs-toggle="modal"
                   data-bs-target="#createCopModal"> <span class="glyphicon glyphicon-plus"></span> Create New</a>
                
+<br>
 
                    <div
                       class="col-xs-12 col-sm-6 col-sm-offset-3"
@@ -340,7 +344,8 @@
                          
                             <tbody>
                                
-                        <tr v-for="cop in corporates">
+                        <tr v-for="(cop,) in corporates" :key="cop.id">
+                         
                         <td>{{ cop.name }}</td>
                         <td>{{ cop.main_contact_email }}</td>
                         <td>{{ cop.remote_code }}</td>
@@ -399,7 +404,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-            <p>
+            <p></p>
                    <p> {{ name }}</p>
                   <p >{{ email }}</p>
                   <p>{{ remote_code }} </p>
@@ -410,7 +415,7 @@
                   <p>{{ country }}</p>
                   <p>{{ state }}</p>
                   
-                </p>
+          
                 
       </div>
       <div class="modal-footer">
@@ -619,7 +624,9 @@
                       Prev
                     </button>
                     {{ totalPages }}
-                    <button class="btn bg-success btn-sm" @click="pageNext()">
+                    <button class="btn bg-success btn-sm" @click="pageNext()"
+                    v-if="showNext"
+                    >
                       Next
                     </button>
                   </div>
@@ -636,10 +643,9 @@
 </template>
 <script>
 
-import axios from "axios";
+
 import { HTTP } from "@/axios";
-// import "bootstrap/dist/css/bootstrap.min.css";
-// import "bootstrap/dist/js/bootstrap.min.js";
+
 import debounce from "lodash.debounce";
 
 export default {
@@ -659,7 +665,8 @@ export default {
           pageNumber: "1",
           number_of_corporates: "5",
           show: false,
-          num: false,
+          showNext:true,
+          // num: false,
           paginate:true,
           totalPages:""
 
@@ -671,7 +678,7 @@ export default {
  
     created() {
     this.getCop();
-    this.debouncedHandler = debounce(event => {
+    this.debouncedHandler = debounce(() => {
        
      const name = {"name":this.searchQuery,
     page:this.pageNumber,
@@ -703,58 +710,27 @@ export default {
   },
   methods: {
      pagePrev() {
-      this.isLoading = false;
+      this.isLoading = true;
 
-       this.num = false;
-        if ((this.num = true)) {
+      if (this.pageNumber <= 1) {
+       this.show = false
+      } else {
+        this.show = true;
         this.pageNumber--;
+       
+        this.getCop();
       }
-       this.getCop();
-       if (this.pageNumber <= 1) {
-        this.show = false;
-      }
-      // let num = this.pageNumber--;
-
-      // HTTP.post(`/api/users/get-users/`, {
-      //   page: this.pageNumber--,
-      //   number_of_users: this.number_of_users,
-      // })
-      //   .then((response) => {
-      //     this.users = response.data.user;
-      //     this.isLoading = false;
-      //     console.log(response);
-      //   })
-      //   .catch((error) => {
-      //     console.log(error);
-      //   });
     },
     pageNext() {
-    
-      this.num = true;
-        if ((this.num = true)) {
-            this.isLoading = false;
-        this.pageNumber++;
-      }
-       this.getCop();
-      // let num = this.pageNumber++;
-
-      // HTTP.post(`/api/users/get-users/`, {
-      //   page: this.pageNumber++,
-      //   number_of_users: this.number_of_users,
-      // })
-      //   .then((response) => {
-      //     this.users = response.data.user;
-      //     this.isLoading = false;
-      //     console.log(response);
-      //   })
-      //   .catch((error) => {
-      //     console.log(error);
-      //   });
-
-
-
-      if (this.pageNumber > 1) {
+      this.isLoading = true;
+      if (this.pageNumber >= this.totalPages) {
         this.show = true;
+        this.showNext = false;
+      } else{
+        this.show = true
+        this.showNext = true
+        this.pageNumber++;
+        this.getCop();
       }
     },
     getCoporates(){
@@ -815,7 +791,7 @@ export default {
       this.$root.$emit("bv::show::modal", "createCopModal");
 
     },
-    saveCop(){
+    saveCop(cop){
       HTTP.post(`/api/corporate/update/`,{
         remote_code:this.remote_code,
         name:this.name,
@@ -866,7 +842,7 @@ export default {
         phone_number:this.phone_number,
         country:this.country
         };
-        const url = "";
+        
         this.success = false;
         this.error = null;
         HTTP.post(`/api/corporate/create/`, 
